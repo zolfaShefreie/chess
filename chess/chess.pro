@@ -15,10 +15,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     knight.cpp \
-    pawn.cpp
+    pawn.cpp \
+    rook.cpp \
+    king.cpp
 
 HEADERS  += mainwindow.h \
     knight.h \
-    pawn.h
+    pawn.h \
+    rook.h \
+    king.h
 
 FORMS    += mainwindow.ui
