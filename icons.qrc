@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/chess_icon">
+        <file>ches_icons/icons8-bishop-50.png</file>
+        <file>ches_icons/icons8-bishop-filled-50.png</file>
+        <file>ches_icons/icons8-king-50.png</file>
+        <file>ches_icons/icons8-king-filled-50.png</file>
+        <file>ches_icons/icons8-knight-filled-50.png</file>
+        <file>ches_icons/icons8-pawn-50.png</file>
+        <file>ches_icons/icons8-pawn-filled-50.png</file>
+        <file>ches_icons/icons8-queen-50.png</file>
+        <file>ches_icons/icons8-queen-filled-50.png</file>
+        <file>ches_icons/icons8-rook-50.png</file>
+        <file>ches_icons/icons8-rook-filled-50.png</file>
+        <file>ches_icons/icons8-knight-50.png</file>
+    </qresource>
+</RCC>

@@ -30,3 +30,6 @@ HEADERS  += mainwindow.h \
     queen.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    icons.qrc

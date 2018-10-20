@@ -39,5 +39,6 @@ QList<int> bishop::go_to()
             return_list.push_back(store);
         }
     }
+    return return_list;
 }
 

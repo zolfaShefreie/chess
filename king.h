@@ -1,6 +1,6 @@
 #ifndef KING_H
 #define KING_H
-
+#include<QList>
 
 class king
 {

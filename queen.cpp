@@ -78,4 +78,5 @@ QList<int> queen::go_to1()
 
 
     }
+    return return_list;
 }
