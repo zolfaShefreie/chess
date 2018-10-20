@@ -17,12 +17,16 @@ SOURCES += main.cpp\
     knight.cpp \
     pawn.cpp \
     rook.cpp \
-    king.cpp
+    king.cpp \
+    bishop.cpp \
+    queen.cpp
 
 HEADERS  += mainwindow.h \
     knight.h \
     pawn.h \
     rook.h \
-    king.h
+    king.h \
+    bishop.h \
+    queen.h
 
 FORMS    += mainwindow.ui
