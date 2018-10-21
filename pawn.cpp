@@ -12,26 +12,24 @@ pawn::pawn(int r, int c ,bool wob)
     this->checked=wob;
 }
 
-QList<int> *pawn::go_to()
+void pawn::go_to()
 {
     int store;
-
-    QList<int>* return_list;
    if (this->first_step==0)
    {
        if (checked)
        {
            store=(this->row_p_now+1)*10+this->column_p_now;
-           return_list->push_back(store);
+           this->list_p->insert(store);
            store=(this->row_p_now+2)*10+this->column_p_now;
-           return_list->push_back(store);
+           this->list_p->insert(store);
        }
        else
        {
            store=(this->row_p_now-1)*10+this->column_p_now;
-           return_list->push_back(store);
+           this->list_p->insert(store);
            store=(this->row_p_now-2)*10+this->column_p_now;
-           return_list->push_back(store);
+           this->list_p->insert(store);
        }
    }
    else if(this->first_step!=0)
@@ -41,7 +39,7 @@ QList<int> *pawn::go_to()
            if(this->row_p_now+1<=7)
            {
                store=(this->row_p_now+1)*10+this->column_p_now;
-               return_list->push_back(store);
+               this->list_p->insert(store);
 
            }
        }
@@ -49,10 +47,10 @@ QList<int> *pawn::go_to()
                if(this->row_p_now-1>=0)
                {
                    store=(this->row_p_now-1)*10+this->column_p_now;
-                   return_list->push_back(store);
+                   this->list_p->insert(store);
                }
    }
-   return return_list;
+
 
 
 }

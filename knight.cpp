@@ -11,21 +11,20 @@ knight::knight(int r, int c)
     this->row_k_now=r;
 }
 
-QList<int>* knight::go_to()
+void knight::go_to()
 {
-    QList<int>* return_list;
     int store;
     if(this->row_k_now+2<=7)
     {
         if(this->column_k_now+1<=7)
         {
            store=(this->row_k_now+2)*10+(this->column_k_now+1);
-           return_list->push_back(store);
+           this->list_k->insert(store);
         }
         if(this->column_k_now-1>=0)
         {
             store=(this->row_k_now+2)*10+(this->column_k_now-1);
-            return_list->push_back(store);
+            this->list_k->insert(store);
         }
     }
     if(this->row_k_now-2>=0)
@@ -33,12 +32,12 @@ QList<int>* knight::go_to()
         if(this->column_k_now+1<=7)
         {
            store=(this->row_k_now-2)*10+(this->column_k_now+1);
-           return_list->push_back(store);
+           this->list_k->insert(store);
         }
         if(this->column_k_now-1>=0)
         {
             store=(this->row_k_now-2)*10+(this->column_k_now-1);
-            return_list->push_back(store);
+            this->list_k->insert(store);
         }
     }
     if(this->row_k_now+1<=7)
@@ -46,12 +45,12 @@ QList<int>* knight::go_to()
         if(this->column_k_now+2<=7)
         {
            store=(this->row_k_now+1)*10+(this->column_k_now+2);
-           return_list->push_back(store);
+           this->list_k->insert(store);
         }
         if(this->column_k_now-2>=0)
         {
             store=(this->row_k_now+1)*10+(this->column_k_now-2);
-            return_list->push_back(store);
+            this->list_k->insert(store);
         }
     }
     if(this->row_k_now-1>=0)
@@ -59,15 +58,13 @@ QList<int>* knight::go_to()
         if(this->column_k_now+2<=7)
         {
            store=(this->row_k_now-1)*10+(this->column_k_now+2);
-           return_list->push_back(store);
+           this->list_k->insert(store);;
         }
         if(this->column_k_now-2>=0)
         {
             store=(this->row_k_now-1)*10+(this->column_k_now-2);
-            return_list->push_back(store);
+            this->list_k->insert(store);
         }
     }
-    return return_list;
 
-
-    }
+}
