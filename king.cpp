@@ -11,24 +11,25 @@ king::king(int r, int c)
 
 }
 
-QList<int> king::go_to()
+void king::go_to()
 {
-    QList<int> return_list;
+
     int store;
     if(this->row_kg_now+1<=7)
     {
         store=(this->row_kg_now+1)*10+(this->column_kg_now);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
     }
     if(this->row_kg_now-1>=0)
     {
         store=(this->row_kg_now-1)*10+(this->column_kg_now);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
     }
     if(this->column_kg_now+1<=7)
     {
         store=(this->row_kg_now)*10+(this->column_kg_now+1);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
 
 
     }
@@ -36,33 +37,37 @@ QList<int> king::go_to()
     {
         store=(this->row_kg_now)*10+(this->column_kg_now-1);
 
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
 
     }
     if(this->row_kg_now+1<=7 &&  this->column_kg_now-1>=0)
     {
         store=(this->row_kg_now+1)*10+(this->column_kg_now-1);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
     }
     if(this->row_kg_now+1<=7 && this->column_kg_now+1<=7)
     {
         store=(this->row_kg_now+1)*10+(this->column_kg_now+1);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
 
     }
     if(this->row_kg_now-1>=0 && this->column_kg_now+1<=7)
     {
         store=(this->row_kg_now-1)*10+(this->column_kg_now+1);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
 
     }
     if(this->row_kg_now-1>=0 && this->column_kg_now-1>=0)
     {
         store=(this->row_kg_now-1)*10+(this->column_kg_now-1);
-        return_list.push_back(store);
+        this->list_kg->insert(store);
+
 
     }
 
-    return return_list;
 }
 

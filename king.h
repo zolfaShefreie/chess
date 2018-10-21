@@ -1,6 +1,8 @@
 #ifndef KING_H
 #define KING_H
 #include<QList>
+#include<set>
+using namespace std;
 
 class king
 {
@@ -9,7 +11,9 @@ public:
     king(int r ,int c);
     int row_kg_now;
     int column_kg_now;
-    QList<int> go_to();
+    bool kg_checked=true; //white:true black:false
+    set<int>* list_kg;
+    void go_to();
 
 };
 

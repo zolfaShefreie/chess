@@ -2,7 +2,6 @@
 
 knight::knight()
 {
-
 }
 
 knight::knight(int r, int c)

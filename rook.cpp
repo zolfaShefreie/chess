@@ -11,9 +11,8 @@ rook::rook(int r, int c)
 
 }
 
-QList<int> rook::go_to()
+void rook::go_to()
 {
-    QList<int> return_list;
     int store;
     int i;
     for(i=1;i<=7;i++)
@@ -21,7 +20,7 @@ QList<int> rook::go_to()
         if(this->row_r_now+i<=7)
         {
             store=(this->row_r_now+i)*10+(this->column_r_now);
-            return_list.push_back(store);
+            this->list_r->insert(store);
         }
         else break;
     }
@@ -30,7 +29,8 @@ QList<int> rook::go_to()
         if(this->row_r_now-i>=0)
         {
             store=(this->row_r_now-i)*10+(this->column_r_now);
-            return_list.push_back(store);
+            this->list_r->insert(store);
+
         }
         else break;
     }
@@ -39,7 +39,8 @@ QList<int> rook::go_to()
         if(this->column_r_now+i<=7)
         {
             store=(this->row_r_now)*10+(this->column_r_now+i);
-            return_list.push_back(store);
+            this->list_r->insert(store);
+
         }
         else break;
     }
@@ -48,11 +49,11 @@ QList<int> rook::go_to()
         if(this->column_r_now-i>=0)
         {
             store=(this->row_r_now)*10+(this->column_r_now-i);
-            return_list.push_back(store);
+            this->list_r->insert(store);
+
 
         }
         else break;
     }
-    return return_list;
 }
 
