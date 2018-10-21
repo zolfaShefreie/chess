@@ -11,11 +11,10 @@ queen::queen(int rq, int cq)
     this->column_q_now = cq;
 }
 
-QList<int> queen::go_to1()
+void queen::go_to1()
 {
-    QList<int> return_list;
-    int store;
 
+    int store;
 
     for(int i=0; i<8; i++)
     {
@@ -26,57 +25,54 @@ QList<int> queen::go_to1()
             if( this->row_q_now<=7 && this->column_q_now+j<=7 )
             {
                 store=(this->row_q_now+i)*10+(this->column_q_now+i);
-                return_list.push_back(store);
+                this->list_q.insert(store);
             }
 
             if( this->row_q_now>=0  && this->column_q_now-j<=7 )
             {
                 store=(this->row_q_now+i)*10+(this->column_q_now-i);
-                return_list.push_back(store);
+                this->list_q.insert(store);
             }
 
             if( this->row_q_now+i<=7 && this->column_q_now>=0 )
             {
                 store=(this->row_q_now-i)*10+(this->column_q_now+i);
-                return_list.push_back(store);
+                this->list_q.insert(store);
             }
 
             if( this->row_q_now-i>=0  && this->column_q_now>=0 )
             {
                 store=(this->row_q_now-i)*10+(this->column_q_now-i);
-                return_list.push_back(store);
+                this->list_q.insert(store);
             }
-
-
         }
     }
 
     for(int i=1; i<8; i++)
     {
-        // move in diagonal
+        // move in diagonals
 
         if(this->column_q_now+i<=7&& this->row_q_now+i<=7)
         {
             store=(this->row_q_now+i)*10+(this->column_q_now+i);
-            return_list.push_back(store);
+            this->list_q.insert(store);
         }
         if(this->column_q_now+i<=7&& this->row_q_now-i>=0)
         {
             store=(this->row_q_now+i)*10+(this->column_q_now-i);
-            return_list.push_back(store);
+            this->list_q.insert(store);
         }
         if(this->column_q_now-i>=0&& this->row_q_now+i<=7)
         {
             store=(this->row_q_now-i)*10+(this->column_q_now+i);
-            return_list.push_back(store);
+            this->list_q.insert(store);
         }
         if(this->column_q_now-i>=0&& this->row_q_now-i>=0)
         {
             store=(this->row_q_now-i)*10+(this->column_q_now-i);
-            return_list.push_back(store);
+            this->list_q.insert(store);
         }
 
 
     }
-    return return_list;
 }
