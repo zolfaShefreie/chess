@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     rook.cpp \
     king.cpp \
     bishop.cpp \
-    queen.cpp
+    queen.cpp \
+    winner.cpp \
+    save.cpp
 
 HEADERS  += mainwindow.h \
     knight.h \
@@ -27,7 +29,9 @@ HEADERS  += mainwindow.h \
     rook.h \
     king.h \
     bishop.h \
-    queen.h
+    queen.h \
+    winner.h \
+    save.h
 
 FORMS    += mainwindow.ui
 

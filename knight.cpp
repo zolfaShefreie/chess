@@ -19,8 +19,8 @@ QList<int>* knight::go_to()
     {
         if(this->column_k_now+1<=7)
         {
-           store=(this->row_k_now+2)*10+(this->column_k_now+1);
-           return_list->push_back(store);
+            store=(this->row_k_now+2)*10+(this->column_k_now+1);
+            return_list->push_back(store);
         }
         if(this->column_k_now-1>=0)
         {
@@ -32,8 +32,8 @@ QList<int>* knight::go_to()
     {
         if(this->column_k_now+1<=7)
         {
-           store=(this->row_k_now-2)*10+(this->column_k_now+1);
-           return_list->push_back(store);
+            store=(this->row_k_now-2)*10+(this->column_k_now+1);
+            return_list->push_back(store);
         }
         if(this->column_k_now-1>=0)
         {
@@ -45,8 +45,8 @@ QList<int>* knight::go_to()
     {
         if(this->column_k_now+2<=7)
         {
-           store=(this->row_k_now+1)*10+(this->column_k_now+2);
-           return_list->push_back(store);
+            store=(this->row_k_now+1)*10+(this->column_k_now+2);
+            return_list->push_back(store);
         }
         if(this->column_k_now-2>=0)
         {
@@ -58,8 +58,8 @@ QList<int>* knight::go_to()
     {
         if(this->column_k_now+2<=7)
         {
-           store=(this->row_k_now-1)*10+(this->column_k_now+2);
-           return_list->push_back(store);
+            store=(this->row_k_now-1)*10+(this->column_k_now+2);
+            return_list->push_back(store);
         }
         if(this->column_k_now-2>=0)
         {
@@ -70,4 +70,4 @@ QList<int>* knight::go_to()
     return return_list;
 
 
-    }
+}

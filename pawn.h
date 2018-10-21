@@ -12,7 +12,6 @@ public:
     int first_step=0;
     bool checked;//white or black
     QList<int> *go_to();
-
 };
 
 #endif // PAWN_H
