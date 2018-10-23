@@ -13,7 +13,7 @@ public:
     void go_to();
     set<int>* list_r;
     bool r_checked=true; //true:white and false:black
-
+    bool operator <( rook const &r) const;
 };
 
 #endif // ROOK_H

@@ -17,13 +17,8 @@ void knight::go_to()
     {
         if(this->column_k_now+1<=7)
         {
-<<<<<<< HEAD
-            store=(this->row_k_now+2)*10+(this->column_k_now+1);
-            return_list->push_back(store);
-=======
            store=(this->row_k_now+2)*10+(this->column_k_now+1);
            this->list_k->insert(store);
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
         }
         if(this->column_k_now-1>=0)
         {
@@ -35,13 +30,8 @@ void knight::go_to()
     {
         if(this->column_k_now+1<=7)
         {
-<<<<<<< HEAD
-            store=(this->row_k_now-2)*10+(this->column_k_now+1);
-            return_list->push_back(store);
-=======
            store=(this->row_k_now-2)*10+(this->column_k_now+1);
            this->list_k->insert(store);
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
         }
         if(this->column_k_now-1>=0)
         {
@@ -53,13 +43,8 @@ void knight::go_to()
     {
         if(this->column_k_now+2<=7)
         {
-<<<<<<< HEAD
-            store=(this->row_k_now+1)*10+(this->column_k_now+2);
-            return_list->push_back(store);
-=======
            store=(this->row_k_now+1)*10+(this->column_k_now+2);
            this->list_k->insert(store);
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
         }
         if(this->column_k_now-2>=0)
         {
@@ -71,13 +56,8 @@ void knight::go_to()
     {
         if(this->column_k_now+2<=7)
         {
-<<<<<<< HEAD
-            store=(this->row_k_now-1)*10+(this->column_k_now+2);
-            return_list->push_back(store);
-=======
            store=(this->row_k_now-1)*10+(this->column_k_now+2);
            this->list_k->insert(store);;
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
         }
         if(this->column_k_now-2>=0)
         {
@@ -86,8 +66,12 @@ void knight::go_to()
         }
     }
 
-<<<<<<< HEAD
+}
 
-=======
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
+bool knight::operator <(const knight &k) const
+{
+    if(this->row_k_now<k.row_k_now && this->column_k_now<k.column_k_now)
+        return true;
+    return false;
+
 }

@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     bishop.cpp \
     queen.cpp \
     winner.cpp \
-    save.cpp
+    save.cpp \
+    infobase.cpp
 
 HEADERS  += mainwindow.h \
     knight.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     bishop.h \
     queen.h \
     winner.h \
-    save.h
+    save.h \
+    infobase.h
 
 FORMS    += mainwindow.ui
 

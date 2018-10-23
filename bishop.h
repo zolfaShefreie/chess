@@ -15,6 +15,8 @@ public:
     set<int> list_b;
     bool b_checked= true; //true:white & false:black
     void go_to();
+    bool operator <( const bishop &b) const;
+
 };
 
 #endif // BISHOP_H

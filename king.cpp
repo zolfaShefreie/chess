@@ -71,3 +71,11 @@ void king::go_to()
 
 }
 
+bool king::operator <(const king &k) const
+{
+    if(this->column_kg_now<k.column_kg_now && this->row_kg_now<k.row_kg_now)
+        return true;
+    return false;
+
+}
+

@@ -3,45 +3,13 @@
 
 #include <QList>
 
-
+//az qlist ersbari koneh
 class save
 {
 public:
     save();
     QList<int> qi;
-    qi.at
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            );
+    //qi.at
 };
 
 #endif // SAVE_H

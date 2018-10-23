@@ -13,12 +13,8 @@ public:
     int first_step=0;
     set<int> * list_p;
     bool checked;//white or black
-<<<<<<< HEAD
-    QList<int> *go_to();
-=======
     void go_to();
-
->>>>>>> 235a4312390dc02575e379360c4fdad252d67352
+    bool operator <(pawn const & p) const;
 };
 
 #endif // PAWN_H

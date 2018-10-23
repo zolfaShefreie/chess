@@ -76,3 +76,10 @@ void queen::go_to1()
 
     }
 }
+
+bool queen::operator <(const queen &q) const
+{
+    if(this->column_q_now<q.column_q_now && this->row_q_now<q.row_q_now)
+        return true;
+    return false;
+}

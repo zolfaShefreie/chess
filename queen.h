@@ -13,8 +13,9 @@ public:
     int row_q_now;
     int column_q_now;
     set<int> list_q;
-    bool b_checked= true; //true:white & false:black
+    bool q_checked= true; //true:white & false:black
     void go_to1();
+    bool operator <(queen const &q) const;
 };
 
 #endif // QUEEN_H

@@ -57,3 +57,10 @@ void rook::go_to()
     }
 }
 
+bool rook::operator <(const rook &r) const
+{
+    if(this->column_r_now< r.column_r_now && this->row_r_now<r.row_r_now)
+        return true;
+    return false;
+}
+
