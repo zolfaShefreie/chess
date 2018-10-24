@@ -15,7 +15,9 @@ public:
     set<int> list_b;
     bool b_checked= true; //true:white & false:black
     void go_to();
+    void remove_some_mem(int j,int i);
     bool operator <( const bishop &b) const;
+    bool operator ==( const bishop &b) const;
 
 };
 

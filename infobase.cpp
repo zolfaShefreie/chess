@@ -142,13 +142,73 @@ infobase::nameOfItem infobase::find(int r, int c)
 void infobase::edit_list_to_go(int r, int c)
 {
     //
+    nameOfItem index;
     if(find(r,c)==black_bishop)
     {
-
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        auto itr=this->black_b.find(b);
+        b=(*itr);
+        b.go_to();
+        int cc,rr;
+        for(int s:b.list_b)
+        {
+           cc=s%10;
+           rr=(s-cc)/10;
+           index=this->find(rr,cc);
+           if(index<7)
+           {
+               //ham rang
+               b.list_b.erase(s);
+               b.remove_some_mem(cc,rr);
+           }
+           else if(index==8)
+           {
+               //hazf shah moghabel
+               b.list_b.erase(s);
+           }
+           else
+           {
+               //gheyr ham rang
+               b.list_b.erase(s);
+               b.remove_some_mem(cc,rr);
+           }
+        }
     }
 
     if(find(r,c)==white_bishop)
     {
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        auto itr=this->white_b.find(b);
+        b=(*itr);
+        b.go_to();
+        int cc,rr;
+        for(int s:b.list_b)
+        {
+           cc=s%10;
+           rr=(s-cc)/10;
+           index=this->find(rr,cc);
+           if(index>6)
+           {
+               //ham rang
+               b.list_b.erase(s);
+               b.remove_some_mem(cc,rr);
+           }
+           else if(index==2)
+           {
+               //hazf shah moghabel
+               b.list_b.erase(s);
+           }
+           else
+           {
+               //gheyr ham rang
+               b.list_b.erase(s);
+               b.remove_some_mem(cc,rr);
+           }
+        }
 
     }
 

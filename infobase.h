@@ -1,6 +1,7 @@
 #ifndef INFOBASE_H
 #define INFOBASE_H
 #include<set>
+#include<iterator>
 #include"bishop.h"
 #include"king.h"
 #include"knight.h"
@@ -12,18 +13,18 @@ class infobase
 {
     enum nameOfItem
     {
-        black_pawn,
-        white_pawn,
-        black_king,
-        white_king,
-        black_bishop,
-        white_bishop,
-        black_knight,
-        white_knite,
-        black_queen,
-        white_queen,
-        black_rook,
-        white_rook,
+        black_pawn=1,
+        black_king=2,
+        black_bishop=3,
+        black_knight=4,
+        black_queen=5,
+        black_rook=6,
+        white_pawn=7,
+        white_king=8,
+        white_bishop=9,
+        white_knite=10,
+        white_queen=11,
+        white_rook=12,
         none_of_them,
     };
 
