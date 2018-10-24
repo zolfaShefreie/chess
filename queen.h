@@ -14,6 +14,7 @@ public:
     int column_q_now;
     set<int> list_q;
     bool q_checked= true; //true:white & false:black
+    static const bool is_queen = true;
     void go_to1();
     bool operator <(queen const &q) const;
 };

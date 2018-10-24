@@ -43,6 +43,7 @@ void bishop::go_to()
 
 }
 
+<<<<<<< HEAD
 void bishop::remove_some_mem(int j, int i)
 {
     //hazf kardan makanha ye ezafi bar asas bagheye mohreha
@@ -88,6 +89,8 @@ void bishop::remove_some_mem(int j, int i)
         }
 
 }
+=======
+>>>>>>> 977c42a3d84228eb96b5b79e26b3a7cd4486bf9d
 
 bool bishop::operator <(const bishop &b) const
 {
