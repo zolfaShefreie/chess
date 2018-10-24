@@ -54,7 +54,7 @@ void save::bishop(infobase::nameOfItem bishop)
     if(pawn::is_pawn == true)
     {
 
-        QList<int> save::qi()
+        QList<int> save::qi();
         {
            for(int i=0; i</* تعداد حرکات ممکن سرباز*/ ; i++ )
             {
@@ -80,6 +80,7 @@ void save::bishop(infobase::nameOfItem bishop)
     }
 
     if(rook::is_rook == true)
+    {
 
 
         QList<int> save::qi()

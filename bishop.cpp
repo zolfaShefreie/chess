@@ -43,16 +43,14 @@ void bishop::go_to()
 
 }
 
-<<<<<<< HEAD
 void bishop::remove_some_mem(int j, int i)
 {
     //hazf kardan makanha ye ezafi bar asas bagheye mohreha
     if(i<this->row_b_now && j<this->column_b_now)
         for(int k=0;k<8;k++)
         {
-            bishop b;
-            b.column_b_now=j-k-1;
-            b.row_b_now=i-k-1;
+            int b;
+            b=((i-k-1)*10)+(j-k-1);
             if(this->list_b.find(b)!=this->list_b.end())
                this->list_b.erase(this->list_b.find(b));
             else break;
@@ -60,9 +58,8 @@ void bishop::remove_some_mem(int j, int i)
     if(i>this->row_b_now && j>this->column_b_now)
         for(int k=0;k<8;k++)
         {
-            bishop b;
-            b.column_b_now=j+k+1;
-            b.row_b_now=i+k+1;
+            int b;
+            b=((i+k+1)*10)+(j+k+1);
             if(this->list_b.find(b)!=this->list_b.end())
                this->list_b.erase(this->list_b.find(b));
             else break;
@@ -70,9 +67,8 @@ void bishop::remove_some_mem(int j, int i)
     if(i>this->row_b_now && j<this->column_b_now)
         for(int k=0;k<8;k++)
         {
-            bishop b;
-            b.column_b_now=j-k-1;
-            b.row_b_now=i+k+1;
+            int b;
+            b=((i+k+1)*10)+(j-k-1);
             if(this->list_b.find(b)!=this->list_b.end())
                this->list_b.erase(this->list_b.find(b));
             else break;
@@ -80,17 +76,14 @@ void bishop::remove_some_mem(int j, int i)
     if(i<this->row_b_now && j>this->column_b_now)
         for(int k=0;k<8;k++)
         {
-            bishop b;
-            b.column_b_now=j+k-1;
-            b.row_b_now=i+k+1;
+            int b;
+            b=((i-k-1)*10)+(j+k+1);
             if(this->list_b.find(b)!=this->list_b.end())
                this->list_b.erase(this->list_b.find(b));
             else break;
         }
 
 }
-=======
->>>>>>> 977c42a3d84228eb96b5b79e26b3a7cd4486bf9d
 
 bool bishop::operator <(const bishop &b) const
 {

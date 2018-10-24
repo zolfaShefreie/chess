@@ -237,8 +237,10 @@ void infobase::edit_list_to_go(int r, int c)
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
+                //ham rang ro natuneh bezaneh
                 k.list_k->erase(s);
             else if(index==8)
+                //shah harif ro natuneh bezaneh
                 k.list_k->erase(s);
         }
 
@@ -260,8 +262,10 @@ void infobase::edit_list_to_go(int r, int c)
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6)
+                //ham rang ro natuneh bezaneh
                 k.list_k->erase(s);
             else if(index==2)
+                //shah harif ro natuneh bezaneh
                 k.list_k->erase(s);
         }
 
