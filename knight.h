@@ -17,6 +17,7 @@ public:
     int column_k_now;
     set<int> *list_k;
     bool k_checked=true;//true=white   false=black
+    static const bool is_knight = true;
     void go_to();// the list of where can it go
     bool operator <( knight const & k) const;
 

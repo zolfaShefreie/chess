@@ -12,7 +12,8 @@ public:
     int column_p_now;
     int first_step=0;
     set<int> * list_p;
-    bool checked;//white or black
+    bool p_checked= true;//white or black
+    static const bool is_pawn = true;
     void go_to();
     bool operator <(pawn const & p) const;
 };

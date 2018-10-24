@@ -8,8 +8,12 @@
 #include"queen.h"
 #include"rook.h"
 
+
 class infobase
 {
+
+public:
+
     enum nameOfItem
     {
         black_pawn,
@@ -27,7 +31,6 @@ class infobase
         none_of_them,
     };
 
-public:
     std::set<king> white_kg;
     std::set<queen> white_q;
     std::set<pawn> white_p;

@@ -14,6 +14,7 @@ public:
     int column_b_now;
     set<int> list_b;
     bool b_checked= true; //true:white & false:black
+    static const bool is_bishop = true;
     void go_to();
     bool operator <( const bishop &b) const;
 

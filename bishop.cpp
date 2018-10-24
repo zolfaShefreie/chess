@@ -43,6 +43,7 @@ void bishop::go_to()
 
 }
 
+
 bool bishop::operator <(const bishop &b) const
 {
     if(this->column_b_now<b.column_b_now && this->row_b_now<b.row_b_now)
