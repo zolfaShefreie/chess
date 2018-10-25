@@ -11,7 +11,7 @@ public:
     int row_r_now;
     int column_r_now;
     void go_to();
-    set<int>* list_r;
+    set<int> list_r;
     bool r_checked=true; //true:white and false:black
     static const bool is_rook = true;
     bool operator <( rook const &r) const;

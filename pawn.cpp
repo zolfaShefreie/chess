@@ -15,22 +15,22 @@ pawn::pawn(int r, int c ,bool wob)
 void pawn::go_to()
 {
     int store;
-    this->list_p->clear();
+    this->list_p.clear();
    if (this->first_step==0)
    {
        if (p_checked)
        {
            store=(this->row_p_now+1)*10+this->column_p_now;
-           this->list_p->insert(store);
+           this->list_p.insert(store);
            store=(this->row_p_now+2)*10+this->column_p_now;
-           this->list_p->insert(store);
+           this->list_p.insert(store);
        }
        else
        {
            store=(this->row_p_now-1)*10+this->column_p_now;
-           this->list_p->insert(store);
+           this->list_p.insert(store);
            store=(this->row_p_now-2)*10+this->column_p_now;
-           this->list_p->insert(store);
+           this->list_p.insert(store);
        }
    }
    else if(this->first_step!=0)
@@ -40,7 +40,7 @@ void pawn::go_to()
            if(this->row_p_now+1<=7)
            {
                store=(this->row_p_now+1)*10+this->column_p_now;
-               this->list_p->insert(store);
+               this->list_p.insert(store);
 
            }
        }
@@ -48,7 +48,7 @@ void pawn::go_to()
                if(this->row_p_now-1>=0)
                {
                    store=(this->row_p_now-1)*10+this->column_p_now;
-                   this->list_p->insert(store);
+                   this->list_p.insert(store);
                }
    }
 

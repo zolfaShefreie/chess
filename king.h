@@ -13,7 +13,7 @@ public:
     int column_kg_now;
     bool kg_checked=true; //white:true black:false
     static const bool is_king = true;
-    set<int>* list_kg;
+    set<int> list_kg;
     void go_to();
     bool operator <(king const &k) const;
 };

@@ -20,7 +20,6 @@ SOURCES += main.cpp\
     king.cpp \
     bishop.cpp \
     queen.cpp \
-    winner.cpp \
     save.cpp \
     infobase.cpp
 
@@ -31,7 +30,6 @@ HEADERS  += mainwindow.h \
     king.h \
     bishop.h \
     queen.h \
-    winner.h \
     save.h \
     infobase.h
 

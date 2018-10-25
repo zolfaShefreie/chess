@@ -11,7 +11,7 @@ public:
     int row_p_now;
     int column_p_now;
     int first_step=0;
-    set<int> * list_p;
+    set<int>  list_p;
     bool p_checked= true;//white or black
     static const bool is_pawn = true;
     void go_to();

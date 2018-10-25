@@ -11,12 +11,12 @@ infobase::infobase()
     queen q;
     for(int i=0;i<8;i++)
     {
-        p.checked=true;
+        p.p_checked=true;
         p.column_p_now=i;
         p.row_p_now=1;
         this->white_p.insert(p);
 
-        p.checked=false;
+        p.p_checked=false;
         p.column_p_now=i;
         p.row_p_now=6;
         this->white_p.insert(p);
@@ -215,7 +215,7 @@ void infobase::edit_list_to_go(int r, int c)
         pawn p;
         p.column_p_now=c;
         p.row_p_now=r;
-        auto itr=this->black_p.find(b);
+        auto itr=this->black_p.find(p);
         p=*itr;
         p.go_to();
         int cc,rr;
@@ -227,17 +227,17 @@ void infobase::edit_list_to_go(int r, int c)
             if(index!=none_of_them)
             {
                     if(rr-2==p.row_p_now)
-                        p.list_p->erase(s);
+                        p.list_p.erase(s);
                     else if(rr-1==p.row_p_now)
                     {
-                        p.list_p->erase(s);
+                        p.list_p.erase(s);
                         //betuneh mohreh harif ro bezaneh
                         index=this->find(rr-1,cc-1);
                         if(index!= white_king && index>6)
-                            p.list_p->insert(((rr-1)*10+(cc-1)));
+                            p.list_p.insert(((rr-1)*10+(cc-1)));
                         index=this->find(rr-1,cc+1);
                         if(index!= white_king && index>6)
-                            p.list_p->insert(((rr-1)*10+(cc+1)));
+                            p.list_p.insert(((rr-1)*10+(cc+1)));
                     }
             }
 
@@ -250,7 +250,7 @@ void infobase::edit_list_to_go(int r, int c)
         pawn p;
         p.column_p_now=c;
         p.row_p_now=r;
-        auto itr=this->black_p.find(b);
+        auto itr=this->black_p.find(p);
         p=*itr;
         p.go_to();
         int cc,rr;
@@ -262,17 +262,17 @@ void infobase::edit_list_to_go(int r, int c)
             if(index!=none_of_them)
             {
                     if(rr+2==p.row_p_now)
-                        p.list_p->erase(s);
+                        p.list_p.erase(s);
                     else if(rr+1==p.row_p_now)
                     {
-                        p.list_p->erase(s);
+                        p.list_p.erase(s);
                         //betuneh mohreh harif ro bezaneh
                         index=this->find(rr+1,cc+1);
                         if(index!= black_king && index<7)
-                            p.list_p->insert(((rr+1)*10+(cc+1)));
+                            p.list_p.insert(((rr+1)*10+(cc+1)));
                         index=this->find(rr+1,cc-1);
                         if(index!= black_king && index<7)
-                            p.list_p->insert(((rr+1)*10+(cc-1)));
+                            p.list_p.insert(((rr+1)*10+(cc-1)));
                     }
             }
 
@@ -295,10 +295,10 @@ void infobase::edit_list_to_go(int r, int c)
             index=this->find(rr,cc);
             if(index<7)
                 //ham rang ro natuneh bezaneh
-                k.list_k->erase(s);
+                k.list_k.erase(s);
             else if(index==8)
                 //shah harif ro natuneh bezaneh
-                k.list_k->erase(s);
+                k.list_k.erase(s);
         }
 
 
@@ -320,10 +320,10 @@ void infobase::edit_list_to_go(int r, int c)
             index=this->find(rr,cc);
             if(index>6)
                 //ham rang ro natuneh bezaneh
-                k.list_k->erase(s);
+                k.list_k.erase(s);
             else if(index==2)
                 //shah harif ro natuneh bezaneh
-                k.list_k->erase(s);
+                k.list_k.erase(s);
         }
 
 
@@ -386,53 +386,53 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(find(r,c)==black_rook)
     {
-        rook r;
-        r.column_r_now=c;
-        r.row_r_now=r;
-        auto itr=this->black_r.find(r);
-        r=(*itr);
-        r.go_to();
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        auto itr=this->black_r.find(r1);
+        r1=(*itr);
+        r1.go_to();
         int cc ,rr;
-        for(int s:r.list_r)
+        for(int s:r1.list_r)
         {
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
             {
-                r.list_r.erase(s);
-                r.remove_some_mem(cc,rr);
+                r1.list_r.erase(s);
+                r1.remove_some_mem(cc,rr);
             }
             else if(index==8)
-                r.list_r.erase(s);
+                r1.list_r.erase(s);
             else
-                r.remove_some_mem(cc,rr);
+                r1.remove_some_mem(cc,rr);
         }
     }
 
     if(find(r,c)==white_rook)
     {
-        rook r;
-        r.column_r_now=c;
-        r.row_r_now=r;
-        auto itr=this->white_r.find(r);
-        r=(*itr);
-        r.go_to();
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        auto itr=this->white_r.find(r1);
+        r1=(*itr);
+        r1.go_to();
         int cc,rr;
-        for(int s:r.list_r)
+        for(int s:r1.list_r)
         {
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6)
             {
-                r.list_r.erase(s);
-                r.remove_some_mem(cc,rr);
+                r1.list_r.erase(s);
+                r1.remove_some_mem(cc,rr);
             }
             else if(index==2)
-                r.list_r.erase(s);
+                r1.list_r.erase(s);
             else
-                r.remove_some_mem(cc,rr);
+                r1.remove_some_mem(cc,rr);
         }
     }
 

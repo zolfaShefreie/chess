@@ -15,11 +15,12 @@ public:
     knight(int r, int c);
     int row_k_now;
     int column_k_now;
-    set<int> *list_k;
+    set<int> list_k;
     bool k_checked=true;//true=white   false=black
     static const bool is_knight = true;
     void go_to();// the list of where can it go
     bool operator <( knight const & k) const;
+    bool operator ==( const knight &k) const;
 
 };
 
