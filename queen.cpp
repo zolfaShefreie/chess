@@ -105,7 +105,7 @@ void queen::remove_some_mem(int j, int i)
         }
     //removing forbidden positions in a column
     if(j==this->column_q_now && i<this->row_q_now)
-        for(k=0;k<8;k++)
+        for(int k=0;k<8;k++)
         {
             int b=(i-1-k)*10+j;
             if(this->list_q.find(b)!=this->list_q.end())

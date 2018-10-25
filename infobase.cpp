@@ -331,22 +331,109 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(find(r,c)==black_queen)
     {
-
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        auto itr=this->black_q.find(q);
+        q=(*itr);
+        q.go_to1();
+        int cc ,rr;
+        for(int s:q.list_q)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index<7)
+            {
+                // ham rang
+                q.list_q.erase(s);
+                q.remove_some_mem(cc,rr);
+            }
+            else if(index==8)
+            {
+                q.list_q.erase(s);
+            }
+            else
+                q.remove_some_mem(cc,rr);
+        }
     }
 
     if(find(r,c)==white_queen)
     {
-
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        auto itr=this->white_q.find(q);
+        q=(*itr);
+        q.go_to1();
+        int cc,rr;
+        for(int s:q.list_q)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index>6)
+            {
+                q.list_q.erase(s);
+                q.remove_some_mem(cc,rr);
+            }
+            else if(index==2)
+                q.list_q.erase(s);
+            else
+                q.remove_some_mem(cc,rr);
+        }
     }
 
     if(find(r,c)==black_rook)
     {
-
+        rook r;
+        r.column_r_now=c;
+        r.row_r_now=r;
+        auto itr=this->black_r.find(r);
+        r=(*itr);
+        r.go_to();
+        int cc ,rr;
+        for(int s:r.list_r)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index<7)
+            {
+                r.list_r.erase(s);
+                r.remove_some_mem(cc,rr);
+            }
+            else if(index==8)
+                r.list_r.erase(s);
+            else
+                r.remove_some_mem(cc,rr);
+        }
     }
 
     if(find(r,c)==white_rook)
     {
-
+        rook r;
+        r.column_r_now=c;
+        r.row_r_now=r;
+        auto itr=this->white_r.find(r);
+        r=(*itr);
+        r.go_to();
+        int cc,rr;
+        for(int s:r.list_r)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index>6)
+            {
+                r.list_r.erase(s);
+                r.remove_some_mem(cc,rr);
+            }
+            else if(index==2)
+                r.list_r.erase(s);
+            else
+                r.remove_some_mem(cc,rr);
+        }
     }
 
     if(find(r,c)==white_king)

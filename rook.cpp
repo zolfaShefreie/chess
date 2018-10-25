@@ -64,3 +64,41 @@ bool rook::operator <(const rook &r) const
     return false;
 }
 
+void rook::remove_some_mem(int j, int i)
+{
+    if(i<this->row_r_now && j==this->column_r_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i-1-k)*10+j;
+            if(this->list_r->find(b)!=this->list_r->end())
+                this->list_r->erase(this->list_r->find(b));
+            else break;
+        }
+    if(i>this->row_r_now && j==this->column_r_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i+1+k)*10+j;
+            if(this->list_r->find(b)!=this->list_r->end())
+                this->list_r->erase(this->list_r->find(b));
+            else break;
+        }
+    if(i==this->row_r_now && j<this->column_r_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i*10)+(j-1-k);
+            if(this->list_r->find(b)!=this->list_r->end())
+                this->list_r->erase(this->list_r->find(b));
+            else break;
+        }
+    if(i==this->row_r_now && j>this->column_r_now)
+    {
+        for(int k=0;k<8;k++)
+        {
+            int b=(i*10)+(j+1+k);
+            if(this->list_r->find(b)!=this->list_r->end())
+                this->list_r->erase(this->list_r->find(b));
+            else break;
+        }
+    }
+}
+

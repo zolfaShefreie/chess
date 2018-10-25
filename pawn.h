@@ -16,6 +16,7 @@ public:
     static const bool is_pawn = true;
     void go_to();
     bool operator <(pawn const & p) const;
+
 };
 
 #endif // PAWN_H
