@@ -13,6 +13,7 @@ rook::rook(int r, int c)
 
 void rook::go_to()
 {
+    this->list_r->clear();
     int store;
     int i;
     for(i=1;i<=7;i++)

@@ -13,6 +13,7 @@ queen::queen(int rq, int cq)
 
 void queen::go_to1()
 {
+    this->list_q.clear();
 
     int store;
 
