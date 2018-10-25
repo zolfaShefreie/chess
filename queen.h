@@ -17,6 +17,7 @@ public:
     static const bool is_queen = true;
     void go_to1();
     bool operator <(queen const &q) const;
+    void remove_some_mem(int j,int i);
 };
 
 #endif // QUEEN_H

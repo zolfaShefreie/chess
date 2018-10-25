@@ -83,3 +83,73 @@ bool queen::operator <(const queen &q) const
         return true;
     return false;
 }
+
+void queen::remove_some_mem(int j, int i)
+{
+    // removing forbidden positions in a row
+    if(i==this->row_q_now && j<this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=i*10+(j-1-k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    if(i==this->row_q_now && j>this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=i*10+(j+1+k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    //removing forbidden positions in a column
+    if(j==this->column_q_now && i<this->row_q_now)
+        for(k=0;k<8;k++)
+        {
+            int b=(i-1-k)*10+j;
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    if(j==this->column_q_now && i>this->row_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i+1+k)*10+j;
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    //removing forbidden dioagonal positions
+    if(i<this->row_q_now && j<this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i-1-k)*10+(j-1-k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    if(i<this->row_q_now && j>this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i-1-k)*10+(j+1+k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    if(i>this->row_q_now && j<this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i+1+k)*10+(j-1-k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+            else break;
+        }
+    if(i>this->row_q_now && j>this->column_q_now)
+        for(int k=0;k<8;k++)
+        {
+            int b=(i+1+k)*10+(j+1+k);
+            if(this->list_q.find(b)!=this->list_q.end())
+                this->list_q.erase(this->list_q.find(b));
+        }
+}
