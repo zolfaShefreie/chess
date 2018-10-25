@@ -12,6 +12,7 @@ knight::knight(int r, int c)
 
 void knight::go_to()
 {
+    this->list_k->clear();
     int store;
     if(this->row_k_now+2<=7)
     {

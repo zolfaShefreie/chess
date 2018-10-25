@@ -438,12 +438,58 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(find(r,c)==white_king)
     {
-
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        auto itr=this->white_kg.find(kg);
+        kg=*itr;
+        kg.go_to();
+        int cc,rr;
+        for(int s:kg.list_kg)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index>6)
+            {
+                if(rr-1==kg.row_kg_now)
+                    kg.list_kg->erase(s);
+                else if(rr+1==kg.row_kg_now)
+                    kg.list_kg->erase(s);
+                else if(cc-1==kg.column_kg_now)
+                    kg.list_kg->erase(s);
+                else if(cc+1==kg.column_kg_now)
+                    kg.list_kg->erase(s);
+            }
+        }
     }
 
     if(find(r,c)==black_king)
     {
-
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        auto itr=this->white_kg.find(kg);
+        kg=*itr;
+        kg.go_to();
+        int cc,rr;
+        for(int s:kg.list_kg)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index<7)
+            {
+                if(rr-1==kg.row_kg_now)
+                    kg.list_kg->erase(s);
+                else if(rr+1==kg.row_kg_now)
+                    kg.list_kg->erase(s);
+                else if(cc-1==kg.column_kg_now)
+                    kg.list_kg->erase(s);
+                else if(cc+1==kg.column_kg_now)
+                    kg.list_kg->erase(s);
+            }
+        }
     }
 }
 

@@ -13,7 +13,7 @@ bishop::bishop(int r, int c)
 
 void bishop::go_to()
 {
-
+    this->list_b.clear();
     int store;
 
     for(int i=1; i<8; i++)
