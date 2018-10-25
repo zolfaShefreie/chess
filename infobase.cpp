@@ -453,13 +453,13 @@ void infobase::edit_list_to_go(int r, int c)
             if(index>6)
             {
                 if(rr-1==kg.row_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(rr+1==kg.row_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(cc-1==kg.column_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(cc+1==kg.column_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
             }
         }
     }
@@ -481,13 +481,13 @@ void infobase::edit_list_to_go(int r, int c)
             if(index<7)
             {
                 if(rr-1==kg.row_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(rr+1==kg.row_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(cc-1==kg.column_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
                 else if(cc+1==kg.column_kg_now)
-                    kg.list_kg->erase(s);
+                    kg.list_kg.erase(s);
             }
         }
     }

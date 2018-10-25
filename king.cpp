@@ -13,7 +13,7 @@ king::king(int r, int c)
 
 void king::go_to()
 {
-    this->list_kg->clear();
+    this->list_kg.clear();
 
     int store;
     if(this->row_kg_now+1<=7)
