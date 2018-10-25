@@ -171,7 +171,6 @@ void infobase::edit_list_to_go(int r, int c)
            else
            {
                //gheyr ham rang
-               b.list_b.erase(s);
                b.remove_some_mem(cc,rr);
            }
         }
@@ -205,7 +204,6 @@ void infobase::edit_list_to_go(int r, int c)
            else
            {
                //gheyr ham rang
-               b.list_b.erase(s);
                b.remove_some_mem(cc,rr);
            }
         }
@@ -214,12 +212,71 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(find(r,c)==black_pawn)
     {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        auto itr=this->black_p.find(b);
+        p=*itr;
+        p.go_to();
+        int cc,rr;
+        for(int s:p.list_p)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index!=none_of_them)
+            {
+                    if(rr-2==p.row_p_now)
+                        p.list_p->erase(s);
+                    else if(rr-1==p.row_p_now)
+                    {
+                        p.list_p->erase(s);
+                        //betuneh mohreh harif ro bezaneh
+                        index=this->find(rr-1,cc-1);
+                        if(index!= white_king && index>6)
+                            p.list_p->insert(((rr-1)*10+(cc-1)));
+                        index=this->find(rr-1,cc+1);
+                        if(index!= white_king && index>6)
+                            p.list_p->insert(((rr-1)*10+(cc+1)));
+                    }
+            }
+
+        }
 
     }
 
     if(find(r,c)==white_pawn)
     {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        auto itr=this->black_p.find(b);
+        p=*itr;
+        p.go_to();
+        int cc,rr;
+        for(int s:p.list_p)
+        {
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index!=none_of_them)
+            {
+                    if(rr+2==p.row_p_now)
+                        p.list_p->erase(s);
+                    else if(rr+1==p.row_p_now)
+                    {
+                        p.list_p->erase(s);
+                        //betuneh mohreh harif ro bezaneh
+                        index=this->find(rr+1,cc+1);
+                        if(index!= black_king && index<7)
+                            p.list_p->insert(((rr+1)*10+(cc+1)));
+                        index=this->find(rr+1,cc-1);
+                        if(index!= black_king && index<7)
+                            p.list_p->insert(((rr+1)*10+(cc-1)));
+                    }
+            }
 
+        }
     }
 
     if(find(r,c)==black_knight)
@@ -278,6 +335,26 @@ void infobase::edit_list_to_go(int r, int c)
     }
 
     if(find(r,c)==white_queen)
+    {
+
+    }
+
+    if(find(r,c)==black_rook)
+    {
+
+    }
+
+    if(find(r,c)==white_rook)
+    {
+
+    }
+
+    if(find(r,c)==white_king)
+    {
+
+    }
+
+    if(find(r,c)==black_king)
     {
 
     }

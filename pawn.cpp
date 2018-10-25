@@ -15,6 +15,7 @@ pawn::pawn(int r, int c ,bool wob)
 void pawn::go_to()
 {
     int store;
+    this->list_p->clear();
    if (this->first_step==0)
    {
        if (p_checked)
@@ -52,6 +53,7 @@ void pawn::go_to()
    }
 
 }
+
 
 bool pawn::operator <(const pawn &p) const
 {
