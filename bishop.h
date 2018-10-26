@@ -19,6 +19,7 @@ public:
     void remove_some_mem(int j,int i);
     bool operator <( const bishop &b) const;
     bool operator ==( const bishop &b) const;
+    bool threat_king;
 
 };
 

@@ -109,7 +109,7 @@ infobase::nameOfItem infobase::find(int r, int c)
     if(this->black_k.find(k)!= this->black_k.end())
         return black_knight;
     if(this->white_k.find(k)!=this->white_k.end())
-        return white_knite;
+        return white_knight;
 
     bishop b;
     b.column_b_now=c;
@@ -144,7 +144,7 @@ void infobase::edit_list_to_go(int r, int c)
     //
     nameOfItem index;
     if(find(r,c)==black_bishop)
-    {
+    {   
         bishop b;
         b.column_b_now=c;
         b.row_b_now=r;
@@ -304,7 +304,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     }
 
-    if(find(r,c)==white_knite)
+    if(find(r,c)==white_knight)
     {
         knight k;
         k.column_k_now=c;

@@ -16,6 +16,8 @@ public:
     static const bool is_rook = true;
     bool operator <( rook const &r) const;
     void remove_some_mem(int j,int i);
+    bool threat_king;
+
 };
 
 #endif // ROOK_H

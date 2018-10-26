@@ -13,6 +13,7 @@ queen::queen(int rq, int cq)
 
 void queen::go_to1()
 {
+    threat_king=false;
     this->list_q.clear();
 
     int store;

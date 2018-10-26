@@ -26,7 +26,7 @@ public:
         white_pawn=7,
         white_king=8,
         white_bishop=9,
-        white_knite=10,
+        white_knight=10,
         white_queen=11,
         white_rook=12,
         none_of_them,

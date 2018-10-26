@@ -14,6 +14,7 @@ pawn::pawn(int r, int c ,bool wob)
 
 void pawn::go_to()
 {
+    threat_king=false;
     int store;
     this->list_p.clear();
    if (this->first_step==0)

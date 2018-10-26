@@ -13,6 +13,7 @@ bishop::bishop(int r, int c)
 
 void bishop::go_to()
 {
+    threat_king=false;
     this->list_b.clear();
     int store;
 

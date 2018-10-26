@@ -18,6 +18,8 @@ public:
     void go_to1();
     bool operator <(queen const &q) const;
     void remove_some_mem(int j,int i);
+    bool threat_king;
+
 };
 
 #endif // QUEEN_H

@@ -13,6 +13,7 @@ rook::rook(int r, int c)
 
 void rook::go_to()
 {
+    threat_king=false;
     this->list_r.clear();
     int store;
     int i;
