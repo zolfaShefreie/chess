@@ -50,6 +50,10 @@ public:
     infobase();
     nameOfItem find(int r,int c);
     void edit_list_to_go(int r,int c);
+    //eskalat:
+    //1.mohreh fadashvandeh
+    //2.jaygaha e ke shah bere tahdid mishe ro hazf nakardim
+    bool delete_threat_king(int r,int c,string bOrW);
     bool win();
 
 };

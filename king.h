@@ -15,6 +15,7 @@ public:
     static const bool is_king = true;
     set<int> list_kg;
     void go_to();
+    void edit_list(int i,int j);
     bool operator <(king const &k) const;
     bool threat_king;
 };

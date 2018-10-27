@@ -142,6 +142,10 @@ infobase::nameOfItem infobase::find(int r, int c)
 void infobase::edit_list_to_go(int r, int c)
 {
     //
+    for(king kingb:this->black_kg)
+        kingb.go_to();
+    for(king kingw:this->white_kg)
+        kingw.go_to();
     nameOfItem index;
     if(find(r,c)==black_bishop)
     {   
@@ -166,6 +170,9 @@ void infobase::edit_list_to_go(int r, int c)
            else if(index==8)
            {
                //hazf shah moghabel
+               b.threat_king=true;
+               for(king kingw:this->white_kg)
+                   kingw.edit_list(r,c);
                b.list_b.erase(s);
            }
            else
@@ -199,6 +206,9 @@ void infobase::edit_list_to_go(int r, int c)
            else if(index==2)
            {
                //hazf shah moghabel
+               b.threat_king=true;
+               for(king king:this->black_kg)
+                   king.edit_list(r,c);
                b.list_b.erase(s);
            }
            else
@@ -238,6 +248,12 @@ void infobase::edit_list_to_go(int r, int c)
                         index=this->find(rr-1,cc+1);
                         if(index!= white_king && index>6)
                             p.list_p.insert(((rr-1)*10+(cc+1)));
+                        else if(index==white_king)
+                        {
+                            p.threat_king=true;
+                            for(king king:this->white_kg)
+                                king.edit_list(r,c);
+                        }
                     }
             }
 
@@ -250,7 +266,7 @@ void infobase::edit_list_to_go(int r, int c)
         pawn p;
         p.column_p_now=c;
         p.row_p_now=r;
-        auto itr=this->black_p.find(p);
+        auto itr=this->white_p.find(p);
         p=*itr;
         p.go_to();
         int cc,rr;
@@ -273,6 +289,12 @@ void infobase::edit_list_to_go(int r, int c)
                         index=this->find(rr+1,cc-1);
                         if(index!= black_king && index<7)
                             p.list_p.insert(((rr+1)*10+(cc-1)));
+                        else if(index==black_king)
+                        {
+                            p.threat_king=true;
+                            for(king kingw:this->black_kg)
+                                kingw.edit_list(r,c);
+                        }
                     }
             }
 
@@ -297,8 +319,13 @@ void infobase::edit_list_to_go(int r, int c)
                 //ham rang ro natuneh bezaneh
                 k.list_k.erase(s);
             else if(index==8)
+            {
                 //shah harif ro natuneh bezaneh
+                k.threat_king=true;
+                for(king king:this->white_kg)
+                    king.edit_list(r,c);
                 k.list_k.erase(s);
+            }
         }
 
 
@@ -322,8 +349,13 @@ void infobase::edit_list_to_go(int r, int c)
                 //ham rang ro natuneh bezaneh
                 k.list_k.erase(s);
             else if(index==2)
+            {
                 //shah harif ro natuneh bezaneh
+                k.threat_king=true;
+                for(king king:this->black_kg)
+                    king.edit_list(r,c);
                 k.list_k.erase(s);
+            }
         }
 
 
@@ -351,6 +383,10 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index==8)
             {
+                //shah moghabel ro nazaneh
+                q.threat_king=true;
+                for(king king:this->white_kg)
+                    king.edit_list(r,c);
                 q.list_q.erase(s);
             }
             else
@@ -378,7 +414,12 @@ void infobase::edit_list_to_go(int r, int c)
                 q.remove_some_mem(cc,rr);
             }
             else if(index==2)
+            {
+                q.threat_king=true;
+                for(king king:this->black_kg)
+                    king.edit_list(r,c);
                 q.list_q.erase(s);
+            }
             else
                 q.remove_some_mem(cc,rr);
         }
@@ -404,7 +445,12 @@ void infobase::edit_list_to_go(int r, int c)
                 r1.remove_some_mem(cc,rr);
             }
             else if(index==8)
+            {
+                r1.threat_king=true;
+                for(king king:this->white_kg)
+                    king.edit_list(r,c);
                 r1.list_r.erase(s);
+            }
             else
                 r1.remove_some_mem(cc,rr);
         }
@@ -430,7 +476,12 @@ void infobase::edit_list_to_go(int r, int c)
                 r1.remove_some_mem(cc,rr);
             }
             else if(index==2)
+            {
+                r1.threat_king=true;
+                for(king king:this->black_kg)
+                    king.edit_list(r,c);
                 r1.list_r.erase(s);
+            }
             else
                 r1.remove_some_mem(cc,rr);
         }
@@ -443,7 +494,7 @@ void infobase::edit_list_to_go(int r, int c)
         kg.row_kg_now=r;
         auto itr=this->white_kg.find(kg);
         kg=*itr;
-        kg.go_to();
+        //kg.go_to();
         int cc,rr;
         for(int s:kg.list_kg)
         {
@@ -471,7 +522,7 @@ void infobase::edit_list_to_go(int r, int c)
         kg.row_kg_now=r;
         auto itr=this->white_kg.find(kg);
         kg=*itr;
-        kg.go_to();
+        //kg.go_to();
         int cc,rr;
         for(int s:kg.list_kg)
         {
@@ -493,6 +544,51 @@ void infobase::edit_list_to_go(int r, int c)
     }
 }
 
+bool infobase::delete_threat_king(int r, int c, string bOrW)
+{
+    //mohreh e mituneh tahdid konandeh ro bezaneh?
+    //bOrW: rang tahdid konandeh
+    if(bOrW=="b")
+    {
+      for(bishop b: this->white_b)
+          if(b.list_b.find(r*10+c)!= b.list_b.end())
+              return true;
+      for(pawn p: this->white_p)
+          if(p.list_p.find(r*10+c)!= p.list_p.end())
+              return true;
+      for(knight k:this->white_k)
+          if(k.list_k.find(r*10+c)!=k.list_k.end())
+              return true;
+      for(queen q :this->white_q)
+          if(q.list_q.find(r*10+c)!=q.list_q.end())
+              return true;
+      for(rook ro:this->white_r)
+          if(ro.list_r.find(r*10+c)!=ro.list_r.end())
+              return true;
+    }
+    else if(bOrW=="w")
+    {
+        for(bishop b: this->black_b)
+            if(b.list_b.find(r*10+c)!= b.list_b.end())
+                return true;
+        for(pawn p: this->black_p)
+            if(p.list_p.find(r*10+c)!= p.list_p.end())
+                return true;
+        for(knight k:this->black_k)
+            if(k.list_k.find(r*10+c)!=k.list_k.end())
+                return true;
+        for(queen q :this->black_q)
+            if(q.list_q.find(r*10+c)!=q.list_q.end())
+                return true;
+        for(rook ro:this->black_r)
+            if(ro.list_r.find(r*10+c)!=ro.list_r.end())
+                return true;
+    }
+    return false;
+}
+
+
+
 bool infobase::win()
 {
 
@@ -502,7 +598,7 @@ bool infobase::win()
         if(p.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"b")))
                     return true;
         }
     }
@@ -512,7 +608,7 @@ bool infobase::win()
         if(b.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(b.row_b_now,b.column_b_now,"b")))
                     return true;
         }
     }
@@ -522,7 +618,7 @@ bool infobase::win()
         if(kg.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"b")))
                     return true;
         }
     }
@@ -532,7 +628,7 @@ bool infobase::win()
         if(k.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"b")))
                     return true;
         }
     }
@@ -542,7 +638,7 @@ bool infobase::win()
         if(q.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(q.row_q_now,q.column_q_now,"b")))
                     return true;
         }
     }
@@ -552,135 +648,11 @@ bool infobase::win()
         if(r.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(r.row_r_now,r.column_r_now,"b")))
                     return true;
         }
     }
 
-    //black pieces & threat black king
-    for(pawn p: this->black_p)
-    {
-        if(p.threat_king==true)
-        {
-            for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(bishop b: this->black_b)
-    {
-        if(b.threat_king==true)
-        {
-            for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-//    for(king kg: this->black_kg)
-//    {
-//        if(kg.threat_king==true)
-//        {
-//            for(king kg:this->black_kg)
-//                if(kg.list_kg.empty())
-//                    return true;
-//        }
-//    }
-
-    for(knight k: this->black_k)
-    {
-        if(k.threat_king==true)
-        {
-            for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(queen q: this->black_q)
-    {
-        if(q.threat_king==true)
-        {
-            for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(rook r: this->black_r)
-    {
-        if(r.threat_king==true)
-        {
-            for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-
-        //white pieces &  threat white king
-
-    for(pawn p: this->white_p)
-    {
-        if(p.threat_king==true)
-        {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(bishop b: this->white_b)
-    {
-        if(b.threat_king==true)
-        {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-//    for(king kg: this->white_kg)
-//    {
-//        if(kg.threat_king==true)
-//        {
-//            for(king kg:this->white_kg)
-//                if(kg.list_kg.empty())
-//                    return true;
-//        }
-//    }
-
-
-    for(knight k: this->white_k)
-    {
-        if(k.threat_king==true)
-        {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(queen q: this->white_q)
-    {
-        if(q.threat_king==true)
-        {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
-
-    for(rook r: this->white_r)
-    {
-        if(r.threat_king==true)
-        {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty())
-                    return true;
-        }
-    }
 
         //white pieces &  threat black king
     for(pawn p: this->white_p)
@@ -688,7 +660,7 @@ bool infobase::win()
         if(p.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"w")))
                     return true;
         }
     }
@@ -698,7 +670,7 @@ bool infobase::win()
         if(b.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(b.row_b_now,b.column_b_now,"w")))
                     return true;
         }
     }
@@ -708,7 +680,7 @@ bool infobase::win()
         if(kg.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"w")))
                     return true;
         }
     }
@@ -718,7 +690,7 @@ bool infobase::win()
         if(k.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"w")))
                     return true;
         }
     }
@@ -728,7 +700,7 @@ bool infobase::win()
         if(q.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(q.row_q_now,q.column_q_now,"w")))
                     return true;
         }
     }
@@ -738,12 +710,11 @@ bool infobase::win()
         if(r.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty())
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(r.row_r_now,r.column_r_now,"w")))
                     return true;
         }
-    }
-
-
+   }
+    return false;
 
 }
 
