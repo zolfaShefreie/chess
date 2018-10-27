@@ -16,6 +16,7 @@ public:
     set<int> list_kg;
     void go_to();
     bool operator <(king const &k) const;
+    bool threat_king;
 };
 
 #endif // KING_H

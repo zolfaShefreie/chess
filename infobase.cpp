@@ -493,5 +493,259 @@ void infobase::edit_list_to_go(int r, int c)
     }
 }
 
+bool infobase::win()
+{
+
+    //black pieces &  threat white king
+    for(pawn p: this->black_p)
+    {
+        if(p.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(bishop b: this->black_b)
+    {
+        if(b.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(king kg: this->black_kg)
+    {
+        if(kg.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(knight k: this->black_k)
+    {
+        if(k.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(queen q: this->black_q)
+    {
+        if(q.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(rook r: this->black_r)
+    {
+        if(r.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    //black pieces & threat black king
+    for(pawn p: this->black_p)
+    {
+        if(p.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(bishop b: this->black_b)
+    {
+        if(b.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+//    for(king kg: this->black_kg)
+//    {
+//        if(kg.threat_king==true)
+//        {
+//            for(king kg:this->black_kg)
+//                if(kg.list_kg.empty())
+//                    return true;
+//        }
+//    }
+
+    for(knight k: this->black_k)
+    {
+        if(k.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(queen q: this->black_q)
+    {
+        if(q.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(rook r: this->black_r)
+    {
+        if(r.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+
+        //white pieces &  threat white king
+
+    for(pawn p: this->white_p)
+    {
+        if(p.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(bishop b: this->white_b)
+    {
+        if(b.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+//    for(king kg: this->white_kg)
+//    {
+//        if(kg.threat_king==true)
+//        {
+//            for(king kg:this->white_kg)
+//                if(kg.list_kg.empty())
+//                    return true;
+//        }
+//    }
+
+
+    for(knight k: this->white_k)
+    {
+        if(k.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(queen q: this->white_q)
+    {
+        if(q.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(rook r: this->white_r)
+    {
+        if(r.threat_king==true)
+        {
+            for(king kg:this->white_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+        //white pieces &  threat black king
+    for(pawn p: this->white_p)
+    {
+        if(p.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(bishop b: this->white_b)
+    {
+        if(b.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(king kg: this->white_kg)
+    {
+        if(kg.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(knight k: this->white_k)
+    {
+        if(k.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(queen q: this->white_q)
+    {
+        if(q.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+    for(rook r: this->white_r)
+    {
+        if(r.threat_king==true)
+        {
+            for(king kg:this->black_kg)
+                if(kg.list_kg.empty())
+                    return true;
+        }
+    }
+
+
+
+}
+
 
 

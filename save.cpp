@@ -7,110 +7,91 @@ save::save()
 
 }
 
-void save::bishop(infobase::nameOfItem bishop)
-{
-    if(bishop::is_bishop == this->present_position)
-    {
+//void save::bishop(infobase::nameOfItem bishop)
+//{
+//    if(bishop::is_bishop == this->present_position)
+//    {
 //        QList<int> save::qi()
 //        {
-            for(int i=0; i</* تعداد حرکات ممکن فیل*/ ; i++ )
-            {
+//            for(int i=0; i</* تعداد حرکات ممکن فیل*/ ; i++ )
+//            {
 
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
+//                next_position = present_position;
+//                present_position = prev_position;
+//                this->prev_position = NULL;
+//            }
 //        }
-    }
-}
-void save::king(infobase::nameOfItem king)
-{
+//    }
+//}
+//void save::king(infobase::nameOfItem king)
+//{
 
 
-    if(king::is_king == this->present_position)
-    {
-
-//        QList<int> save::qi()
-//        {
-            for(int i=0; i</* تعداد حرکات ممکن شاه*/ ; i++ )
-            {
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
-//        }
-    }
-}
-void save::knight(infobase::nameOfItem knight)
-{
-
-
-    if(knight::is_knight == this->present_position)
-    {
+//    if(king::is_king == this->present_position)
+//    {
 
 //        QList<int> save::qi()
 //        {
-            for(int i=0; i</* تعداد حرکات ممکن اسب*/ ; i++ )
-            {
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
+//            for(int i=0; i</* تعداد حرکات ممکن شاه*/ ; i++ )
+//            {
+//                next_position = present_position;
+//                present_position = prev_position;
+//                this->prev_position = NULL;
+//            }
 //        }
-    }
-}
-void save::pawn(infobase::nameOfItem pawn)
-{
+//    }
+//}
+//void save::knight(infobase::nameOfItem knight)
+//{
 
-    if(pawn::is_pawn == this->present_position)
-    {
+
+//    if(knight::is_knight == this->present_position)
+//    {
 
 //        QList<int> save::qi()
 //        {
-            for(int i=0; i</* تعداد حرکات ممکن سرباز*/ ; i++ )
-            {
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
+//            for(int i=0; i</* تعداد حرکات ممکن اسب*/ ; i++ )
+//            {
+//                next_position = present_position;
+//                present_position = prev_position;
+//                this->prev_position = NULL;
+//            }
 //        }
-    }
-}
-void save::queen(infobase::nameOfItem queen)
-{
+//    }
+//}
+//void save::pawn(infobase::nameOfItem pawn)
+//{
 
-    if(queen::is_queen == this->present_position)
-    {
+//    if(pawn::is_pawn == this->present_position)
+//    {
 
 //        QList<int> save::qi()
 //        {
-            for(int i=0; i</* تعداد حرکات ممکن وزیر*/ ; i++ )
-            {
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
+//            for(int i=0; i</* تعداد حرکات ممکن سرباز*/ ; i++ )
+//            {
+//                next_position = present_position;
+//                present_position = prev_position;
+//                this->prev_position = NULL;
+//            }
 //        }
-    }
-}
-void save::rook(infobase::nameOfItem rook)
-{
+//    }
+//}
+//void save::queen(infobase::nameOfItem queen)
+//{
 
-    if(rook::is_rook == this->present_position)
-    {
-
+//    if(queen::is_queen == this->present_position)
+//    {
 
 //        QList<int> save::qi()
 //        {
-            for(int i=0; i</* تعداد حرکات ممکن قلعه*/ ; i++ )
-            {
-                next_position = present_position;
-                present_position = prev_position;
-                this->prev_position = NULL;
-            }
-//        }
-    }
-}
+//            for(int i=0; i</* تعداد حرکات ممکن وزیر*/ ; i++ )
+//            {
+//                next_position = present_position;
+//                present_position = prev_position;
+//                this->prev_position = NULL;
+//            }
+
+
 
 
 

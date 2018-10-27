@@ -1,6 +1,7 @@
 #ifndef INFOBASE_H
 #define INFOBASE_H
 #include<set>
+#include <QList>
 #include<iterator>
 #include"bishop.h"
 #include"king.h"
@@ -8,7 +9,7 @@
 #include"pawn.h"
 #include"queen.h"
 #include"rook.h"
-
+#include "save.h"
 
 class infobase
 {
@@ -45,10 +46,11 @@ public:
     std::set<bishop> black_b;
     std::set<knight> black_k;
     std::set<rook> black_r;
-    // list zakhireh
+    QList<save> qs;
     infobase();
     nameOfItem find(int r,int c);
     void edit_list_to_go(int r,int c);
+    bool win();
 
 };
 
