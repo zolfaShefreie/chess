@@ -32,6 +32,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-rook-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-rook-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="a8_white">
     <property name="geometry">
@@ -50,6 +60,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-rook-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-rook-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="b8_black">
@@ -70,6 +90,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-knight-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-knight-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="c8_white">
     <property name="geometry">
@@ -88,6 +118,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-bishop-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-bishop-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="d8_black">
@@ -108,6 +148,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="e8_white">
     <property name="geometry">
@@ -126,6 +176,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="f8_black">
@@ -146,6 +206,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-bishop-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-bishop-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="a7_black">
     <property name="geometry">
@@ -164,6 +234,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="a6_white">
@@ -260,6 +340,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="c7_black">
     <property name="geometry">
@@ -278,6 +368,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="c6_white">
@@ -336,6 +436,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="f7_white">
     <property name="geometry">
@@ -354,6 +464,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="e7_black">
@@ -374,6 +494,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="d7_white">
     <property name="geometry">
@@ -392,6 +522,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="g7_black">
@@ -413,6 +553,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="a1_black">
     <property name="geometry">
@@ -431,6 +581,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-rook-50.png</normaloff>:/chess_icon/ches_icons/icons8-rook-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="a2_white">
@@ -451,6 +611,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="g8_white">
     <property name="geometry">
@@ -469,6 +639,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-knight-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-knight-filled-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="c5_black">
@@ -603,6 +783,16 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-bishop-50.png</normaloff>:/chess_icon/ches_icons/icons8-bishop-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="c2_white">
     <property name="geometry">
@@ -621,6 +811,16 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="c3_black">
@@ -679,6 +879,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-knight-50.png</normaloff>:/chess_icon/ches_icons/icons8-knight-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="b2_black">
     <property name="geometry">
@@ -697,6 +907,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="b3_white">
@@ -793,6 +1013,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="f5_white">
     <property name="geometry">
@@ -888,6 +1114,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="d3_white">
     <property name="geometry">
@@ -906,6 +1138,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="h4_black">
@@ -1002,6 +1240,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-bishop-50.png</normaloff>:/chess_icon/ches_icons/icons8-bishop-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="e1_black">
     <property name="geometry">
@@ -1020,6 +1268,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-king-50.png</normaloff>:/chess_icon/ches_icons/icons8-king-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="d1_white">
@@ -1040,6 +1298,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-queen-50.png</normaloff>:/chess_icon/ches_icons/icons8-queen-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="f2_black">
     <property name="geometry">
@@ -1058,6 +1326,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="e2_white">
@@ -1078,6 +1356,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="d2_black">
     <property name="geometry">
@@ -1096,6 +1384,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="h1_white">
@@ -1116,6 +1414,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-rook-50.png</normaloff>:/chess_icon/ches_icons/icons8-rook-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="g1_black">
     <property name="geometry">
@@ -1134,6 +1442,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-knight-50.png</normaloff>:/chess_icon/ches_icons/icons8-knight-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="g2_white">
@@ -1154,6 +1472,16 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="h2_black">
     <property name="geometry">
@@ -1172,6 +1500,16 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</normaloff>:/chess_icon/ches_icons/icons8-pawn-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="d6_black">
@@ -1250,7 +1588,7 @@ background:rgb(255, 207, 111);
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>580</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1260,13 +1598,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>c</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>470</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1276,13 +1614,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>b</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>1120</x>
+      <x>1140</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1292,13 +1630,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>h</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>1020</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1308,13 +1646,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>g</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>910</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1324,13 +1662,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>f</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>800</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1340,13 +1678,13 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>e</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>690</x>
       <y>930</y>
       <width>55</width>
       <height>31</height>
@@ -1356,7 +1694,135 @@ background:rgb(255, 207, 111);
      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>    a</string>
+     <string>d</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>830</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>500</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>390</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>280</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>610</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>730</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>170</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>60</y>
+      <width>55</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>8</string>
     </property>
    </widget>
   </widget>
@@ -1381,6 +1847,8 @@ background:rgb(255, 207, 111);
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
