@@ -22,10 +22,12 @@ public:
     int row;
     int column;
     //
-    QList<QToolButton*>* first_click;//mohre e ke enekhab shode harikat kuneh ro zakhireh mikuneh
+    QList<QToolButton*>* list_of_position;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    int check_count=0;
+    void checkChess();
+    void what_to_do(int,int);
 private slots:
     void on_a1_black_clicked();
 

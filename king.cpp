@@ -76,21 +76,21 @@ void king::go_to()
 void king::edit_list(int i, int j)
 {
     int r=this->row_kg_now,c=this->column_kg_now;
-    if(i==this->row_kg_now && j<this->column_kg_now)
+    if(i==this->row_kg_now && j<this->column_kg_now&& j-1!=c)
         this->list_kg.erase(r*10+c-1);
-    if(i==this->row_kg_now && j>this->column_kg_now)
+    if(i==this->row_kg_now && j>this->column_kg_now && j+1!=c)
         this->list_kg.erase(r*10+c+1);
-    if(j==this->column_kg_now && i<this->row_kg_now)
+    if(j==this->column_kg_now && i<this->row_kg_now && i-1!=r)
         this->list_kg.erase((r-1)*10+c);
-    if(j==this->column_kg_now && i>this->row_kg_now)
+    if(j==this->column_kg_now && i>this->row_kg_now && i+1!=r)
         this->list_kg.erase((r-1)*10+c);
-    if(i<this->row_kg_now && j>this->column_kg_now)
+    if(i<this->row_kg_now && j>this->column_kg_now && i-1!=r && j+1!=c)
          this->list_kg.erase((r-1)*10+c+1);
-    if(i<this->row_kg_now && j<this->column_kg_now)
+    if(i<this->row_kg_now && j<this->column_kg_now && i-1!=r && j-1!=c)
         this->list_kg.erase((r-1)*10+c-1);
-    if(i>this->row_kg_now && j<this->column_kg_now)
+    if(i>this->row_kg_now && j<this->column_kg_now &&  i+1!=r && j-1!=c)
         this->list_kg.erase((r+1)*10+c-1);
-    if(i>this->row_kg_now && j>this->column_kg_now)
+    if(i>this->row_kg_now && j>this->column_kg_now && i+1!=r && j+1!=c)
         this->list_kg.erase((r+1)*10+c+1);
 
 }

@@ -545,7 +545,7 @@ void infobase::edit_list_to_go(int r, int c)
     }
 }
 
-bool infobase::search_in_list(int r, int c, int r1, int c1)
+int infobase::search_in_list(int r, int c, int r1, int c1)
 {
     nameOfItem index= find(r,c);
 
@@ -556,9 +556,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         b.row_b_now=r;
         auto itr=this->black_b.find(b);
         b=(*itr);
+        if(b.list_b.empty()) return -1;
         if(b.list_b.find(r1*10+c1)==b.list_b.end())
-            return false;
-        else return true;
+            return 0;
+        else return 1;
 
     }
 
@@ -569,9 +570,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         b.row_b_now=r;
         auto itr=this->white_b.find(b);
         b=(*itr);
+        if(b.list_b.empty()) return -1;
         if(b.list_b.find(r1*10+c1)==b.list_b.end())
-            return false;
-        else return true;
+            return 0;
+        else return 1;
 
     }
 
@@ -582,9 +584,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         p.row_p_now=r;
         auto itr=this->black_p.find(p);
         p=*itr;
+        if(p.list_p.empty()) return -1;
         if(p.list_p.find(r1*10+c1)==p.list_p.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
 
     }
 
@@ -595,9 +598,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         p.row_p_now=r;
         auto itr=this->white_p.find(p);
         p=*itr;
+        if(p.list_p.empty()) return -1;
         if(p.list_p.find(r1*10+c1)==p.list_p.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==black_knight)
@@ -607,9 +611,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         k.row_k_now=r;
         auto itr=this->black_k.find(k);
         k=(*itr);
+        if(k.list_k.empty()) return -1;
         if(k.list_k.find(r1*10+c1)==k.list_k.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==white_knight)
@@ -619,9 +624,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         k.row_k_now=r;
         auto itr=this->white_k.find(k);
         k=(*itr);
+        if(k.list_k.empty())return -1;
         if(k.list_k.find(r1*10+c1)==k.list_k.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==black_queen)
@@ -631,9 +637,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         q.row_q_now=r;
         auto itr=this->black_q.find(q);
         q=(*itr);
+        if(q.list_q.empty())return -1;
         if(q.list_q.find(r1*10+c1)==q.list_q.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==white_queen)
@@ -643,9 +650,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         q.row_q_now=r;
         auto itr=this->white_q.find(q);
         q=(*itr);
+        if(q.list_q.empty())return -1;
         if(q.list_q.find(r1*10+c1)==q.list_q.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==black_rook)
@@ -655,9 +663,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         rook.row_r_now=r;
         auto itr=this->black_r.find(rook);
         rook=(*itr);
+        if(rook.list_r.empty())return -1;
         if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==white_rook)
@@ -667,9 +676,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         rook.row_r_now=r;
         auto itr=this->white_r.find(rook);
         rook=(*itr);
+        if(rook.list_r.empty())return -1;
         if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==white_king)
@@ -679,9 +689,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         kg.row_kg_now=r;
         auto itr=this->white_kg.find(kg);
         kg=*itr;
+        if(kg.list_kg.empty())return -1;
         if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
 
     if(index==black_king)
@@ -692,10 +703,10 @@ bool infobase::search_in_list(int r, int c, int r1, int c1)
         auto itr=this->black_kg.find(kg);
         kg=*itr;
         if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
-            return false;
-        return true;
+            return 0;
+        return 1;
     }
-    return false;
+    return 0;
 }
 
 QIcon infobase::get_icon(int r, int c)

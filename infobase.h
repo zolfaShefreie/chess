@@ -51,7 +51,7 @@ public:
     infobase();
     nameOfItem find(int r,int c);
     void edit_list_to_go(int r,int c);
-    bool search_in_list(int r,int c,int r1,int c1);
+    int search_in_list(int r,int c,int r1,int c1);
     QIcon get_icon(int r,int c);
     bool threat_king(int);
     //eskalat:

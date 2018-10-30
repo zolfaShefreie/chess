@@ -7,6 +7,80 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     db=new infobase();
+    //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
+    list_of_position->push_back(ui->a1_black);
+    list_of_position->push_back(ui->b1_white);
+    list_of_position->push_back(ui->c1_black);
+    list_of_position->push_back(ui->d1_white);
+    list_of_position->push_back(ui->e1_black);
+    list_of_position->push_back(ui->f1_white);
+    list_of_position->push_back(ui->g1_black);
+    list_of_position->push_back(ui->h1_white);
+
+    list_of_position->push_back(ui->a2_white);
+    list_of_position->push_back(ui->b2_black);
+    list_of_position->push_back(ui->c2_white);
+    list_of_position->push_back(ui->d2_black);
+    list_of_position->push_back(ui->e2_white);
+    list_of_position->push_back(ui->f2_black);
+    list_of_position->push_back(ui->g2_white);
+    list_of_position->push_back(ui->h2_black);
+
+    list_of_position->push_back(ui->a3_black);
+    list_of_position->push_back(ui->b3_white);
+    list_of_position->push_back(ui->c3_black);
+    list_of_position->push_back(ui->d3_white);
+    list_of_position->push_back(ui->e3_black);
+    list_of_position->push_back(ui->f3_white);
+    list_of_position->push_back(ui->g3_black);
+    list_of_position->push_back(ui->h3_white);
+
+    list_of_position->push_back(ui->a4_white);
+    list_of_position->push_back(ui->b4_black);
+    list_of_position->push_back(ui->c4_white);
+    list_of_position->push_back(ui->d4_black);
+    list_of_position->push_back(ui->e4_white);
+    list_of_position->push_back(ui->f4_black);
+    list_of_position->push_back(ui->g4_white);
+    list_of_position->push_back(ui->h4_black);
+
+    list_of_position->push_back(ui->a5_black);
+    list_of_position->push_back(ui->b5_white);
+    list_of_position->push_back(ui->c5_black);
+    list_of_position->push_back(ui->d5_white);
+    list_of_position->push_back(ui->e5_black);
+    list_of_position->push_back(ui->f5_white);
+    list_of_position->push_back(ui->g5_black);
+    list_of_position->push_back(ui->h5_white);
+
+    list_of_position->push_back(ui->a6_white);
+    list_of_position->push_back(ui->b6_black);
+    list_of_position->push_back(ui->c6_white);
+    list_of_position->push_back(ui->d6_black);
+    list_of_position->push_back(ui->e6_white);
+    list_of_position->push_back(ui->f6_black);
+    list_of_position->push_back(ui->g6_white);
+    list_of_position->push_back(ui->h6_black);
+
+    list_of_position->push_back(ui->a7_black);
+    list_of_position->push_back(ui->b7_white);
+    list_of_position->push_back(ui->c7_black);
+    list_of_position->push_back(ui->d7_white);
+    list_of_position->push_back(ui->e7_black);
+    list_of_position->push_back(ui->f7_white);
+    list_of_position->push_back(ui->g7_black);
+    list_of_position->push_back(ui->h7_white);
+
+    list_of_position->push_back(ui->a8_white);
+    list_of_position->push_back(ui->b8_black);
+    list_of_position->push_back(ui->c8_white);
+    list_of_position->push_back(ui->d8_black);
+    list_of_position->push_back(ui->e8_white);
+    list_of_position->push_back(ui->f8_black);
+    list_of_position->push_back(ui->g8_white);
+    list_of_position->push_back(ui->h8_black);
+//
+
 
 
 }
@@ -16,13 +90,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_a1_black_clicked()
+void MainWindow::checkChess()
+{
+    //agar shah kish shod rang kaneh shah taghir konad va agar user tavajohi be kish shodan shah nakonad payan bazi e'lam shavad
+}
+
+void MainWindow::what_to_do(int r_positon, int  c_position)
 {
     /* chizaie ke check nakardam:
        kish
         win
         dasrasi kilid haie ke mitunan as shah kish shode mohafezat kunan */
-    infobase::nameOfItem index=db->find(0,0);
+    infobase::nameOfItem index=db->find(r_positon,c_position);
     if((turn!=0&&index>7)||(turn!=1&&index<8))
     {
         QMessageBox*message=new QMessageBox();
@@ -36,43 +115,55 @@ void MainWindow::on_a1_black_clicked()
         {
            if(db->find(row,column)!=infobase::none_of_them)
            {
-               first_click->append(ui->a1_black);
-               db->edit_list_to_go(0,0);
+               list_of_position->append(ui->a1_black);
+               db->edit_list_to_go(r_positon,c_position);
                count_click=1;
-               row=0;
-               column=0;
+               row=r_positon;
+               column=c_position;
 
            }
         }
         else if(count_click==1)
         {
-            if(db->search_in_list(row,column,0,0))
+            int sil=db->search_in_list(row,column,r_positon,c_position);
+            if(sil==1)
             {
                 save s;
                 s.present_position_r=row;
                 s.present_position_c=column;
-                s.prev_position_c=0;
-                s.prev_position_r=0;
+                s.prev_position_c=r_positon;
+                s.prev_position_r=c_position;
                 db->qs.push_back(s);
 
                 QIcon c;
-                first_click->at(0)->setIcon(c);
-                ui->a1_black->setIcon(db->get_icon(0,0));
+                list_of_position->at(0)->setIcon(c);
+                ui->a1_black->setIcon(db->get_icon(r_positon,c_position));
 
                 count_click=0;
                 turn=1;
             }
-            else
+            else if(sil==0)
             {
                 QMessageBox*message=new QMessageBox();
                 message->setText("invalid button");
                 message->show();
             }
+            else if(sil==-1)
+            {
+                QMessageBox*message=new QMessageBox();
+                message->setText(" mohreh  nemituneh harikat koneh mohre ye digiee ro entekhab konid ");
+                message->show();
+                count_click=0;
+            }
 
         }
     }
 
+}
 
+void MainWindow::on_a1_black_clicked()
+{
+    what_to_do(0,0);
 }
 
 void MainWindow::on_b1_white_clicked()
