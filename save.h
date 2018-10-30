@@ -9,11 +9,10 @@ class save
 {
 public:
     save();
-    int prev_position;
+    int prev_position_r;
+    int prev_position_c;
     int present_position_c;
     int present_position_r;
-
-    int next_position;
 
 //    QList<int> qi;
 

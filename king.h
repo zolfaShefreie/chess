@@ -2,6 +2,7 @@
 #define KING_H
 #include<QList>
 #include<set>
+
 using namespace std;
 
 class king

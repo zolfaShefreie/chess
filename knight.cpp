@@ -10,6 +10,7 @@ knight::knight(int r, int c)
     this->row_k_now=r;
 }
 
+
 void knight::go_to()
 {
     threat_king=false;

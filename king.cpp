@@ -11,6 +11,7 @@ king::king(int r, int c)
 
 }
 
+
 void king::go_to()
 {
     this->list_kg.clear();

@@ -142,12 +142,13 @@ infobase::nameOfItem infobase::find(int r, int c)
 void infobase::edit_list_to_go(int r, int c)
 {
     //
+    nameOfItem ind=find(r,c);
     for(king kingb:this->black_kg)
         kingb.go_to();
     for(king kingw:this->white_kg)
         kingw.go_to();
     nameOfItem index;
-    if(find(r,c)==black_bishop)
+    if(ind==black_bishop)
     {   
         bishop b;
         b.column_b_now=c;
@@ -183,7 +184,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==white_bishop)
+    if(ind==white_bishop)
     {
         bishop b;
         b.column_b_now=c;
@@ -220,7 +221,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     }
 
-    if(find(r,c)==black_pawn)
+    if(ind==black_pawn)
     {
         pawn p;
         p.column_p_now=c;
@@ -261,7 +262,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     }
 
-    if(find(r,c)==white_pawn)
+    if(ind==white_pawn)
     {
         pawn p;
         p.column_p_now=c;
@@ -301,7 +302,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==black_knight)
+    if(ind==black_knight)
     {
         knight k;
         k.column_k_now=c;
@@ -331,7 +332,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     }
 
-    if(find(r,c)==white_knight)
+    if(ind==white_knight)
     {
         knight k;
         k.column_k_now=c;
@@ -361,7 +362,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     }
 
-    if(find(r,c)==black_queen)
+    if(ind==black_queen)
     {
         queen q;
         q.column_q_now=c;
@@ -394,7 +395,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==white_queen)
+    if(ind==white_queen)
     {
         queen q;
         q.column_q_now=c;
@@ -425,7 +426,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==black_rook)
+    if(ind==black_rook)
     {
         rook r1;
         r1.column_r_now=c;
@@ -456,7 +457,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==white_rook)
+    if(ind==white_rook)
     {
         rook r1;
         r1.column_r_now=c;
@@ -487,7 +488,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==white_king)
+    if(ind==white_king)
     {
         king kg;
         kg.column_kg_now=c;
@@ -515,7 +516,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(find(r,c)==black_king)
+    if(ind==black_king)
     {
         king kg;
         kg.column_kg_now=c;
@@ -542,6 +543,291 @@ void infobase::edit_list_to_go(int r, int c)
             }
         }
     }
+}
+
+bool infobase::search_in_list(int r, int c, int r1, int c1)
+{
+    nameOfItem index= find(r,c);
+
+    if(index==black_bishop)
+    {
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        auto itr=this->black_b.find(b);
+        b=(*itr);
+        if(b.list_b.find(r1*10+c1)==b.list_b.end())
+            return false;
+        else return true;
+
+    }
+
+    if(index==white_bishop)
+    {
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        auto itr=this->white_b.find(b);
+        b=(*itr);
+        if(b.list_b.find(r1*10+c1)==b.list_b.end())
+            return false;
+        else return true;
+
+    }
+
+    if(index==black_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        auto itr=this->black_p.find(p);
+        p=*itr;
+        if(p.list_p.find(r1*10+c1)==p.list_p.end())
+            return false;
+        return true;
+
+    }
+
+    if(index==white_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        auto itr=this->white_p.find(p);
+        p=*itr;
+        if(p.list_p.find(r1*10+c1)==p.list_p.end())
+            return false;
+        return true;
+    }
+
+    if(index==black_knight)
+    {
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        auto itr=this->black_k.find(k);
+        k=(*itr);
+        if(k.list_k.find(r1*10+c1)==k.list_k.end())
+            return false;
+        return true;
+    }
+
+    if(index==white_knight)
+    {
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        auto itr=this->white_k.find(k);
+        k=(*itr);
+        if(k.list_k.find(r1*10+c1)==k.list_k.end())
+            return false;
+        return true;
+    }
+
+    if(index==black_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        auto itr=this->black_q.find(q);
+        q=(*itr);
+        if(q.list_q.find(r1*10+c1)==q.list_q.end())
+            return false;
+        return true;
+    }
+
+    if(index==white_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        auto itr=this->white_q.find(q);
+        q=(*itr);
+        if(q.list_q.find(r1*10+c1)==q.list_q.end())
+            return false;
+        return true;
+    }
+
+    if(index==black_rook)
+    {
+        rook rook;
+        rook.column_r_now=c;
+        rook.row_r_now=r;
+        auto itr=this->black_r.find(rook);
+        rook=(*itr);
+        if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
+            return false;
+        return true;
+    }
+
+    if(index==white_rook)
+    {
+        rook rook;
+        rook.column_r_now=c;
+        rook.row_r_now=r;
+        auto itr=this->white_r.find(rook);
+        rook=(*itr);
+        if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
+            return false;
+        return true;
+    }
+
+    if(index==white_king)
+    {
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        auto itr=this->white_kg.find(kg);
+        kg=*itr;
+        if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
+            return false;
+        return true;
+    }
+
+    if(index==black_king)
+    {
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        auto itr=this->black_kg.find(kg);
+        kg=*itr;
+        if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
+            return false;
+        return true;
+    }
+    return false;
+}
+
+QIcon infobase::get_icon(int r, int c)
+{
+    QIcon icon;
+    nameOfItem index=this->find(r,c);
+    if(index==1)
+       icon.setThemeName(":/chess_icon/ches_icons/icons8-pawn-filled-50.png");
+    else if(index==2)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-king-filled-50.png");
+    else if(index==3)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-bishop-filled-50.png");
+    else if(index==4)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-knight-filled-50.png");
+    else if(index==5)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-queen-filled-50.png");
+    else if(index==6)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-rook-filled-50.png");
+    else if(index==7)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-pawn-50.png");
+    else if(index==8)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-king-50.png");
+    else if(index==9)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-bishop-50.png");
+    else if(index==10)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-knight-50.png");
+    else if(index==11)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-queen-50.png");
+    else if(index==12)
+        icon.setThemeName(":/chess_icon/ches_icons/icons8-rook-50.png");
+    return icon;
+
+
+}
+
+bool infobase::threat_king(int bOrW)
+{
+    //black pieces &  threat white king
+    if(bOrW==0)
+    {
+    for(pawn p: this->black_p)
+    {
+        this->edit_list_to_go(p.row_p_now,p.column_p_now);
+        if(p.threat_king==true)
+            return true;
+    }
+
+    for(bishop b: this->black_b)
+    {
+        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+        if(b.threat_king==true)
+            return true;
+
+    }
+
+    for(king kg: this->black_kg)
+    {
+        this->edit_list_to_go(kg.row_kg_now,kg.column_kg_now);
+        if(kg.threat_king==true)
+            return true;
+    }
+
+    for(knight k: this->black_k)
+    {
+        this->edit_list_to_go(k.row_k_now,k.column_k_now);
+        if(k.threat_king==true)
+            return true;
+    }
+
+    for(queen q: this->black_q)
+    {
+        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+        if(q.threat_king==true)
+            return true;
+    }
+
+    for(rook r: this->black_r)
+    {
+        this->edit_list_to_go(r.row_r_now,r.column_r_now);
+        if(r.threat_king==true)
+            return true;
+    }
+    }
+    else if(bOrW==1)
+    {
+        //white pieces &  threat black king
+    for(pawn p: this->white_p)
+    {
+        this->edit_list_to_go(p.row_p_now,p.column_p_now);
+        if(p.threat_king==true)
+            return true;
+    }
+
+    for(bishop b: this->white_b)
+    {
+        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+        if(b.threat_king==true)
+            return true;
+    }
+
+    for(king kg: this->white_kg)
+    {
+        this->edit_list_to_go(kg.row_kg_now,kg.column_kg_now);
+        if(kg.threat_king==true)
+            return true;
+    }
+
+    for(knight k: this->white_k)
+    {
+        this->edit_list_to_go(k.row_k_now,k.column_k_now);
+        if(k.threat_king==true)
+            return true;
+    }
+
+    for(queen q: this->white_q)
+    {
+        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+        if(q.threat_king==true)
+            return true;
+    }
+
+    for(rook r: this->white_r)
+    {
+        if(r.threat_king==true)
+        {
+            this->edit_list_to_go(r.row_r_now,r.column_r_now);
+            if(r.threat_king==true)
+                return true;
+        }
+   }
+    }
+    return false;
 }
 
 bool infobase::delete_threat_king(int r, int c, string bOrW)
