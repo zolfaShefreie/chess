@@ -54,6 +54,7 @@ public:
     int search_in_list(int r,int c,int r1,int c1);
     QIcon get_icon(int r,int c);
     bool threat_king(int);
+    bool vindicative(int,int,int);
     //eskalat:
     //1.mohreh fadashvandeh
     //2.jaygaha e ke shah bere tahdid mishe ro hazf nakardim

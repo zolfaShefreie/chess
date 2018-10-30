@@ -73,6 +73,7 @@ void king::go_to()
 
 }
 
+
 void king::edit_list(int i, int j)
 {
     int r=this->row_kg_now,c=this->column_kg_now;

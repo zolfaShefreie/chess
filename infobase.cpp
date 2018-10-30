@@ -841,6 +841,505 @@ bool infobase::threat_king(int bOrW)
     return false;
 }
 
+bool infobase::vindicative(int bOrW, int i, int j)
+{
+    // mohreie peyda mishe ke rah tahdid konandeh ro sad koneh?
+    if(bOrW==0)//white king
+    {
+        king kg= *(this->white_kg.begin());
+        nameOfItem index=this->find(i,j);
+        if(index!= black_knight && index!= black_pawn)
+        {
+            int r=kg.row_kg_now,c=kg.column_kg_now;
+            if(i==r && j<c&& j-1!=c)
+            {
+                for(int k=c-1;k>=j+1;k--)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,i,k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,i,k))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,i,k))
+                            return true;
+                    }
+                }
+            }
+
+            else if(i==r && j>c && j+1!=c)
+            {
+                for(int k=c+1;k<=j;k++)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,i,k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,i,k))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,i,k))
+                            return true;
+                    }
+                }
+            }
+
+            else if(j==c && i<r && i-1!=r)
+            {
+                for(int k=r-1;k>=i+1;k--)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,k,j))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,k,j))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,k,j))
+                            return true;
+                    }
+                }
+            }
+            else if(j==c && i>r && i+1!=r)
+            {
+                for(int k=r+1;k<=i-1;k--)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,k,j))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,k,j))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,k,j))
+                            return true;
+                    }
+
+                }
+            }
+            else if(i<r && j>c && i-1!=r && j+1!=c)
+                {
+                    for(int k=1;k<=j-c-1;k++)
+                    {
+
+                        for(bishop b: this->white_b)
+                        {
+                            this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                            if(this->search_in_list(b.row_b_now,b.column_b_now,r-k,c+k))
+                                return true;
+
+                        }
+
+
+                        for(queen q: this->white_q)
+                        {
+                            this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                            if(this->search_in_list(q.row_q_now,q.column_q_now,r-k,c+k))
+                                return true;
+                        }
+
+                        for(rook ro: this->white_r)
+                        {
+                            this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                            if(this->search_in_list(ro.row_r_now,ro.column_r_now,r-k,c+k))
+                                return true;
+                        }
+                    }
+                }
+            else if(i<r && j<c && i-1!=r && j-1!=c)
+            {
+                for(int k=1;k<=c-j-1;k++)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r-k,c-k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r-k,c-k))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r-k,c-k))
+                            return true;
+                    }
+                }
+            }
+            else if(i>r && j<c &&  i+1!=r && j-1!=c)
+            {
+                for(int k=1;k<=c-j-1;k++)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r+k,c-k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r+k,c-k))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r+k,c-k))
+                            return true;
+                    }
+                }
+            }
+            else if(i>r && j>c && i+1!=r && j+1!=c)
+            {
+                for(int k=1;k<=j-c-1;k++)
+                {
+
+                    for(bishop b: this->white_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r+k,c+k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->white_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r+k,c+k))
+                            return true;
+                    }
+
+                    for(rook ro: this->white_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r+k,c+k))
+                            return true;
+                    }
+                }
+            }
+
+        }
+        else return false;
+    }
+    else if(bOrW==1)//black king
+    {
+        king kg= *(this->black_kg.begin());
+        nameOfItem index=this->find(i,j);
+        if(index!= white_knight && index!= white_pawn && index!=white_king)
+        {
+            int r=kg.row_kg_now,c=kg.column_kg_now;
+            if(i==r && j<c&& j-1!=c)
+            {
+                for(int k=c-1;k>=j+1;k--)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,i,k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,i,k))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,i,k))
+                            return true;
+                    }
+                }
+            }
+
+            else if(i==r && j>c && j+1!=c)
+            {
+                for(int k=c+1;k<=j;k++)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,i,k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,i,k))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,i,k))
+                            return true;
+                    }
+                }
+            }
+
+            else if(j==c && i<r && i-1!=r)
+            {
+                for(int k=r-1;k>=i+1;k--)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,k,j))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,k,j))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,k,j))
+                            return true;
+                    }
+                }
+            }
+            else if(j==c && i>r && i+1!=r)
+            {
+                for(int k=r+1;k<=i-1;k--)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,k,j))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,k,j))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,k,j))
+                            return true;
+                    }
+
+                }
+            }
+            else if(i<r && j>c && i-1!=r && j+1!=c)
+                {
+                    for(int k=1;k<=j-c-1;k++)
+                    {
+
+                        for(bishop b: this->black_b)
+                        {
+                            this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                            if(this->search_in_list(b.row_b_now,b.column_b_now,r-k,c+k))
+                                return true;
+
+                        }
+
+
+                        for(queen q: this->black_q)
+                        {
+                            this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                            if(this->search_in_list(q.row_q_now,q.column_q_now,r-k,c+k))
+                                return true;
+                        }
+
+                        for(rook ro: this->black_r)
+                        {
+                            this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                            if(this->search_in_list(ro.row_r_now,ro.column_r_now,r-k,c+k))
+                                return true;
+                        }
+                    }
+                }
+            else if(i<r && j<c && i-1!=r && j-1!=c)
+            {
+                for(int k=1;k<=c-j-1;k++)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r-k,c-k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r-k,c-k))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r-k,c-k))
+                            return true;
+                    }
+                }
+            }
+            else if(i>r && j<c &&  i+1!=r && j-1!=c)
+            {
+                for(int k=1;k<=c-j-1;k++)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r+k,c-k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r+k,c-k))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r+k,c-k))
+                            return true;
+                    }
+                }
+            }
+            else if(i>r && j>c && i+1!=r && j+1!=c)
+            {
+                for(int k=1;k<=j-c-1;k++)
+                {
+
+                    for(bishop b: this->black_b)
+                    {
+                        this->edit_list_to_go(b.row_b_now,b.column_b_now);
+                        if(this->search_in_list(b.row_b_now,b.column_b_now,r+k,c+k))
+                            return true;
+
+                    }
+
+
+                    for(queen q: this->black_q)
+                    {
+                        this->edit_list_to_go(q.row_q_now,q.column_q_now);
+                        if(this->search_in_list(q.row_q_now,q.column_q_now,r+k,c+k))
+                            return true;
+                    }
+
+                    for(rook ro: this->black_r)
+                    {
+                        this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
+                        if(this->search_in_list(ro.row_r_now,ro.column_r_now,r+k,c+k))
+                            return true;
+                    }
+                }
+            }
+
+        }
+        else return false;
+    }
+    return false;
+
+}
+
 bool infobase::delete_threat_king(int r, int c, string bOrW)
 {
     //mohreh e mituneh tahdid konandeh ro bezaneh?

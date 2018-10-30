@@ -115,7 +115,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
         {
            if(db->find(row,column)!=infobase::none_of_them)
            {
-               list_of_position->append(ui->a1_black);
+               //list_of_position->append(ui->a1_black);
                db->edit_list_to_go(r_positon,c_position);
                count_click=1;
                row=r_positon;
@@ -136,7 +136,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                 db->qs.push_back(s);
 
                 QIcon c;
-                list_of_position->at(0)->setIcon(c);
+                list_of_position->at(row*8+column)->setIcon(c);
                 ui->a1_black->setIcon(db->get_icon(r_positon,c_position));
 
                 count_click=0;
@@ -168,160 +168,160 @@ void MainWindow::on_a1_black_clicked()
 
 void MainWindow::on_b1_white_clicked()
 {
-
+    what_to_do(0,1);
 }
 
 void MainWindow::on_c1_black_clicked()
 {
-
+    what_to_do(0,2);
 }
 
 void MainWindow::on_d1_white_clicked()
 {
-
+    what_to_do(0,3);
 }
 
 void MainWindow::on_e1_black_clicked()
 {
-
+    what_to_do(0,4);
 }
 
 void MainWindow::on_f1_white_clicked()
 {
-
+    what_to_do(0,5);
 }
 
 void MainWindow::on_g1_black_clicked()
 {
-
+    what_to_do(0,6);
 }
 
 void MainWindow::on_h1_white_clicked()
 {
-
+    what_to_do(0,7);
 }
 
 void MainWindow::on_a2_white_clicked()
 {
-
+    what_to_do(1,0);
 }
 
 void MainWindow::on_b2_black_clicked()
 {
-
+    what_to_do(1,1);
 }
 
 void MainWindow::on_c2_white_clicked()
 {
-
+    what_to_do(1,2);
 }
 
 void MainWindow::on_d2_black_clicked()
 {
-
+    what_to_do(1,3);
 }
 
 void MainWindow::on_e2_white_clicked()
 {
-
+    what_to_do(1,4);
 }
 
 void MainWindow::on_f2_black_clicked()
 {
-
+    what_to_do(1,5);
 }
 
 void MainWindow::on_g2_white_clicked()
 {
-
+    what_to_do(1,6);
 }
 
 void MainWindow::on_h2_black_clicked()
 {
-
+    what_to_do(1,7);
 }
 
 void MainWindow::on_a3_black_clicked()
 {
-
+    what_to_do(2,0);
 }
 
 void MainWindow::on_b3_white_clicked()
 {
-
+    what_to_do(2,1);
 }
 
 void MainWindow::on_c3_black_clicked()
 {
-
+    what_to_do(2,2);
 }
 
 void MainWindow::on_d3_white_clicked()
 {
-
+    what_to_do(2,3);
 }
 
 void MainWindow::on_e3_black_clicked()
 {
-
+    what_to_do(2,4);
 }
 
 void MainWindow::on_f3_white_clicked()
 {
-
+    what_to_do(2,5);
 }
 
 void MainWindow::on_g3_black_clicked()
 {
-
+    what_to_do(2,6);
 }
 
 void MainWindow::on_h3_white_clicked()
 {
-
+    what_to_do(2,7);
 }
 
 void MainWindow::on_a4_white_clicked()
 {
-
+    what_to_do(3,0);
 }
 
 void MainWindow::on_b4_black_clicked()
 {
-
+    what_to_do(3,1);
 }
 
 void MainWindow::on_c4_white_clicked()
 {
-
+    what_to_do(3,2);
 }
 
 void MainWindow::on_d4_black_clicked()
 {
-
+    what_to_do(3,3);
 }
 
 void MainWindow::on_e4_white_clicked()
 {
-
+    what_to_do(3,4);
 }
 
 void MainWindow::on_f4_black_clicked()
 {
-
+    what_to_do(3,5);
 }
 
 void MainWindow::on_g4_white_clicked()
 {
-
+    what_to_do(3,6);
 }
 
 void MainWindow::on_h4_black_clicked()
 {
-
+    what_to_do(3,7);
 }
 
 void MainWindow::on_a5_black_clicked()
 {
-
+    what_to_do(4,0);
 }
