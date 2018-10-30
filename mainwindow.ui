@@ -1569,7 +1569,7 @@ background:rgb(255, 207, 111);
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="a">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -1585,7 +1585,7 @@ background:rgb(255, 207, 111);
      <string>    a</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="c">
     <property name="geometry">
      <rect>
       <x>580</x>
@@ -1601,7 +1601,7 @@ background:rgb(255, 207, 111);
      <string>c</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="b">
     <property name="geometry">
      <rect>
       <x>470</x>
@@ -1617,7 +1617,7 @@ background:rgb(255, 207, 111);
      <string>b</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="h">
     <property name="geometry">
      <rect>
       <x>1140</x>
@@ -1633,7 +1633,7 @@ background:rgb(255, 207, 111);
      <string>h</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="g">
     <property name="geometry">
      <rect>
       <x>1020</x>
@@ -1649,7 +1649,7 @@ background:rgb(255, 207, 111);
      <string>g</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="f">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -1665,7 +1665,7 @@ background:rgb(255, 207, 111);
      <string>f</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="e">
     <property name="geometry">
      <rect>
       <x>800</x>
@@ -1681,7 +1681,7 @@ background:rgb(255, 207, 111);
      <string>e</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_9">
+   <widget class="QLabel" name="d">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -1697,7 +1697,7 @@ background:rgb(255, 207, 111);
      <string>d</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="r1">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1713,7 +1713,7 @@ background:rgb(255, 207, 111);
      <string>1</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_10">
+   <widget class="QLabel" name="r4">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1729,7 +1729,7 @@ background:rgb(255, 207, 111);
      <string>4</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_11">
+   <widget class="QLabel" name="r5">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1745,7 +1745,7 @@ background:rgb(255, 207, 111);
      <string>5</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_12">
+   <widget class="QLabel" name="r6">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1761,7 +1761,7 @@ background:rgb(255, 207, 111);
      <string>6</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_13">
+   <widget class="QLabel" name="r3">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1777,7 +1777,7 @@ background:rgb(255, 207, 111);
      <string>3</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_14">
+   <widget class="QLabel" name="r2">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1793,7 +1793,7 @@ background:rgb(255, 207, 111);
      <string>2</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_15">
+   <widget class="QLabel" name="r7">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1809,7 +1809,7 @@ background:rgb(255, 207, 111);
      <string>7</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_16">
+   <widget class="QLabel" name="r8">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -1823,6 +1823,32 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string>8</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="player1">
+    <property name="geometry">
+     <rect>
+      <x>44</x>
+      <y>100</y>
+      <width>191</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="player2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>190</y>
+      <width>191</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
