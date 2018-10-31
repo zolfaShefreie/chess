@@ -841,6 +841,7 @@ bool infobase::threat_king(int bOrW)
     return false;
 }
 
+
 bool infobase::vindicative(int bOrW, int i, int j)
 {
     // mohreie peyda mishe ke rah tahdid konandeh ro sad koneh?
@@ -1339,7 +1340,6 @@ bool infobase::vindicative(int bOrW, int i, int j)
     return false;
 
 }
-
 bool infobase::delete_threat_king(int r, int c, string bOrW)
 {
     //mohreh e mituneh tahdid konandeh ro bezaneh?
