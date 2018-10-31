@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     bishop.cpp \
     queen.cpp \
     save.cpp \
-    infobase.cpp
+    infobase.cpp \
+    start_page.cpp
 
 HEADERS  += mainwindow.h \
     knight.h \
@@ -31,9 +32,12 @@ HEADERS  += mainwindow.h \
     bishop.h \
     queen.h \
     save.h \
-    infobase.h
+    infobase.h \
+    start_page.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    start_page.ui
 
 RESOURCES += \
-    icons.qrc
+    icons.qrc \
+    chessboard_photo.qrc

@@ -6,6 +6,7 @@
 #include<QToolButton>
 #include<QMessageBox>
 #include<QIcon>
+#include"start_page.h"
 namespace Ui {
 class MainWindow;
 }
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    start_page *s;
     infobase * db;
     int turn=0;  //0=white   1=black
     int count_click=0;//0=the peice want to move   1=where
