@@ -28,7 +28,7 @@ public:
 
     int check_count=0;
 
-    void EndGame();
+    void EndGame(int bOrW);
 
     void checkChess(int);
 
@@ -106,6 +106,68 @@ private slots:
     void on_Back_clicked();
 
     void change_label_color();
+
+    void on_b5_white_clicked();
+
+    void on_c5_black_clicked();
+
+    void on_d5_white_clicked();
+
+    void on_e5_black_clicked();
+
+    void on_f5_white_clicked();
+
+    void on_g5_black_clicked();
+
+    void on_h5_white_clicked();
+
+    void on_a6_white_clicked();
+
+    void on_b6_black_clicked();
+
+    void on_c6_white_clicked();
+
+    void on_d6_black_clicked();
+
+    void on_e6_white_clicked();
+
+    void on_f6_black_clicked();
+
+    void on_g6_white_clicked();
+
+    void on_h6_black_clicked();
+
+    void on_a7_black_clicked();
+
+    void on_b7_white_clicked();
+
+    void on_c7_black_clicked();
+
+    void on_d7_white_clicked();
+
+    void on_e7_black_clicked();
+
+    void on_f7_white_clicked();
+
+    void on_g7_black_clicked();
+
+    void on_h7_white_clicked();
+
+    void on_a8_white_clicked();
+
+    void on_b8_black_clicked();
+
+    void on_c8_white_clicked();
+
+    void on_d8_black_clicked();
+
+    void on_e8_white_clicked();
+
+    void on_f8_black_clicked();
+
+    void on_g8_white_clicked();
+
+    void on_h8_black_clicked();
 
 private:
     Ui::MainWindow *ui;

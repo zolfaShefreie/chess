@@ -14,14 +14,10 @@ public:
     int present_position_c;
     int present_position_r;
 
-//    QList<int> qi;
+    int deleted_item=0;//this num must be like infobase::nameOfItem
+    int deleted_item_r=-1;
+    int deleted_item_c=-1;
 
-//    void bishop(infobase::nameOfItem bishop);
-//    void king(infobase::nameOfItem king);
-//    void knight(infobase::nameOfItem knight);
-//    void pawn(infobase::nameOfItem pawn);
-//    void queen(infobase::nameOfItem queen);
-//    void rook(infobase::nameOfItem rook);
 };
 
 #endif // SAVE_H

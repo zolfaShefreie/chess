@@ -139,14 +139,28 @@ infobase::nameOfItem infobase::find(int r, int c)
 
 }
 
+void infobase::add_a_piece(int r, int c, int which_item)
+{
+    // number of which_item likes nameOfItem
+    if(which_item==1)
+    {
+        pawn p;
+        p.row_p_now=r;
+        p.column_p_now=c;
+        p.p_checked=false;
+        this->black_p.insert(p);
+    }
+    else if(which_item==2)
+    {
+
+    }
+
+}
+
 void infobase::edit_list_to_go(int r, int c)
 {
     //
     nameOfItem ind=find(r,c);
-    for(king kingb:this->black_kg)
-        kingb.go_to();
-    for(king kingw:this->white_kg)
-        kingw.go_to();
     nameOfItem index;
     if(ind==black_bishop)
     {   
@@ -155,6 +169,7 @@ void infobase::edit_list_to_go(int r, int c)
         b.row_b_now=r;
         auto itr=this->black_b.find(b);
         b=(*itr);
+        this->black_b.erase(b);
         b.go_to();
         int cc,rr;
         for(int s:b.list_b)
@@ -182,6 +197,7 @@ void infobase::edit_list_to_go(int r, int c)
                b.remove_some_mem(cc,rr);
            }
         }
+        this->black_b.insert(b);
     }
 
     if(ind==white_bishop)
@@ -191,6 +207,7 @@ void infobase::edit_list_to_go(int r, int c)
         b.row_b_now=r;
         auto itr=this->white_b.find(b);
         b=(*itr);
+        this->white_b.erase(b);
         b.go_to();
         int cc,rr;
         for(int s:b.list_b)
@@ -218,6 +235,7 @@ void infobase::edit_list_to_go(int r, int c)
                b.remove_some_mem(cc,rr);
            }
         }
+        this->white_b.insert(b);
 
     }
 
@@ -228,6 +246,7 @@ void infobase::edit_list_to_go(int r, int c)
         p.row_p_now=r;
         auto itr=this->black_p.find(p);
         p=*itr;
+        this->black_p.erase(p);
         p.go_to();
         int cc,rr;
         for(int s:p.list_p)
@@ -257,6 +276,7 @@ void infobase::edit_list_to_go(int r, int c)
                         }
                     }
             }
+            this->black_p.insert(p);
 
         }
 
@@ -269,6 +289,7 @@ void infobase::edit_list_to_go(int r, int c)
         p.row_p_now=r;
         auto itr=this->white_p.find(p);
         p=*itr;
+        this->white_p.erase(p);
         p.go_to();
         int cc,rr;
         for(int s:p.list_p)
@@ -298,6 +319,7 @@ void infobase::edit_list_to_go(int r, int c)
                         }
                     }
             }
+            this->white_p.insert(p);
 
         }
     }
@@ -309,6 +331,7 @@ void infobase::edit_list_to_go(int r, int c)
         k.row_k_now=r;
         auto itr=this->black_k.find(k);
         k=(*itr);
+        this->black_k.erase(k);
         k.go_to();
         int cc,rr;
         for(int s:k.list_k)
@@ -328,6 +351,7 @@ void infobase::edit_list_to_go(int r, int c)
                 k.list_k.erase(s);
             }
         }
+        this->black_k.insert(k);
 
 
     }
@@ -339,6 +363,7 @@ void infobase::edit_list_to_go(int r, int c)
         k.row_k_now=r;
         auto itr=this->white_k.find(k);
         k=(*itr);
+        this->white_k.erase(k);
         k.go_to();
         int cc,rr;
         for(int s:k.list_k)
@@ -358,6 +383,7 @@ void infobase::edit_list_to_go(int r, int c)
                 k.list_k.erase(s);
             }
         }
+        this->white_k.insert(k);
 
 
     }
@@ -369,6 +395,7 @@ void infobase::edit_list_to_go(int r, int c)
         q.row_q_now=r;
         auto itr=this->black_q.find(q);
         q=(*itr);
+        this->black_q.erase(q);
         q.go_to1();
         int cc ,rr;
         for(int s:q.list_q)
@@ -393,6 +420,7 @@ void infobase::edit_list_to_go(int r, int c)
             else
                 q.remove_some_mem(cc,rr);
         }
+        this->black_q.insert(q);
     }
 
     if(ind==white_queen)
@@ -402,6 +430,7 @@ void infobase::edit_list_to_go(int r, int c)
         q.row_q_now=r;
         auto itr=this->white_q.find(q);
         q=(*itr);
+        this->white_q.erase(q);
         q.go_to1();
         int cc,rr;
         for(int s:q.list_q)
@@ -424,6 +453,7 @@ void infobase::edit_list_to_go(int r, int c)
             else
                 q.remove_some_mem(cc,rr);
         }
+        this->white_q.insert(q);
     }
 
     if(ind==black_rook)
@@ -433,6 +463,7 @@ void infobase::edit_list_to_go(int r, int c)
         r1.row_r_now=r;
         auto itr=this->black_r.find(r1);
         r1=(*itr);
+        this->black_r.erase(r1);
         r1.go_to();
         int cc ,rr;
         for(int s:r1.list_r)
@@ -455,6 +486,7 @@ void infobase::edit_list_to_go(int r, int c)
             else
                 r1.remove_some_mem(cc,rr);
         }
+        this->black_r.insert(r1);
     }
 
     if(ind==white_rook)
@@ -464,6 +496,7 @@ void infobase::edit_list_to_go(int r, int c)
         r1.row_r_now=r;
         auto itr=this->white_r.find(r1);
         r1=(*itr);
+        this->white_r.erase(r1);
         r1.go_to();
         int cc,rr;
         for(int s:r1.list_r)
@@ -486,16 +519,18 @@ void infobase::edit_list_to_go(int r, int c)
             else
                 r1.remove_some_mem(cc,rr);
         }
+        this->white_r.insert(r1);
     }
 
-    if(ind==white_king)
-    {
+    //if(ind==white_king)
+    //{
         king kg;
         kg.column_kg_now=c;
         kg.row_kg_now=r;
         auto itr=this->white_kg.find(kg);
         kg=*itr;
-        //kg.go_to();
+        this->white_kg.erase(kg);
+        kg.go_to();
         int cc,rr;
         for(int s:kg.list_kg)
         {
@@ -514,35 +549,83 @@ void infobase::edit_list_to_go(int r, int c)
                     kg.list_kg.erase(s);
             }
         }
-    }
+        this->white_kg.insert(kg);
+    //}
 
-    if(ind==black_king)
-    {
-        king kg;
-        kg.column_kg_now=c;
-        kg.row_kg_now=r;
-        auto itr=this->white_kg.find(kg);
-        kg=*itr;
-        //kg.go_to();
-        int cc,rr;
+    //if(ind==black_king)
+    //{
+        king kg1;
+        kg1.column_kg_now=c;
+        kg1.row_kg_now=r;
+        auto itr1=this->black_kg.find(kg1);
+        kg1=*itr1;
+        this->black_kg.erase(kg1);
+        kg1.go_to();
+        int cc1,rr1;
         for(int s:kg.list_kg)
         {
-            cc=s%10;
-            rr=(s-cc)/10;
+            cc1=s%10;
+            rr1=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
             {
-                if(rr-1==kg.row_kg_now)
+                if(rr1-1==kg.row_kg_now)
                     kg.list_kg.erase(s);
-                else if(rr+1==kg.row_kg_now)
+                else if(rr1+1==kg.row_kg_now)
                     kg.list_kg.erase(s);
-                else if(cc-1==kg.column_kg_now)
+                else if(cc1-1==kg.column_kg_now)
                     kg.list_kg.erase(s);
-                else if(cc+1==kg.column_kg_now)
+                else if(cc1+1==kg.column_kg_now)
                     kg.list_kg.erase(s);
             }
         }
+        this->black_kg.insert(kg1);
+    //}
+}
+
+void infobase::change_position(int r, int c,int r1,int c1)
+{
+    nameOfItem index=this->find(r,c);
+    if(index==black_bishop)
+    {
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        b.b_checked=false;
+        this->black_b.erase(b);
+        b.row_b_now=r1;
+        b.column_b_now=c1;
+        b.b_checked=false;
+        this->black_b.insert(b);
     }
+    else if(index==black_knight)
+    {
+
+    }
+
+}
+
+void infobase::delete_a_piece(int r, int c)
+{
+    nameOfItem index=this->find(r,c);
+    if(index==black_bishop)
+    {
+        bishop b;
+        b.row_b_now=r;
+        b.column_b_now=c;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=3;
+        s.deleted_item_c=r;
+        s.deleted_item_r=c;
+        qs.push_back(s);
+        this->black_b.erase(b);
+    }
+    else if(index==black_knight)
+    {
+    }
+
 }
 
 int infobase::search_in_list(int r, int c, int r1, int c1)
@@ -1385,10 +1468,12 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
 
 
 
-bool infobase::win()
+bool infobase::win(int bOrW)
 {
 
     //black pieces &  threat white king
+    if(bOrW==0)
+    {
     for(pawn p: this->black_p)
     {
         if(p.threat_king==true)
@@ -1448,9 +1533,12 @@ bool infobase::win()
                     return true;
         }
     }
+    }
 
 
         //white pieces &  threat black king
+    else if(bOrW==1)
+    {
     for(pawn p: this->white_p)
     {
         if(p.threat_king==true)
@@ -1510,7 +1598,7 @@ bool infobase::win()
                     return true;
         }
    }
-
+}
 
     return false;
 

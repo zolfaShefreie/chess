@@ -50,13 +50,16 @@ public:
     QList<save> qs;
     infobase();
     nameOfItem find(int r,int c);
+    void add_a_piece(int r,int c,int which_item);
     void edit_list_to_go(int r,int c);
+    void  change_position(int r,int c,int r1,int r2);
+    void delete_a_piece(int r,int c);
     int search_in_list(int r,int c,int r1,int c1);
     QIcon get_icon(int r,int c);
     bool threat_king(int);
     bool vindicative(int,int,int);
     bool delete_threat_king(int r,int c,string bOrW);
-    bool win();
+    bool win(int bOrW);
 
 };
 

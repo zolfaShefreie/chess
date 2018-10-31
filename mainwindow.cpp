@@ -95,11 +95,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::EndGame()
+void MainWindow::EndGame(int bOrW)
 {
     QMessageBox* eg = new QMessageBox ();
 
-    if(turn == 0)
+    if(bOrW == 0)
     {
        QString player1 = ui->player1->text();
          eg->setText(player1+"Winned");
@@ -124,7 +124,7 @@ void MainWindow::checkChess(int borw)
 
         if(check_count == 2)
         {
-            EndGame();
+            EndGame(borw);
         }
 
        QMessageBox* qm= new QMessageBox();
@@ -138,14 +138,19 @@ void MainWindow::checkChess(int borw)
 
 void MainWindow::what_to_do(int r_positon, int  c_position)
 {
-    /* chizaie ke check nakardam:
-       kish
-        win */
+    change_label_color();
+    if(check_count==1&&db->threat_king(turn))
+        checkChess(turn);
+    else if(check_count==1&&!(db->threat_king(turn)))
+        check_count=0;
+
     infobase::nameOfItem index=db->find(r_positon,c_position);
+    if(index!=infobase::none_of_them)
+    {
     if((turn!=0&&index>7)||(turn!=1&&index<8))
     {
         QMessageBox*message=new QMessageBox();
-        message->setText("white");
+        message->setText("it isn't your turn");
         message->show();
     }
     else
@@ -178,9 +183,22 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                 QIcon c;
                 list_of_position->at(row*8+column)->setIcon(c);
                 ui->a1_black->setIcon(db->get_icon(r_positon,c_position));
+                if(db->find(r_positon,c_position)!=infobase::none_of_them)
+                {
+                    db->delete_a_piece(r_positon,c_position);
+                }
 
                 count_click=0;
-                turn=1;
+
+                if(turn==1) turn=0;
+                else if(turn==0) turn=1;
+
+                if(db->win(0)==true)
+                    EndGame(0);
+                else if(db->win(1)== true)
+                    EndGame(1);
+                if(db->threat_king(turn))
+                    checkChess(turn);
             }
             else if(sil==0)
             {
@@ -197,6 +215,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
             }
 
         }
+    }
     }
 
 }
@@ -366,11 +385,165 @@ void MainWindow::on_a5_black_clicked()
     what_to_do(4,0);
 }
 
+
+void MainWindow::on_b5_white_clicked()
+{
+    what_to_do(4,1);
+}
+
+void MainWindow::on_c5_black_clicked()
+{
+    what_to_do(4,2);
+}
+
+void MainWindow::on_d5_white_clicked()
+{
+    what_to_do(4,3);
+}
+
+void MainWindow::on_e5_black_clicked()
+{
+    what_to_do(4,4);
+}
+
+void MainWindow::on_f5_white_clicked()
+{
+    what_to_do(4,5);
+}
+
+void MainWindow::on_g5_black_clicked()
+{
+    what_to_do(4,6);
+}
+
+void MainWindow::on_h5_white_clicked()
+{
+    what_to_do(4,7);
+}
+
+void MainWindow::on_a6_white_clicked()
+{
+    what_to_do(5,0);
+}
+
+void MainWindow::on_b6_black_clicked()
+{
+    what_to_do(5,1);
+}
+
+void MainWindow::on_c6_white_clicked()
+{
+    what_to_do(5,2);
+}
+
+void MainWindow::on_d6_black_clicked()
+{
+    what_to_do(5,3);
+}
+
+void MainWindow::on_e6_white_clicked()
+{
+    what_to_do(5,4);
+}
+
+void MainWindow::on_f6_black_clicked()
+{
+    what_to_do(5,5);
+}
+
+void MainWindow::on_g6_white_clicked()
+{
+    what_to_do(5,6);
+}
+
+void MainWindow::on_h6_black_clicked()
+{
+    what_to_do(5,7);
+}
+
+void MainWindow::on_a7_black_clicked()
+{
+    what_to_do(6,0);
+}
+
+void MainWindow::on_b7_white_clicked()
+{
+    what_to_do(6,1);
+}
+
+void MainWindow::on_c7_black_clicked()
+{
+    what_to_do(6,2);
+}
+
+void MainWindow::on_d7_white_clicked()
+{
+    what_to_do(6,3);
+}
+
+void MainWindow::on_e7_black_clicked()
+{
+    what_to_do(6,4);
+}
+
+void MainWindow::on_f7_white_clicked()
+{
+    what_to_do(6,5);
+}
+
+void MainWindow::on_g7_black_clicked()
+{
+    what_to_do(6,6);
+}
+
+void MainWindow::on_h7_white_clicked()
+{
+    what_to_do(6,7);
+}
+
+void MainWindow::on_a8_white_clicked()
+{
+    what_to_do(7,0);
+}
+
+void MainWindow::on_b8_black_clicked()
+{
+    what_to_do(7,1);
+}
+
+void MainWindow::on_c8_white_clicked()
+{
+    what_to_do(7,2);
+}
+
+void MainWindow::on_d8_black_clicked()
+{
+    what_to_do(7,3);
+}
+
+void MainWindow::on_e8_white_clicked()
+{
+    what_to_do(7,4);
+}
+
+void MainWindow::on_f8_black_clicked()
+{
+    what_to_do(7,5);
+}
+
+void MainWindow::on_g8_white_clicked()
+{
+    what_to_do(7,6);
+}
+
+void MainWindow::on_h8_black_clicked()
+{
+    what_to_do(7,7);
+}
 void MainWindow::on_Back_clicked()
 {
 
 }
-
 void MainWindow::change_label_color()
 {
     if(turn==0)
@@ -382,25 +555,4 @@ void MainWindow::change_label_color()
         ui->player2->setStyleSheet("background-color:green");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
