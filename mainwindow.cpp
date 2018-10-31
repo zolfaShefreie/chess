@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -7,7 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     db=new infobase();
+<<<<<<< HEAD
 
+=======
+    list_of_position=new QList<QToolButton*>;
+>>>>>>> 8da399f1f2ed6a9fa1dc00b874232562b682bf71
     //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
     list_of_position->push_back(ui->a1_black);
     list_of_position->push_back(ui->b1_white);
@@ -136,8 +141,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
 {
     /* chizaie ke check nakardam:
        kish
-        win
-        dasrasi kilid haie ke mitunan as shah kish shode mohafezat kunan */
+        win */
     infobase::nameOfItem index=db->find(r_positon,c_position);
     if((turn!=0&&index>7)||(turn!=1&&index<8))
     {
