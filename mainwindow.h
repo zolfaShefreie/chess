@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
 
 public:
     infobase * db;
-    int turn=0;//0=white   1=black
+    int turn=0;  //0=white   1=black
     int count_click=0;//0=the peice want to move   1=where
     //postion kelid aval ke count_click==0
     int row;
@@ -25,9 +25,17 @@ public:
     QList<QToolButton*>* list_of_position;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
     int check_count=0;
-    void checkChess();
+
+    void EndGame();
+
+    void checkChess(int);
+
     void what_to_do(int,int);
+
+    bool win();
+
 private slots:
     void on_a1_black_clicked();
 
@@ -94,6 +102,10 @@ private slots:
     void on_h4_black_clicked();
 
     void on_a5_black_clicked();
+
+    void on_Back_clicked();
+
+    void change_label_color();
 
 private:
     Ui::MainWindow *ui;

@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     db=new infobase();
+
     //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
     list_of_position->push_back(ui->a1_black);
     list_of_position->push_back(ui->b1_white);
@@ -90,9 +91,45 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::checkChess()
+void MainWindow::EndGame()
+{
+    QMessageBox eg = new QMessageBox ();
+
+    if(turn == 0)
+    {
+       QString player1 = ui->player1->text();
+         eg.setText(player1+"Winned");
+    }
+    else
+    {
+        QString player2 = ui->player2->text();
+          eg.setText(player2+"Winned");
+    }
+
+    eg.show();
+    this->close();
+}
+
+void MainWindow::checkChess(int borw)
 {
     //agar shah kish shod rang kaneh shah taghir konad va agar user tavajohi be kish shodan shah nakonad payan bazi e'lam shavad
+
+    if(db->threat_king(borw)== true)
+    {
+        check_count+=1;
+
+        if(check_count == 2)
+        {
+            EndGame();
+        }
+
+       QMessageBox qm= new QMessageBox();
+
+       qm.setText("Your King has been threated!");
+       qm.show();
+
+
+    }
 }
 
 void MainWindow::what_to_do(int r_positon, int  c_position)
@@ -325,3 +362,42 @@ void MainWindow::on_a5_black_clicked()
 {
     what_to_do(4,0);
 }
+
+void MainWindow::on_Back_clicked()
+{
+
+}
+
+void MainWindow::change_label_color()
+{
+    if(turn==0)
+    {
+        ui->player1->setStyleSheet("background-color:green");
+    }
+    else
+    {
+        ui->player2->setStyleSheet("background-color:green");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
