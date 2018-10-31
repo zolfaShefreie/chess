@@ -39,6 +39,10 @@ public:
     bool win();
 
 private slots:
+    void get_name_player1(QString name,int borw);
+
+    void get_name_player2(QString name,int borw);
+
     void on_a1_black_clicked();
 
     void on_b1_white_clicked();

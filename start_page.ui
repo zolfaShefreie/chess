@@ -217,8 +217,8 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>1300</x>
-     <y>900</y>
+     <x>1270</x>
+     <y>870</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -231,7 +231,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <string>EXIT</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>1070</x>

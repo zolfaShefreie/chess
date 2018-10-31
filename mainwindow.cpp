@@ -9,9 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     s=new start_page();
     s->show();
+    connect(s,SIGNAL(pass_data1(QString,int)),this,SLOT(get_name_player1(QString,int)));
+    connect(s,SIGNAL(pass_data2(QString,int)),this,SLOT(get_name_player2(QString,int)));
+
     db=new infobase();
-
-
 
     list_of_position=new QList<QToolButton*>;
     //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
@@ -182,9 +183,11 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                 s.prev_position_r=c_position;
                 db->qs.push_back(s);
 
+                db->change_position(row,column,r_positon,c_position);
+
                 QIcon c;
                 list_of_position->at(row*8+column)->setIcon(c);
-                ui->a1_black->setIcon(db->get_icon(r_positon,c_position));
+                list_of_position->at(r_positon*8+c_position)->setIcon(db->get_icon(r_positon,c_position));
                 if(db->find(r_positon,c_position)!=infobase::none_of_them)
                 {
                     db->delete_a_piece(r_positon,c_position);
@@ -219,6 +222,25 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
         }
     }
     }
+
+}
+
+void MainWindow::get_name_player1(QString name, int borw)
+{
+    if(borw==0)
+    ui->player1->setText(name);
+    else
+    ui->player2->setText(name);
+}
+
+void MainWindow::get_name_player2(QString name, int borw)
+{
+    if(borw==0)
+    ui->player1->setText(name);
+    else
+    ui->player2->setText(name);
+    s->close();
+    this->show();
 
 }
 
@@ -544,6 +566,31 @@ void MainWindow::on_h8_black_clicked()
 }
 void MainWindow::on_Back_clicked()
 {
+    if(count_click==0)
+    {
+        if(turn==0) turn=1;
+        else if(turn==1) turn=0;
+        save s=*(db->qs.end());
+        db->qs.pop_back();
+        QIcon c;
+        //list_of_position->at(s.*8+column)->setIcon(c);
+        db->change_position(s.present_position_r,s.present_position_c,s.prev_position_r,s.prev_position_c);
+        list_of_position->at(s.prev_position_r*8+s.prev_position_c)->setIcon(db->get_icon(s.prev_position_r,s.prev_position_c));
+        if(s.deleted_item!=0)
+        {
+            db->add_a_piece(s.deleted_item_r,s.deleted_item_c,s.deleted_item);
+            list_of_position->at(s.deleted_item_r*8+s.deleted_item_c)->setIcon(db->get_icon(s.deleted_item_r,s.deleted_item_c));
+        }
+        else list_of_position->at(s.present_position_r*8+s.present_position_c)->setIcon(c);
+        change_label_color();
+
+    }
+    else
+    {
+        QMessageBox *m=new QMessageBox();
+        m->setText("you must complete the mavement of the piece that you chose to move");
+        m->show();
+    }
 
 }
 void MainWindow::change_label_color()
@@ -551,9 +598,11 @@ void MainWindow::change_label_color()
     if(turn==0)
     {
         ui->player1->setStyleSheet("background-color:green");
+        ui->player2->setStyleSheet("background-color:white");
     }
     else
     {
+        ui->player1->setStyleSheet("background-color:white");
         ui->player2->setStyleSheet("background-color:green");
     }
 }

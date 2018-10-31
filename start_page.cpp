@@ -47,4 +47,5 @@ void start_page::on_pushButton_3_clicked()
 {
     QString st3="QUIT THE GAME";
     emit pass_message(st3);
+    this->close();
 }
