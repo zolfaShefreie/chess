@@ -152,7 +152,91 @@ void infobase::add_a_piece(int r, int c, int which_item)
     }
     else if(which_item==2)
     {
-
+        king kg;
+        kg.row_kg_now=r;
+        kg.column_kg_now=c;
+        kg.kg_checked=false;
+        this->black_kg.insert(kg);
+    }
+    else if(which_item==3)
+    {
+        bishop b;
+        b.row_b_now=r;
+        b.column_b_now=c;
+        b.b_checked=false;
+        this->black_b.insert(b);
+    }
+    else if(which_item==4)
+    {
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        k.k_checked=false;
+        this->black_k.insert(k);
+    }
+    else if(which_item==5)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        q.q_checked=false;
+        this->black_q.insert(q);
+    }
+    else if(which_item==6)
+    {
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        r1.r_checked=false;
+        this->black_r.insert(r1);
+    }
+    else if(which_item==7)
+    {
+        pawn p;
+        p.row_p_now=r;
+        p.column_p_now=c;
+        p.p_checked=true;
+        this->white_p.insert(p);
+    }
+    else if(which_item==8)
+    {
+        king kg;
+        kg.row_kg_now=r;
+        kg.column_kg_now=c;
+        kg.kg_checked=true;
+        this->white_kg.insert(kg);
+    }
+    else if(which_item==9)
+    {
+        bishop b;
+        b.row_b_now=r;
+        b.column_b_now=c;
+        b.b_checked=true;
+        this->white_b.insert(b);
+    }
+    else if(which_item==10)
+    {
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        k.k_checked=true;
+        this->white_k.insert(k);
+    }
+    else if(which_item==11)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        q.q_checked=true;
+        this->white_q.insert(q);
+    }
+    else if(which_item==12)
+    {
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        r1.r_checked=true;
+        this->white_r.insert(r1);
     }
 
 }
@@ -598,9 +682,137 @@ void infobase::change_position(int r, int c,int r1,int c1)
         b.b_checked=false;
         this->black_b.insert(b);
     }
+    else if(index==white_bishop)
+    {
+        bishop b;
+        b.column_b_now=c;
+        b.row_b_now=r;
+        b.b_checked=true;
+        this->white_b.erase(b);
+        b.row_b_now=r1;
+        b.column_b_now=c1;
+        b.b_checked=true;
+        this->white_b.insert(b);
+    }
     else if(index==black_knight)
     {
-
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        k.k_checked=false;
+        this->black_k.erase(k);
+        k.row_k_now=r1;
+        k.column_k_now=c1;
+        k.k_checked=false;
+        this->black_k.insert(k);
+    }
+    else if(index==white_knight)
+    {
+        knight k;
+        k.column_k_now=c;
+        k.row_k_now=r;
+        k.k_checked=true;
+        this->white_k.erase(k);
+        k.row_k_now=r1;
+        k.column_k_now=c1;
+        k.k_checked=true;
+        this->white_k.insert(k);
+    }
+    else if(index==black_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        q.q_checked=false;
+        this->black_q.erase(q);
+        q.row_q_now=r1;
+        q.column_q_now=c1;
+        q.q_checked=false;
+        this->black_q.insert(q);
+    }
+    else if(index==white_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        q.q_checked=true;
+        this->white_q.erase(q);
+        q.row_q_now=r1;
+        q.column_q_now=c1;
+        q.q_checked=true;
+        this->white_q.insert(q);
+    }
+    else if(index==black_rook)
+    {
+        rook r2;
+        r2.column_r_now=c;
+        r2.row_r_now=r;
+        r2.r_checked=false;
+        this->black_r.erase(r2);
+        r2.column_r_now=c1;
+        r2.row_r_now=r1;
+        r2.r_checked=false;
+        this->black_r.insert(r2);
+    }
+    else if(index==white_rook)
+    {
+        rook r2;
+        r2.column_r_now=c;
+        r2.row_r_now=r;
+        r2.r_checked=true;
+        this->white_r.erase(r2);
+        r2.column_r_now=c1;
+        r2.row_r_now=r1;
+        r2.r_checked=true;
+        this->white_r.insert(r2);
+    }
+    else if(index==black_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        p.p_checked=false;
+        this->black_p.erase(p);
+        p.row_p_now=r1;
+        p.column_p_now=c1;
+        p.p_checked=false;
+        this->black_p.insert(p);
+    }
+    else if(index==white_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        p.p_checked=true;
+        this->white_p.erase(p);
+        p.row_p_now=r1;
+        p.column_p_now=c1;
+        p.p_checked=true;
+        this->white_p.insert(p);
+    }
+    else if(index==black_king)
+    {
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        kg.kg_checked=false;
+        this->black_kg.erase(kg);
+        kg.column_kg_now=c1;
+        kg.row_kg_now=r1;
+        kg.kg_checked=false;
+        this->black_kg.insert(kg);
+    }
+    else if(index==white_king)
+    {
+        king kg;
+        kg.column_kg_now=c;
+        kg.row_kg_now=r;
+        kg.kg_checked=true;
+        this->white_kg.erase(kg);
+        kg.column_kg_now=c1;
+        kg.row_kg_now=r1;
+        kg.kg_checked=true;
+        this->white_kg.insert(kg);
     }
 
 }
@@ -617,13 +829,136 @@ void infobase::delete_a_piece(int r, int c)
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=3;
-        s.deleted_item_c=r;
-        s.deleted_item_r=c;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
         qs.push_back(s);
         this->black_b.erase(b);
     }
+    else if(index==white_bishop)
+    {
+        bishop b;
+        b.row_b_now=r;
+        b.column_b_now=c;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=9;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->white_b.erase(b);
+    }
     else if(index==black_knight)
     {
+        knight k;
+        k.row_k_now=r;
+        k.column_k_now=c;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=4;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->black_k.erase(k);
+    }
+    else if(index==white_knight)
+    {
+        knight k;
+        k.row_k_now=r;
+        k.column_k_now=c;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=10;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->white_k.erase(k);
+    }
+    else if(index==black_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=1;
+        s.deleted_item_r=r;
+        s.deleted_item_c=c;
+        qs.push_back(s);
+        this->black_p.erase(p);
+    }
+    else if(index==white_pawn)
+    {
+        pawn p;
+        p.column_p_now=c;
+        p.row_p_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=7;
+        s.deleted_item_r=r;
+        s.deleted_item_c=c;
+        qs.push_back(s);
+        this->white_p.erase(p);
+    }
+    else if(index==black_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=5;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->black_q.erase(q);
+    }
+    else if(index==white_queen)
+    {
+        queen q;
+        q.column_q_now=c;
+        q.row_q_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=11;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->white_q.erase(q);
+    }
+    else if(index==black_rook)
+    {
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=6;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->black_r.erase(r1);
+    }
+    else if(index==white_rook)
+    {
+        rook r1;
+        r1.column_r_now=c;
+        r1.row_r_now=r;
+        save s;
+        s=*(qs.end());
+        qs.pop_back();
+        s.deleted_item=12;
+        s.deleted_item_c=c;
+        s.deleted_item_r=r;
+        qs.push_back(s);
+        this->white_r.erase(r1);
     }
 
 }
