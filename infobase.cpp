@@ -1394,7 +1394,7 @@ bool infobase::win()
         if(p.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"b")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"b")) && !(this->vindicative(0, p.row_p_now, p.column_p_now)))
                     return true;
         }
     }
@@ -1404,7 +1404,7 @@ bool infobase::win()
         if(b.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(b.row_b_now,b.column_b_now,"b")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(b.row_b_now,b.column_b_now,"b")) && !(this->vindicative(0, b.row_b_now, b.column_b_now)))
                     return true;
         }
     }
@@ -1414,7 +1414,7 @@ bool infobase::win()
         if(kg.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"b")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"b")) && !(this->vindicative(0, kg.row_kg_now, kg.column_kg_now)))
                     return true;
         }
     }
@@ -1424,7 +1424,7 @@ bool infobase::win()
         if(k.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"b")))
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"b")) && !(this->vindicative(0, k.row_k_now, k.column_k_now)))
                     return true;
         }
     }
@@ -1434,7 +1434,7 @@ bool infobase::win()
         if(q.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(q.row_q_now,q.column_q_now,"b")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(q.row_q_now,q.column_q_now,"b"))&& !(this->vindicative(0, q.row_q_now, q.column_q_now)))
                     return true;
         }
     }
@@ -1444,7 +1444,7 @@ bool infobase::win()
         if(r.threat_king==true)
         {
             for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(r.row_r_now,r.column_r_now,"b")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(r.row_r_now,r.column_r_now,"b"))&& !(this->vindicative(0, r.row_r_now, r.column_r_now)))
                     return true;
         }
     }
@@ -1456,7 +1456,7 @@ bool infobase::win()
         if(p.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"w")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"w"))&& !(this->vindicative(1, p.row_p_now, p.column_p_now)))
                     return true;
         }
     }
@@ -1466,7 +1466,7 @@ bool infobase::win()
         if(b.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&&!(this->delete_threat_king(b.row_b_now,b.column_b_now,"w")))
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(b.row_b_now,b.column_b_now,"w"))&& !(this->vindicative(1, b.row_b_now, b.column_b_now)))
                     return true;
         }
     }
@@ -1476,7 +1476,7 @@ bool infobase::win()
         if(kg.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"w")))
+                if(kg.list_kg.empty()&& !(this->delete_threat_king(kg.row_kg_now,kg.column_kg_now,"w"))&& !(this->vindicative(1, kg.row_kg_now, kg.column_kg_now)))
                     return true;
         }
     }
@@ -1486,7 +1486,7 @@ bool infobase::win()
         if(k.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"w")))
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(k.row_k_now,k.column_k_now,"w"))&& !(this->vindicative(1, k.row_k_now, k.column_k_now)))
                     return true;
         }
     }
@@ -1496,7 +1496,7 @@ bool infobase::win()
         if(q.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&&!(this->delete_threat_king(q.row_q_now,q.column_q_now,"w")))
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(q.row_q_now,q.column_q_now,"w"))&& !(this->vindicative(1, q.row_q_now, q.column_q_now)))
                     return true;
         }
     }
@@ -1506,13 +1506,16 @@ bool infobase::win()
         if(r.threat_king==true)
         {
             for(king kg:this->black_kg)
-                if(kg.list_kg.empty()&&!(this->delete_threat_king(r.row_r_now,r.column_r_now,"w")))
+                if(kg.list_kg.empty()&&!(this->delete_threat_king(r.row_r_now,r.column_r_now,"w"))&& !(this->vindicative(1, r.row_r_now, r.column_r_now)))
                     return true;
         }
    }
 
 
     return false;
+
+
+
 
 }
 

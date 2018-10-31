@@ -8,11 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     db=new infobase();
-<<<<<<< HEAD
 
-=======
+
+
     list_of_position=new QList<QToolButton*>;
->>>>>>> 8da399f1f2ed6a9fa1dc00b874232562b682bf71
     //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
     list_of_position->push_back(ui->a1_black);
     list_of_position->push_back(ui->b1_white);
@@ -98,20 +97,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::EndGame()
 {
-    QMessageBox eg = new QMessageBox ();
+    QMessageBox* eg = new QMessageBox ();
 
     if(turn == 0)
     {
        QString player1 = ui->player1->text();
-         eg.setText(player1+"Winned");
+         eg->setText(player1+"Winned");
     }
     else
     {
         QString player2 = ui->player2->text();
-          eg.setText(player2+"Winned");
+          eg->setText(player2+"Winned");
     }
 
-    eg.show();
+    eg->show();
     this->close();
 }
 
@@ -128,10 +127,10 @@ void MainWindow::checkChess(int borw)
             EndGame();
         }
 
-       QMessageBox qm= new QMessageBox();
+       QMessageBox* qm= new QMessageBox();
 
-       qm.setText("Your King has been threated!");
-       qm.show();
+       qm->setText("Your King has been threated!");
+       qm->show();
 
 
     }
