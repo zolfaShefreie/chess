@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{
+background:url(:/Background/images5.jpg);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QToolButton" name="h8_black">
     <property name="geometry">
@@ -150,7 +156,7 @@ background:rgb(130, 76, 29);
     </property>
     <property name="icon">
      <iconset resource="icons.qrc">
-      <normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</iconset>
+      <normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -179,7 +185,7 @@ background:rgb(255, 207, 111);
     </property>
     <property name="icon">
      <iconset resource="icons.qrc">
-      <normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-queen-filled-50.png</iconset>
+      <normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</normaloff>:/chess_icon/ches_icons/icons8-king-filled-50.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1854,11 +1860,18 @@ background:rgb(255, 207, 111);
    <widget class="QPushButton" name="Back">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>320</y>
-      <width>93</width>
-      <height>28</height>
+      <x>1230</x>
+      <y>847</y>
+      <width>111</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+background-color:rgb(170, 141, 68);
+font: 14pt &quot;Andalus&quot;;
+}</string>
     </property>
     <property name="text">
      <string>Back</string>

@@ -40,4 +40,5 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     icons.qrc \
-    chessboard_photo.qrc
+    chessboard_photo.qrc \
+    main_background.qrc
