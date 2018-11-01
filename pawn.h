@@ -15,6 +15,7 @@ public:
     bool p_checked= true;//white or black
     void go_to();
     bool operator <(pawn const & p) const;
+    bool operator ==(pawn const & p) const;
     bool threat_king;
 
 

@@ -90,50 +90,94 @@ infobase::nameOfItem infobase::find(int r, int c)
     pawn p;
     p.column_p_now=c;
     p.row_p_now=r;
-    if(this->black_p.find(p)!= this->black_p.end())
-        return black_pawn;
-    if(this->white_p.find(p)!=this->white_p.end())
-        return white_pawn;
+    for(pawn p1:this->black_p)
+    {
+        if(p1==p)
+        {
+            return black_pawn;
+        }
+    }
+    for(pawn p1:this->white_p)
+    {
+        if(p1==p)
+        {
+            return white_pawn;
+        }
+    }
+//    if(this->white_p.find(p)!=this->white_p.end())
+//    {
+//        //return white_pawn;
+//    }
 
     rook ro;
     ro.column_r_now=c;
     ro.row_r_now=r;
-    if(this->black_r.find(ro)!=this->black_r.end())
-        return black_rook;
-    if(this->white_r.find(ro)!=this->white_r.end())
-        return white_rook;
+    for(rook ro1:this->black_r)
+        if(ro1==ro)
+            return black_rook;
+    for(rook ro1:this->white_r)
+        if(ro1==ro)
+            return white_rook;
+//    if(this->black_r.find(ro)!=this->black_r.end())
+//        return black_rook;
+//    if(this->white_r.find(ro)!=this->white_r.end())
+//        return white_rook;
 
     knight k;
     k.column_k_now=c;
     k.row_k_now=r;
-    if(this->black_k.find(k)!= this->black_k.end())
-        return black_knight;
-    if(this->white_k.find(k)!=this->white_k.end())
-        return white_knight;
+    for(knight k2:this->black_k)
+        if(k2==k)
+            return black_knight;
+    for(knight k2:this->white_k)
+        if(k2==k)
+            return white_knight;
+//    if(this->black_k.find(k)!= this->black_k.end())
+//        return black_knight;
+//    if(this->white_k.find(k)!=this->white_k.end())
+//        return white_knight;
 
     bishop b;
     b.column_b_now=c;
     b.row_b_now=r;
-    if(this->black_b.find(b)!=this->black_b.end())
-        return black_bishop;
-    if(this->white_b.find(b)!=this->white_b.end())
-        return white_bishop;
+    for(bishop b1:this->black_b)
+        if(b1==b)
+            return black_bishop;
+    for(bishop b1:this->black_b)
+        if(b1==b)
+            return black_bishop;
+//    if(this->black_b.find(b)!=this->black_b.end())
+//        return black_bishop;
+//    if(this->white_b.find(b)!=this->white_b.end())
+//        return white_bishop;
 
     king kg;
     kg.column_kg_now=c;
     kg.row_kg_now=r;
-    if(this->black_kg.find(kg)!=this->black_kg.end())
-        return black_king;
-    if(this->white_kg.find(kg)!=this->white_kg.end())
-        return white_king;
+    for(king kg1:this->black_kg)
+        if(kg1==kg)
+            return black_king;
+    for(king kg1:this->white_kg)
+        if(kg1==kg)
+            return white_king;
+//    if(this->black_kg.find(kg)!=this->black_kg.end())
+//        return black_king;
+//    if(this->white_kg.find(kg)!=this->white_kg.end())
+//        return white_king;
 
     queen q;
     q.column_q_now=c;
     q.row_q_now=r;
-    if(this->black_q.find(q)!=this->black_q.end())
-        return black_queen;
-    if(this->white_q.find(q)!=this->white_q.end())
-        return white_queen;
+    for(queen q1:this->black_q)
+        if(q1==q)
+            return black_queen;
+    for(queen q1:this->white_q)
+        if(q1==q)
+            return white_queen;
+//    if(this->black_q.find(q)!=this->black_q.end())
+//        return black_queen;
+//    if(this->white_q.find(q)!=this->white_q.end())
+//        return white_queen;
 
     return none_of_them;
 
@@ -1132,29 +1176,29 @@ QIcon infobase::get_icon(int r, int c)
     QIcon icon;
     nameOfItem index=this->find(r,c);
     if(index==1)
-       icon.setThemeName(":/chess_icon/ches_icons/icons8-pawn-filled-50.png");
+       icon.addFile(":/chess_icon/ches_icons/icons8-pawn-filled-50.png");
     else if(index==2)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-king-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-king-filled-50.png");
     else if(index==3)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-bishop-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-bishop-filled-50.png");
     else if(index==4)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-knight-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-knight-filled-50.png");
     else if(index==5)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-queen-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-queen-filled-50.png");
     else if(index==6)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-rook-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-rook-filled-50.png");
     else if(index==7)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-pawn-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-pawn-50.png");
     else if(index==8)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-king-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-king-50.png");
     else if(index==9)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-bishop-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-bishop-50.png");
     else if(index==10)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-knight-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-knight-50.png");
     else if(index==11)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-queen-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-queen-50.png");
     else if(index==12)
-        icon.setThemeName(":/chess_icon/ches_icons/icons8-rook-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-rook-50.png");
     return icon;
 
 

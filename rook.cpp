@@ -66,6 +66,13 @@ bool rook::operator <(const rook &r) const
     return false;
 }
 
+bool rook::operator ==(const rook &r) const
+{
+    if(this->column_r_now==r.column_r_now&&this->row_r_now==r.row_r_now)
+        return true;
+    return false;
+}
+
 void rook::remove_some_mem(int j, int i)
 {
     if(i<this->row_r_now && j==this->column_r_now)

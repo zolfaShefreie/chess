@@ -63,6 +63,13 @@ bool pawn::operator <(const pawn &p) const
     return false;
 }
 
+bool pawn::operator ==(const pawn &p) const
+{
+    if(this->column_p_now==p.column_p_now&&p.row_p_now==this->row_p_now)
+        return true;
+    return  false;
+}
+
 
 
 

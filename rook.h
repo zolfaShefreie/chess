@@ -15,6 +15,7 @@ public:
     bool r_checked=true; //true:white and false:black
     static const bool is_rook = true;
     bool operator <( rook const &r) const;
+    bool operator ==( rook const &r) const;
     void remove_some_mem(int j,int i);
     bool threat_king;
 

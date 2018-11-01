@@ -150,77 +150,77 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
     infobase::nameOfItem index=db->find(r_positon,c_position);
     if(index!=infobase::none_of_them)
     {
-    if((turn!=0&&index>7)||(turn!=1&&index<8))
-    {
-        QMessageBox*message=new QMessageBox();
-        message->setText("it isn't your turn");
-        message->show();
-    }
-    else
-    {
-
-        if(count_click==0)
+        if((turn==0&&index<8)||(turn==1&&index>7))
         {
-           if(db->find(row,column)!=infobase::none_of_them)
-           {
-               //list_of_position->append(ui->a1_black);
-               db->edit_list_to_go(r_positon,c_position);
-               count_click=1;
-               row=r_positon;
-               column=c_position;
-
-           }
+            QMessageBox*message=new QMessageBox();
+            message->setText("it isn't your turn");
+            message->show();
         }
-        else if(count_click==1)
+        else
         {
-            int sil=db->search_in_list(row,column,r_positon,c_position);
-            if(sil==1)
+
+            if(count_click==0)
             {
-                save s;
-                s.present_position_r=row;
-                s.present_position_c=column;
-                s.prev_position_c=r_positon;
-                s.prev_position_r=c_position;
-                db->qs.push_back(s);
-
-                db->change_position(row,column,r_positon,c_position);
-
-                QIcon c;
-                list_of_position->at(row*8+column)->setIcon(c);
-                list_of_position->at(r_positon*8+c_position)->setIcon(db->get_icon(r_positon,c_position));
-                if(db->find(r_positon,c_position)!=infobase::none_of_them)
+                if(db->find(row,column)!=infobase::none_of_them)
                 {
-                    db->delete_a_piece(r_positon,c_position);
+                    //list_of_position->append(ui->a1_black);
+                    db->edit_list_to_go(r_positon,c_position);
+                    count_click=1;
+                    row=r_positon;
+                    column=c_position;
+
+                }
+            }
+            else if(count_click==1)
+            {
+                int sil=db->search_in_list(row,column,r_positon,c_position);
+                if(sil==1)
+                {
+                    save s;
+                    s.present_position_r=row;
+                    s.present_position_c=column;
+                    s.prev_position_c=r_positon;
+                    s.prev_position_r=c_position;
+                    db->qs.push_back(s);
+
+                    db->change_position(row,column,r_positon,c_position);
+
+                    QIcon c;
+                    list_of_position->at(row*8+column)->setIcon(c);
+                    list_of_position->at(r_positon*8+c_position)->setIcon(db->get_icon(r_positon,c_position));
+                    if(db->find(r_positon,c_position)!=infobase::none_of_them)
+                    {
+                        db->delete_a_piece(r_positon,c_position);
+                    }
+
+                    count_click=0;
+
+                    if(turn==1) turn=0;
+                    else if(turn==0) turn=1;
+
+                    if(db->win(0)==true)
+                        EndGame(0);
+                    else if(db->win(1)== true)
+                        EndGame(1);
+                    if(db->threat_king(turn))
+                        checkChess(turn);
+                }
+                else if(sil==0)
+                {
+                    QMessageBox*message=new QMessageBox();
+                    message->setText("invalid button");
+                    message->show();
+                }
+                else if(sil==-1)
+                {
+                    QMessageBox*message=new QMessageBox();
+                    message->setText(" mohreh  nemituneh harikat koneh mohre ye digiee ro entekhab konid ");
+                    message->show();
+                    count_click=0;
                 }
 
-                count_click=0;
-
-                if(turn==1) turn=0;
-                else if(turn==0) turn=1;
-
-                if(db->win(0)==true)
-                    EndGame(0);
-                else if(db->win(1)== true)
-                    EndGame(1);
-                if(db->threat_king(turn))
-                    checkChess(turn);
             }
-            else if(sil==0)
-            {
-                QMessageBox*message=new QMessageBox();
-                message->setText("invalid button");
-                message->show();
-            }
-            else if(sil==-1)
-            {
-                QMessageBox*message=new QMessageBox();
-                message->setText(" mohreh  nemituneh harikat koneh mohre ye digiee ro entekhab konid ");
-                message->show();
-                count_click=0;
-            }
-
         }
-    }
     }
 
 }
@@ -566,6 +566,8 @@ void MainWindow::on_h8_black_clicked()
 }
 void MainWindow::on_Back_clicked()
 {
+    if(!(db->qs.empty()))
+    {
     if(count_click==0)
     {
         if(turn==0) turn=1;
@@ -590,6 +592,8 @@ void MainWindow::on_Back_clicked()
         QMessageBox *m=new QMessageBox();
         m->setText("you must complete the mavement of the piece that you chose to move");
         m->show();
+    }
+
     }
 
 }
