@@ -150,7 +150,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
     infobase::nameOfItem index=db->find(r_positon,c_position);
     if(index!=infobase::none_of_them)
     {
-        if((turn==0&&index<8)||(turn==1&&index>7))
+        if((turn==0&&index<7)||(turn==1&&index>6))
         {
             QMessageBox*message=new QMessageBox();
             message->setText("it isn't your turn");

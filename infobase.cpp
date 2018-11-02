@@ -19,7 +19,7 @@ infobase::infobase()
         p.p_checked=false;
         p.column_p_now=i;
         p.row_p_now=6;
-        this->white_p.insert(p);
+        this->black_p.insert(p);
     }
 
     kg.kg_checked=false;
@@ -38,7 +38,7 @@ infobase::infobase()
     q.q_checked=false;
     q.row_q_now=0;
     q.column_q_now=4;
-    this->black_q.insert(q);
+    this->white_q.insert(q);
 
     b.b_checked=false;
     b.row_b_now=7;
