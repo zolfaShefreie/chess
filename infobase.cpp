@@ -1020,12 +1020,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         bishop b;
         b.column_b_now=c;
         b.row_b_now=r;
-        auto itr=this->black_b.find(b);
-        b=(*itr);
-        if(b.list_b.empty()) return -1;
-        if(b.list_b.find(r1*10+c1)==b.list_b.end())
-            return 0;
+        int i=this->black_b.indexOf(b);
+        if(i!=-1)
+        {
+            if(this->black_b.at(i).list_b.empty()) return -1;
+            if(this->black_b.at(i).list_b.find(r1*10+c1)==this->black_b.at(i).list_b.end())
+                return 0;
         else return 1;
+        }
 
     }
 
@@ -1034,12 +1036,15 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         bishop b;
         b.column_b_now=c;
         b.row_b_now=r;
-        auto itr=this->white_b.find(b);
-        b=(*itr);
-        if(b.list_b.empty()) return -1;
-        if(b.list_b.find(r1*10+c1)==b.list_b.end())
+        int i=this->white_b.indexOf(b);
+        if(i!=-1)
+        {
+
+        if(this->white_b.at(i).list_b.empty()) return -1;
+        if(this->white_b.at(i).list_b.find(r1*10+c1)==this->white_b.at(i).list_b.end())
             return 0;
         else return 1;
+        }
 
     }
 
@@ -1048,12 +1053,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         pawn p;
         p.column_p_now=c;
         p.row_p_now=r;
-        auto itr=this->black_p.find(p);
-        p=*itr;
-        if(p.list_p.empty()) return -1;
-        if(p.list_p.find(r1*10+c1)==p.list_p.end())
+        int i=this->black_p.indexOf(p);
+        if(i!=-1)
+        {
+        if(this->black_p.at(i).list_p.empty()) return -1;
+        if(this->black_p.at(i).list_p.find(r1*10+c1)==this->black_p.at(i).list_p.end())
             return 0;
         return 1;
+        }
 
     }
 
@@ -1062,12 +1069,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         pawn p;
         p.column_p_now=c;
         p.row_p_now=r;
-        auto itr=this->white_p.find(p);
-        p=*itr;
-        if(p.list_p.empty()) return -1;
-        if(p.list_p.find(r1*10+c1)==p.list_p.end())
+        int i=this->white_p.indexOf(p);
+        if(i!=-1)
+        {
+        if(this->white_p.at(i).list_p.empty()) return -1;
+        if(this->white_p.at(i).list_p.find(r1*10+c1)==this->white_p.at(i).list_p.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==black_knight)
@@ -1075,12 +1084,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         knight k;
         k.column_k_now=c;
         k.row_k_now=r;
-        auto itr=this->black_k.find(k);
-        k=(*itr);
-        if(k.list_k.empty()) return -1;
-        if(k.list_k.find(r1*10+c1)==k.list_k.end())
+        int i=this->black_k.indexOf(k);
+        if(i!=-1)
+        {
+        if(this->black_k.at(i).list_k.empty()) return -1;
+        if(this->black_k.at(i).list_k.find(r1*10+c1)==this->black_k.at(i).list_k.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==white_knight)
@@ -1088,12 +1099,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         knight k;
         k.column_k_now=c;
         k.row_k_now=r;
-        auto itr=this->white_k.find(k);
-        k=(*itr);
+        int i= this->white_k.indexOf(k);
+        if(i!=-1)
+        {
         if(k.list_k.empty())return -1;
         if(k.list_k.find(r1*10+c1)==k.list_k.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==black_queen)
@@ -1101,12 +1114,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         queen q;
         q.column_q_now=c;
         q.row_q_now=r;
-        auto itr=this->black_q.find(q);
-        q=(*itr);
-        if(q.list_q.empty())return -1;
-        if(q.list_q.find(r1*10+c1)==q.list_q.end())
+        int i=this->black_q.indexOf(q);
+        if(i!=-1)
+        {
+        if(this->black_q.at(i).list_q.empty())return -1;
+        if(this->black_q.at(i).list_q.find(r1*10+c1)==this->black_q.at(i).list_q.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==white_queen)
@@ -1114,38 +1129,45 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         queen q;
         q.column_q_now=c;
         q.row_q_now=r;
-        auto itr=this->white_q.find(q);
-        q=(*itr);
-        if(q.list_q.empty())return -1;
-        if(q.list_q.find(r1*10+c1)==q.list_q.end())
+        int i = this->white_q.indexOf(q);
+        if(i!=-1)
+        {
+
+        if(this->white_q.at(i).list_q.empty())return -1;
+        if(this->white_q.at(i).list_q.find(r1*10+c1)==this->white_q.at(i).list_q.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==black_rook)
     {
-        rook rook;
-        rook.column_r_now=c;
-        rook.row_r_now=r;
-        auto itr=this->black_r.find(rook);
-        rook=(*itr);
-        if(rook.list_r.empty())return -1;
-        if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
+        rook ro;
+        ro.column_r_now=c;
+        ro.row_r_now=r;
+        int i=this->black_r.indexOf(ro);
+        if(i!=-1)
+        {
+        if(this->black_r.at(i).list_r.empty())return -1;
+        if(this->black_r.at(i).list_r.find(r1*10+c1)==this->black_r.at(i).list_r.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==white_rook)
     {
-        rook rook;
-        rook.column_r_now=c;
-        rook.row_r_now=r;
-        auto itr=this->white_r.find(rook);
-        rook=(*itr);
-        if(rook.list_r.empty())return -1;
-        if(rook.list_r.find(r1*10+c1)==rook.list_r.end())
+        rook ro;
+        ro.column_r_now=c;
+        ro.row_r_now=r;
+        int i= this->white_r.indexof(ro);
+        if(i!=-1)
+        {
+        if(this->white_r.at(i).list_r.empty())return -1;
+        if(this->white_r.at(i).list_r.find(r1*10+c1)==this->white_r.at(i).list_r.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==white_king)
@@ -1153,12 +1175,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         king kg;
         kg.column_kg_now=c;
         kg.row_kg_now=r;
-        auto itr=this->white_kg.find(kg);
-        kg=*itr;
-        if(kg.list_kg.empty())return -1;
-        if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
+        int i=this->white_kg.indexOf(kg);
+        if(i!=-1)
+        {
+        if(this->white_kg.at(i).list_kg.empty())return -1;
+        if(this->white_kg.at(i).list_kg.find(r1*10+c1)==this->white_kg.at(i).list_kg.end())
             return 0;
         return 1;
+        }
     }
 
     if(index==black_king)
@@ -1166,11 +1190,14 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         king kg;
         kg.column_kg_now=c;
         kg.row_kg_now=r;
-        auto itr=this->black_kg.find(kg);
-        kg=*itr;
-        if(kg.list_kg.find(r1*10+c1)==kg.list_kg.end())
+        int i=this->black_kg.indexOf(kg);
+        if(i!=-1)
+        {
+        if(this->black_kg.at(i).list_kg.empty())return -1;
+        if(this->black_kg.at(i).list_kg.find(r1*10+c1)==this->black_kg.at(i).list_kg.end())
             return 0;
         return 1;
+        }
     }
     return 0;
 }
