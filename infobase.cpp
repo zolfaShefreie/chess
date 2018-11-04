@@ -1199,7 +1199,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         rook ro;
         ro.column_r_now=c;
         ro.row_r_now=r;
-        int i= this->white_r.indexof(ro);
+        int i= this->white_r.indexOf(ro);
         if(i!=-1)
         {
         if(this->white_r.at(i).list_r.empty())return -1;
