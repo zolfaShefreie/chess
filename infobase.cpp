@@ -919,7 +919,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->black_b.erase(b);
+        int i=this->black_b.indexOf(b);
+        if(i!=-1)
+            this->black_b.removeAt(i);
     }
     else if(index==white_bishop)
     {
@@ -933,7 +935,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->white_b.erase(b);
+        int i=this->white_b.indexOf(b);
+        if(i!=-1)
+            this->white_b.removeAt(i);
     }
     else if(index==black_knight)
     {
@@ -947,7 +951,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->black_k.erase(k);
+        int i=this->black_k.indexOf(k);
+        if(i!=-1)
+            this->black_k.removeAt(i);
     }
     else if(index==white_knight)
     {
@@ -961,7 +967,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->white_k.erase(k);
+        int i=this->white_k.indexOf(k);
+        if(i!=-1)
+            this->white_k.removeAt(i);
     }
     else if(index==black_pawn)
     {
@@ -975,7 +983,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_r=r;
         s.deleted_item_c=c;
         qs.push_back(s);
-        this->black_p.erase(p);
+        int i=this->black_p.indexOf(p);
+        if(i!=-1)
+            this->black_p.removeAt(i);
     }
     else if(index==white_pawn)
     {
@@ -989,7 +999,10 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_r=r;
         s.deleted_item_c=c;
         qs.push_back(s);
-        this->white_p.erase(p);
+        int i=this->white_p.indexOf(p);
+        if(i!=-1)
+            this->white_p.removeAt(i);
+
     }
     else if(index==black_queen)
     {
@@ -1003,7 +1016,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->black_q.erase(q);
+        int i=this->black_q.indexOf(q);
+        if(i!=-1)
+            this->black_q.removeAt(i);
     }
     else if(index==white_queen)
     {
@@ -1017,7 +1032,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->white_q.erase(q);
+        int i=this->white_q.indexOf(q);
+        if(i!=-1)
+            this->white_q.removeAt(i);
     }
     else if(index==black_rook)
     {
@@ -1031,7 +1048,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->black_r.erase(r1);
+        int i=this->black_r.indexOf(r1);
+        if(i!=-1)
+            this->black_r.removeAt(i);
     }
     else if(index==white_rook)
     {
@@ -1045,7 +1064,9 @@ void infobase::delete_a_piece(int r, int c)
         s.deleted_item_c=c;
         s.deleted_item_r=r;
         qs.push_back(s);
-        this->white_r.erase(r1);
+        int i=this->white_r.indexOf(r1);
+        if(i!=-1)
+            this->white_r.removeAt(i);
     }
 
 }
