@@ -34,19 +34,19 @@ public:
         none_of_them,
     };
 
-    std::set<king> white_kg;
-    std::set<queen> white_q;
-    std::set<pawn> white_p;
-    std::set<bishop> white_b;
-    std::set<knight> white_k;
-    std::set<rook> white_r;
+    QList<king> white_kg;
+    QList<queen> white_q;
+    QList<pawn> white_p;
+    QList<bishop> white_b;
+    QList<knight> white_k;
+    QList<rook> white_r;
 
-    std::set<king> black_kg;
-    std::set<queen> black_q;
-    std::set<pawn> black_p;
-    std::set<bishop> black_b;
-    std::set<knight> black_k;
-    std::set<rook> black_r;
+    QList<king> black_kg;
+    QList<queen> black_q;
+    QList<pawn> black_p;
+    QList<bishop> black_b;
+    QList<knight> black_k;
+    QList<rook> black_r;
     QList<save> qs;
     infobase();
     nameOfItem find(int r,int c);

@@ -2,6 +2,7 @@
 
 infobase::infobase()
 {
+
     // jaygah avalieh mohreha
     pawn p;
     rook r;
@@ -14,73 +15,75 @@ infobase::infobase()
         p.p_checked=true;
         p.column_p_now=i;
         p.row_p_now=1;
-        this->white_p.insert(p);
+        this->white_p.push_back(p);
+    }
+    for(int i=0;i<8;i++)
+    {
 
         p.p_checked=false;
         p.column_p_now=i;
         p.row_p_now=6;
-        this->black_p.insert(p);
+        this->black_p.push_back(p);
     }
 
     kg.kg_checked=false;
     kg.row_kg_now=7;
     kg.column_kg_now=3;
-    this->black_kg.insert(kg);
+    this->black_kg.push_back(kg);
     q.q_checked=false;
     q.row_q_now=7;
     q.column_q_now=4;
-    this->black_q.insert(q);
+    this->black_q.push_back(q);
 
     kg.kg_checked=true;
     kg.row_kg_now=0;
     kg.column_kg_now=3;
-    this->white_kg.insert(kg);
+    this->white_kg.push_back(kg);
     q.q_checked=false;
     q.row_q_now=0;
     q.column_q_now=4;
-    this->white_q.insert(q);
+    this->white_q.push_back(q);
 
     b.b_checked=false;
     b.row_b_now=7;
     b.column_b_now=2;
-    this->black_b.insert(b);
+    this->black_b.push_back(b);
     b.column_b_now=5;
-    this->black_b.insert(b);
+    this->black_b.push_back(b);
 
     b.b_checked=true;
     b.row_b_now=0;
     b.column_b_now=2;
-    this->white_b.insert(b);
+    this->white_b.push_back(b);
     b.column_b_now=5;
-    this->white_b.insert(b);
+    this->white_b.push_back(b);
 
     k.k_checked=false;
     k.row_k_now=7;
     k.column_k_now=1;
-    this->black_k.insert(k);
+    this->black_k.push_back(k);
     k.column_k_now=6;
-    this->black_k.insert(k);
+    this->black_k.push_back(k);
 
     k.k_checked=true;
     k.row_k_now=0;
     k.column_k_now=1;
-    this->white_k.insert(k);
+    this->white_k.push_back(k);
     k.column_k_now=6;
-    this->white_k.insert(k);
+    this->white_k.push_back(k);
 
     r.r_checked=false;
     r.row_r_now=7;
     r.column_r_now=0;
-    this->black_r.insert(r);
+    this->black_r.push_back(r);
     r.column_r_now=7;
-    this->black_r.insert(r);
+    this->black_r.push_back(r);
 
     r.r_checked=true;
     r.row_r_now=0;
     r.column_r_now=0;
-    this->white_r.insert(r);
+    this->white_r.push_back(r);
     r.column_r_now=7;
-    this->white_r.insert(r);
 
 }
 
@@ -181,6 +184,7 @@ infobase::nameOfItem infobase::find(int r, int c)
 
     return none_of_them;
 
+
 }
 
 void infobase::add_a_piece(int r, int c, int which_item)
@@ -192,7 +196,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         p.row_p_now=r;
         p.column_p_now=c;
         p.p_checked=false;
-        this->black_p.insert(p);
+        this->black_p.push_back(p);
     }
     else if(which_item==2)
     {
@@ -200,7 +204,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         kg.row_kg_now=r;
         kg.column_kg_now=c;
         kg.kg_checked=false;
-        this->black_kg.insert(kg);
+        this->black_kg.push_back(kg);
     }
     else if(which_item==3)
     {
@@ -208,7 +212,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         b.row_b_now=r;
         b.column_b_now=c;
         b.b_checked=false;
-        this->black_b.insert(b);
+        this->black_b.push_back(b);
     }
     else if(which_item==4)
     {
@@ -216,7 +220,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         k.column_k_now=c;
         k.row_k_now=r;
         k.k_checked=false;
-        this->black_k.insert(k);
+        this->black_k.push_back(k);
     }
     else if(which_item==5)
     {
@@ -224,7 +228,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         q.column_q_now=c;
         q.row_q_now=r;
         q.q_checked=false;
-        this->black_q.insert(q);
+        this->black_q.push_back(q);
     }
     else if(which_item==6)
     {
@@ -232,7 +236,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         r1.column_r_now=c;
         r1.row_r_now=r;
         r1.r_checked=false;
-        this->black_r.insert(r1);
+        this->black_r.push_back(r1);
     }
     else if(which_item==7)
     {
@@ -240,7 +244,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         p.row_p_now=r;
         p.column_p_now=c;
         p.p_checked=true;
-        this->white_p.insert(p);
+        this->white_p.push_back(p);
     }
     else if(which_item==8)
     {
@@ -248,7 +252,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         kg.row_kg_now=r;
         kg.column_kg_now=c;
         kg.kg_checked=true;
-        this->white_kg.insert(kg);
+        this->white_kg.push_back(kg);
     }
     else if(which_item==9)
     {
@@ -256,7 +260,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         b.row_b_now=r;
         b.column_b_now=c;
         b.b_checked=true;
-        this->white_b.insert(b);
+        this->white_b.push_back(b);
     }
     else if(which_item==10)
     {
@@ -264,7 +268,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         k.column_k_now=c;
         k.row_k_now=r;
         k.k_checked=true;
-        this->white_k.insert(k);
+        this->white_k.push_back(k);
     }
     else if(which_item==11)
     {
@@ -272,7 +276,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         q.column_q_now=c;
         q.row_q_now=r;
         q.q_checked=true;
-        this->white_q.insert(q);
+        this->white_q.push_back(q);
     }
     else if(which_item==12)
     {
@@ -280,7 +284,7 @@ void infobase::add_a_piece(int r, int c, int which_item)
         r1.column_r_now=c;
         r1.row_r_now=r;
         r1.r_checked=true;
-        this->white_r.insert(r1);
+        this->white_r.push_back(r1);
     }
 
 }
