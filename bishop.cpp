@@ -102,3 +102,4 @@ bool bishop::operator ==(const bishop &b) const
 
 }
 
+

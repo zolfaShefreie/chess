@@ -20,6 +20,7 @@ public:
     bool operator ==( const bishop &b) const;
     bool threat_king;
 
+
 };
 
 #endif // BISHOP_H
