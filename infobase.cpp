@@ -338,7 +338,7 @@ void infobase::edit_list_to_go(int r, int c)
     if(ind==white_bishop)
     {
         bishop b;
-        b.b_checked=false;
+        b.b_checked=true;
         b.column_b_now=c;
         b.row_b_now=r;
         int it=this->white_b.indexOf(b);
@@ -428,7 +428,7 @@ void infobase::edit_list_to_go(int r, int c)
     if(ind==white_pawn)
     {
         pawn p;
-        p.p_checked=false;
+        p.p_checked=true;
         p.column_p_now=c;
         p.row_p_now=r;
         int it=this->white_p.indexOf(p);
@@ -508,7 +508,7 @@ void infobase::edit_list_to_go(int r, int c)
     if(ind==white_knight)
     {
         knight k;
-        k.k_checked=false;
+        k.k_checked=true;
         k.column_k_now=c;
         k.row_k_now=r;
         int it=this->white_k.indexOf(k);
@@ -581,7 +581,7 @@ void infobase::edit_list_to_go(int r, int c)
     if(ind==white_queen)
     {
         queen q;
-        q.q_checked=false;
+        q.q_checked=true;
         q.column_q_now=c;
         q.row_q_now=r;
         int it=this->white_q.indexOf(q);
@@ -654,7 +654,7 @@ void infobase::edit_list_to_go(int r, int c)
     if(ind==white_rook)
     {
         rook r1;
-        r1.r_checked=false;
+        r1.r_checked=true;
         r1.column_r_now=c;
         r1.row_r_now=r;
         int it=this->white_r.indexOf(r1);
@@ -690,7 +690,7 @@ void infobase::edit_list_to_go(int r, int c)
     //if(ind==white_king)
     //{
         king kg;
-        kg.kg_checked=false;
+        kg.kg_checked=true;
         kg.column_kg_now=c;
         kg.row_kg_now=r;
         int it=this->white_kg.indexOf(kg);

@@ -29,8 +29,8 @@ void start_page::on_pushButton_clicked()
 {
     QString st1=ui->lineEdit->text();
     int cn1;
-    if(ui->lbl1->text()=="YOU WILL PLAY AS WHITE") cn1=1;
-    else cn1=0;
+    if(ui->lbl1->text()=="YOU WILL PLAY AS WHITE") cn1=0;
+    else cn1=1;
     emit pass_data1(st1,cn1);
 }
 
@@ -38,8 +38,8 @@ void start_page::on_pushButton_2_clicked()
 {
     QString st2=ui->lineEdit_2->text();
     int cn2;
-    if(ui->lbl2->text()=="YOU WILL PLAY AS WHITE") cn2=1;
-    else cn2=0;
+    if(ui->lbl2->text()=="YOU WILL PLAY AS WHITE") cn2=0;
+    else cn2=1;
     emit pass_data2(st2,cn2);
 }
 
