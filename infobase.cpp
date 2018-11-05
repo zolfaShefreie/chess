@@ -913,6 +913,7 @@ void infobase::delete_a_piece(int r, int c)
         b.row_b_now=r;
         b.column_b_now=c;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=3;
@@ -929,6 +930,7 @@ void infobase::delete_a_piece(int r, int c)
         b.row_b_now=r;
         b.column_b_now=c;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=9;
@@ -945,6 +947,7 @@ void infobase::delete_a_piece(int r, int c)
         k.row_k_now=r;
         k.column_k_now=c;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=4;
@@ -961,6 +964,7 @@ void infobase::delete_a_piece(int r, int c)
         k.row_k_now=r;
         k.column_k_now=c;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=10;
@@ -977,6 +981,7 @@ void infobase::delete_a_piece(int r, int c)
         p.column_p_now=c;
         p.row_p_now=r;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=1;
@@ -993,6 +998,7 @@ void infobase::delete_a_piece(int r, int c)
         p.column_p_now=c;
         p.row_p_now=r;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=7;
@@ -1010,6 +1016,7 @@ void infobase::delete_a_piece(int r, int c)
         q.column_q_now=c;
         q.row_q_now=r;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=5;
@@ -1026,6 +1033,7 @@ void infobase::delete_a_piece(int r, int c)
         q.column_q_now=c;
         q.row_q_now=r;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=11;
@@ -1042,6 +1050,7 @@ void infobase::delete_a_piece(int r, int c)
         r1.column_r_now=c;
         r1.row_r_now=r;
         save s;
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=6;
@@ -1058,6 +1067,8 @@ void infobase::delete_a_piece(int r, int c)
         r1.column_r_now=c;
         r1.row_r_now=r;
         save s;
+
+        int ii=qs.count();
         s=*(qs.end());
         qs.pop_back();
         s.deleted_item=12;
