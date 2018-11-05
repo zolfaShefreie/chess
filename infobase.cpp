@@ -325,7 +325,7 @@ void infobase::edit_list_to_go(int r, int c)
                    kingw.edit_list(r,c);
                b.list_b.erase(s);
            }
-           else
+           else if(index!=none_of_them)
            {
                //gheyr ham rang
                b.remove_some_mem(cc,rr);
@@ -367,7 +367,7 @@ void infobase::edit_list_to_go(int r, int c)
                    king.edit_list(r,c);
                b.list_b.erase(s);
            }
-           else
+           else if(index!=13)
            {
                //gheyr ham rang
                b.remove_some_mem(cc,rr);
@@ -388,6 +388,8 @@ void infobase::edit_list_to_go(int r, int c)
         int it=this->black_p.indexOf(p);
         if(it!=-1)
         {
+            if(p.row_p_now!=6)
+                p.first_step=1;
         this->black_p.removeAt(it);
         p.go_to();
         int cc,rr;
@@ -418,9 +420,9 @@ void infobase::edit_list_to_go(int r, int c)
                         }
                     }
             }
-            this->black_p.push_back(p);
 
         }
+        this->black_p.push_back(p);
         }
 
     }
@@ -434,6 +436,8 @@ void infobase::edit_list_to_go(int r, int c)
         int it=this->white_p.indexOf(p);
         if(it!=-1)
         {
+            if(p.row_p_now!=1)
+                p.first_step=1;
         this->white_p.removeAt(it);
         p.go_to();
         int cc,rr;
@@ -570,7 +574,7 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 q.list_q.erase(s);
             }
-            else
+            else if(index!=13)
                 q.remove_some_mem(cc,rr);
         }
         this->black_q.push_back(q);
@@ -606,7 +610,7 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 q.list_q.erase(s);
             }
-            else
+            else if(index!=13)
                 q.remove_some_mem(cc,rr);
         }
         this->white_q.push_back(q);
@@ -643,7 +647,7 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 r1.list_r.erase(s);
             }
-            else
+            else if(index!=13)
                 r1.remove_some_mem(cc,rr);
         }
         this->black_r.push_back(r1);
@@ -679,7 +683,7 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 r1.list_r.erase(s);
             }
-            else
+            else if(index!=13)
                 r1.remove_some_mem(cc,rr);
         }
         this->white_r.push_back(r1);
@@ -716,7 +720,7 @@ void infobase::edit_list_to_go(int r, int c)
             }
         }
         this->white_kg.push_back(kg);
-    //}
+    }
 
     //if(ind==black_king)
     //{
@@ -733,8 +737,8 @@ void infobase::edit_list_to_go(int r, int c)
         for(int s:kg.list_kg)
         {
             cc1=s%10;
-            rr1=(s-cc)/10;
-            index=this->find(rr,cc);
+            rr1=(s-cc1)/10;
+            index=this->find(rr1,cc1);
             if(index<7)
             {
                 if(rr1-1==kg.row_kg_now)
@@ -748,9 +752,8 @@ void infobase::edit_list_to_go(int r, int c)
             }
         }
         this->black_kg.push_back(kg1);
-    //}
-}
-        }
+    }
+
 }
 
 void infobase::change_position(int r, int c,int r1,int c1)
