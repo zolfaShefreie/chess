@@ -353,7 +353,7 @@ void infobase::edit_list_to_go(int r, int c)
            cc=s%10;
            rr=(s-cc)/10;
            index=this->find(rr,cc);
-           if(index>6)
+           if(index>6&&index!=13)
            {
                //ham rang
                b.list_b.erase(s);
@@ -464,9 +464,9 @@ void infobase::edit_list_to_go(int r, int c)
                         }
                     }
             }
-            this->white_p.push_back(p);
 
         }
+        this->white_p.push_back(p);
         }
     }
 
@@ -511,10 +511,10 @@ void infobase::edit_list_to_go(int r, int c)
         k.k_checked=true;
         k.column_k_now=c;
         k.row_k_now=r;
-        int it=this->white_k.indexOf(k);
-        if(it!=-1)
+        int it1=this->white_k.indexOf(k);
+        if(it1!=-1)
         {
-        this->white_k.removeAt(it);
+        this->white_k.removeAt(it1);
         k.go_to();
         int cc,rr;
         for(int s:k.list_k)
@@ -522,7 +522,7 @@ void infobase::edit_list_to_go(int r, int c)
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
-            if(index>6)
+            if(index>6&&index!=13)
                 //ham rang ro natuneh bezaneh
                 k.list_k.erase(s);
             else if(index==2)
@@ -536,8 +536,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
         this->white_k.push_back(k);
 
-        }
-
+    }
     }
 
     if(ind==black_queen)
@@ -595,7 +594,7 @@ void infobase::edit_list_to_go(int r, int c)
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
-            if(index>6)
+            if(index>6&&index!=13)
             {
                 q.list_q.erase(s);
                 q.remove_some_mem(cc,rr);
@@ -668,7 +667,7 @@ void infobase::edit_list_to_go(int r, int c)
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
-            if(index>6)
+            if(index>6&&index!=13)
             {
                 r1.list_r.erase(s);
                 r1.remove_some_mem(cc,rr);
@@ -704,7 +703,7 @@ void infobase::edit_list_to_go(int r, int c)
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
-            if(index>6)
+            if(index>6&&index!=13)
             {
                 if(rr-1==kg.row_kg_now)
                     kg.list_kg.erase(s);
@@ -860,10 +859,11 @@ void infobase::change_position(int r, int c,int r1,int c1)
         p.row_p_now=r;
         p.p_checked=false;
         this->black_p.removeAt(this->black_p.indexOf(p));
-        p.row_p_now=r1;
-        p.column_p_now=c1;
-        p.p_checked=false;
-        this->black_p.push_back(p);
+        pawn p2;
+        p2.row_p_now=r1;
+        p2.column_p_now=c1;
+        p2.p_checked=false;
+        this->black_p.push_back(p2);
     }
     else if(index==white_pawn)
     {
@@ -872,10 +872,11 @@ void infobase::change_position(int r, int c,int r1,int c1)
         p.row_p_now=r;
         p.p_checked=true;
         this->white_p.removeAt(this->white_p.indexOf(p));
-        p.row_p_now=r1;
-        p.column_p_now=c1;
-        p.p_checked=true;
-        this->white_p.push_back(p);
+        pawn p2;
+        p2.row_p_now=r1;
+        p2.column_p_now=c1;
+        p2.p_checked=true;
+        this->white_p.push_back(p2);
     }
     else if(index==black_king)
     {
@@ -1173,8 +1174,8 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         int i= this->white_k.indexOf(k);
         if(i!=-1)
         {
-        if(k.list_k.empty())return -1;
-        if(k.list_k.find(r1*10+c1)==k.list_k.end())
+        if(this->white_k.at(i).list_k.empty())return -1;
+        if(this->white_k.at(i).list_k.find(r1*10+c1)==this->white_k.at(i).list_k.end())
             return 0;
         return 1;
         }
