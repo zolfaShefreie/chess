@@ -146,9 +146,9 @@ infobase::nameOfItem infobase::find(int r, int c)
     for(bishop b1:this->black_b)
         if(b1==b)
             return black_bishop;
-    for(bishop b1:this->black_b)
+    for(bishop b1:this->white_b)
         if(b1==b)
-            return black_bishop;
+            return white_bishop;
 //    if(this->black_b.find(b)!=this->black_b.end())
 //        return black_bishop;
 //    if(this->white_b.find(b)!=this->white_b.end())
@@ -1284,25 +1284,25 @@ QIcon infobase::get_icon(int r, int c)
     if(index==1)
        icon.addFile(":/chess_icon/ches_icons/icons8-pawn-filled-50.png");
     else if(index==2)
-        icon.addFile(":/chess_icon/ches_icons/icons8-king-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-queen-filled-50.png");
     else if(index==3)
         icon.addFile(":/chess_icon/ches_icons/icons8-bishop-filled-50.png");
     else if(index==4)
         icon.addFile(":/chess_icon/ches_icons/icons8-knight-filled-50.png");
     else if(index==5)
-        icon.addFile(":/chess_icon/ches_icons/icons8-queen-filled-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-king-filled-50.png");
     else if(index==6)
         icon.addFile(":/chess_icon/ches_icons/icons8-rook-filled-50.png");
     else if(index==7)
         icon.addFile(":/chess_icon/ches_icons/icons8-pawn-50.png");
     else if(index==8)
-        icon.addFile(":/chess_icon/ches_icons/icons8-king-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-queen-50.png");
     else if(index==9)
         icon.addFile(":/chess_icon/ches_icons/icons8-bishop-50.png");
     else if(index==10)
         icon.addFile(":/chess_icon/ches_icons/icons8-knight-50.png");
     else if(index==11)
-        icon.addFile(":/chess_icon/ches_icons/icons8-queen-50.png");
+        icon.addFile(":/chess_icon/ches_icons/icons8-king-50.png");
     else if(index==12)
         icon.addFile(":/chess_icon/ches_icons/icons8-rook-50.png");
     return icon;

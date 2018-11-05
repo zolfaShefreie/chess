@@ -154,7 +154,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
     if(count_click==1||index!=infobase::none_of_them)
     {
 
-        if((turn==0&&index<7&&index!=13)||(turn==1&&index>6&&index!=13))
+        if((turn==0&&index<7&&index!=13&&count_click!=1)||(turn==1&&index>6&&index!=13&&count_click!=1))
         {
             QMessageBox*message=new QMessageBox();
             message->setText("it isn't your turn");
@@ -182,6 +182,9 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
             else if(count_click==1)
             {
                 int sil=db->search_in_list(row,column,r_positon,c_position);
+                QMessageBox*message=new QMessageBox();
+                message->setText(QString::number(sil));
+                message->show();
                 if(sil==1)
                 {
                     save s;

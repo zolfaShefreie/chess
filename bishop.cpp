@@ -24,17 +24,17 @@ void bishop::go_to()
             store=(this->row_b_now+i)*10+(this->column_b_now+i);
             this->list_b.insert(store);
         }
-        if(this->column_b_now+i<=7&& this->row_b_now-i>=0)
-        {
-            store=(this->row_b_now+i)*10+(this->column_b_now-i);
-            this->list_b.insert(store);
-        }
-        if(this->column_b_now-i>=0&& this->row_b_now+i<=7)
+        if(this->column_b_now+i<=7&& (this->row_b_now-i)>=0)
         {
             store=(this->row_b_now-i)*10+(this->column_b_now+i);
             this->list_b.insert(store);
         }
-        if(this->column_b_now-i>=0&& this->row_b_now-i>=0)
+        if((this->column_b_now-i)>=0&& (this->row_b_now+i)<=7)
+        {
+            store=(this->row_b_now+i)*10+(this->column_b_now-i);
+            this->list_b.insert(store);
+        }
+        if((this->column_b_now-i)>=0&& this->row_b_now-i>=0)
         {
             store=(this->row_b_now-i)*10+(this->column_b_now-i);
             this->list_b.insert(store);
@@ -56,7 +56,7 @@ void bishop::remove_some_mem(int j, int i)
                this->list_b.erase(this->list_b.find(b));
             else break;
         }
-    if(i>this->row_b_now && j>this->column_b_now)
+    else if(i>this->row_b_now && j>this->column_b_now)
         for(int k=0;k<8;k++)
         {
             int b;
@@ -65,7 +65,7 @@ void bishop::remove_some_mem(int j, int i)
                this->list_b.erase(this->list_b.find(b));
             else break;
         }
-    if(i>this->row_b_now && j<this->column_b_now)
+    else if(i>this->row_b_now && j<this->column_b_now)
         for(int k=0;k<8;k++)
         {
             int b;
@@ -74,7 +74,7 @@ void bishop::remove_some_mem(int j, int i)
                this->list_b.erase(this->list_b.find(b));
             else break;
         }
-    if(i<this->row_b_now && j>this->column_b_now)
+    else if(i<this->row_b_now && j>this->column_b_now)
         for(int k=0;k<8;k++)
         {
             int b;
