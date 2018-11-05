@@ -194,8 +194,11 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     s.present_position_c=c_position;
                     db->qs.push_back(s);
 
+                    if(index!=infobase::none_of_them)
+                    {
+                        db->delete_a_piece(r_positon,c_position);
+                    }
                     db->change_position(row,column,r_positon,c_position);
-
                     QMessageBox*message=new QMessageBox();
                     message->setText(QString::number(db->find(row,column)));
                     message->show();
@@ -203,10 +206,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     list_of_position->at(row*8+column)->setIcon(c);
                     list_of_position->at(r_positon*8+c_position)->setIcon(db->get_icon(r_positon,c_position));
                     //infobase::nameOfItem in=db->find(r_positon,c_position);
-                    if(index!=infobase::none_of_them)
-                    {
-                        db->delete_a_piece(r_positon,c_position);
-                    }
 
                     count_click=0;
 

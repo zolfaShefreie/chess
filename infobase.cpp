@@ -402,23 +402,24 @@ void infobase::edit_list_to_go(int r, int c)
             {
                     if(rr-2==p.row_p_now)
                         p.list_p.erase(s);
-                    else if(rr-1==p.row_p_now)
+                    else if(rr==p.row_p_now-1)
                     {
                         p.list_p.erase(s);
+                    }
                         //betuneh mohreh harif ro bezaneh
-                        index=this->find(rr-1,cc-1);
-                        if(index!= white_king && index>6)
-                            p.list_p.insert(((rr-1)*10+(cc-1)));
-                        index=this->find(rr-1,cc+1);
-                        if(index!= white_king && index>6)
-                            p.list_p.insert(((rr-1)*10+(cc+1)));
+                        index=this->find(p.row_p_now-1,p.column_p_now-1);
+                        if(index!= white_king && index>6&&index!=13)
+                            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now-1)));
+                        index=this->find(p.row_p_now-1,p.column_p_now+1);
+                        if(index!= white_king && index>6&&index!=13)
+                            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
                         else if(index==white_king)
                         {
                             p.threat_king=true;
-                            for(king king:this->white_kg)
-                                king.edit_list(r,c);
+                            for(king kin:this->white_kg)
+                                kin.edit_list(r,c);
                         }
-                    }
+
             }
 
         }
@@ -450,23 +451,24 @@ void infobase::edit_list_to_go(int r, int c)
             {
                     if(rr+2==p.row_p_now)
                         p.list_p.erase(s);
-                    else if(rr+1==p.row_p_now)
+                    else if(rr==p.row_p_now+1)
                     {
                         p.list_p.erase(s);
+                    }
                         //betuneh mohreh harif ro bezaneh
-                        index=this->find(rr+1,cc+1);
+                        index=this->find(p.row_p_now+1,p.column_p_now+1);
                         if(index!= black_king && index<7)
-                            p.list_p.insert(((rr+1)*10+(cc+1)));
-                        index=this->find(rr+1,cc-1);
+                            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now+1)));
+                        index=this->find(p.row_p_now+1,p.column_p_now-1);
                         if(index!= black_king && index<7)
-                            p.list_p.insert(((rr+1)*10+(cc-1)));
+                            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
                         else if(index==black_king)
                         {
                             p.threat_king=true;
                             for(king kingw:this->black_kg)
                                 kingw.edit_list(r,c);
                         }
-                    }
+
             }
 
         }
@@ -918,7 +920,10 @@ void infobase::delete_a_piece(int r, int c)
         b.column_b_now=c;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=3;
         s.deleted_item_c=c;
@@ -935,7 +940,10 @@ void infobase::delete_a_piece(int r, int c)
         b.column_b_now=c;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=9;
         s.deleted_item_c=c;
@@ -952,7 +960,10 @@ void infobase::delete_a_piece(int r, int c)
         k.column_k_now=c;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=4;
         s.deleted_item_c=c;
@@ -969,7 +980,10 @@ void infobase::delete_a_piece(int r, int c)
         k.column_k_now=c;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=10;
         s.deleted_item_c=c;
@@ -986,7 +1000,10 @@ void infobase::delete_a_piece(int r, int c)
         p.row_p_now=r;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=1;
         s.deleted_item_r=r;
@@ -1003,7 +1020,11 @@ void infobase::delete_a_piece(int r, int c)
         p.row_p_now=r;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        //s=qs.end();
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=7;
         s.deleted_item_r=r;
@@ -1021,7 +1042,10 @@ void infobase::delete_a_piece(int r, int c)
         q.row_q_now=r;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=5;
         s.deleted_item_c=c;
@@ -1038,7 +1062,10 @@ void infobase::delete_a_piece(int r, int c)
         q.row_q_now=r;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=11;
         s.deleted_item_c=c;
@@ -1055,7 +1082,10 @@ void infobase::delete_a_piece(int r, int c)
         r1.row_r_now=r;
         save s;
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=6;
         s.deleted_item_c=c;
@@ -1073,7 +1103,10 @@ void infobase::delete_a_piece(int r, int c)
         save s;
 
         int ii=qs.count();
-        s=*(qs.end());
+        s.present_position_c=qs.at(ii-1).present_position_c;
+        s.present_position_r=qs.at(ii-1).present_position_r;
+        s.prev_position_c=qs.at(ii-1).prev_position_c;
+        s.prev_position_r=qs.at(ii-1).prev_position_r;
         qs.pop_back();
         s.deleted_item=12;
         s.deleted_item_c=c;
