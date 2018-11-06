@@ -16,7 +16,7 @@ public:
     void go_to();  //this method finds possible positions and adds them to list_p
     bool operator <(pawn const & p) const;
     bool operator ==(pawn const & p) const;
-    bool threat_king;
+    bool threat_king=false;
 
 
 };

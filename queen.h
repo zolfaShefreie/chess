@@ -19,7 +19,7 @@ public:
     bool operator <(queen const &q) const;
     bool operator ==(queen const &q) const;
     void remove_some_mem(int j,int i);  //this method removes illegal moves(jumping over pieces) from list_q
-    bool threat_king;
+    bool threat_king=false;
 
 };
 

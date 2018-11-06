@@ -17,7 +17,7 @@ public:
     void remove_some_mem(int j,int i); //this method removes illegal moves(jumping over pieces) from list_b
     bool operator <( const bishop &b) const;
     bool operator ==( const bishop &b) const;
-    bool threat_king;
+    bool threat_king=false;
 
 
 };

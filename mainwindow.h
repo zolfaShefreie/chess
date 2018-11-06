@@ -21,14 +21,15 @@ public:
     int turn=0;  //0=white   1=black
     int count_click=0;//0=the peice want to move   1=where
     //postion kelid aval ke count_click==0
-    int row;
-    int column;
+    int row=-1;
+    int column=-1;
     //
     QList<QToolButton*>* list_of_position;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    int check_count=0;
+    int check_count_b=0;
+    int check_count_w=0;
 
     void EndGame(int bOrW);
 

@@ -121,11 +121,27 @@ void MainWindow::checkChess(int borw)
 {
     //agar shah kish shod rang kaneh shah taghir konad va agar user tavajohi be kish shodan shah nakonad payan bazi e'lam shavad
 
-    if(db->threat_king(borw)== true)
+    if(db->threat_kg_w== true)
     {
-        check_count+=1;
+        check_count_w+=1;
 
-        if(check_count == 2)
+        if(check_count_w == 2)
+        {
+            EndGame(borw);
+        }
+
+       QMessageBox* qm= new QMessageBox();
+
+       qm->setText("Your King has been threated!");
+       qm->show();
+
+
+    }
+    if(db->threat_kg_b== true)
+    {
+        check_count_b+=1;
+
+        if(check_count_b == 2)
         {
             EndGame(borw);
         }
@@ -141,11 +157,17 @@ void MainWindow::checkChess(int borw)
 
 void MainWindow::what_to_do(int r_positon, int  c_position)
 {
-//    change_label_color();
-//    if(check_count==1&&db->threat_king(turn))
-//        checkChess(turn);
-//    else if(check_count==1&&!(db->threat_king(turn)))
-//        check_count=0;
+    change_label_color();
+    if(row!=-1&&column!=-1)
+        db->edit_list_to_go(row,column);
+    if(check_count_w==1&&db->threat_kg_w)
+        checkChess(0);
+    else if(check_count_w==1&&!(db->threat_kg_w))
+        check_count_w=0;
+    if(check_count_b==1&&db->threat_kg_b)
+        checkChess(0);
+    else if(check_count_b==1&&!(db->threat_kg_b))
+        check_count_b=0;
 
     infobase::nameOfItem index=db->find(r_positon,c_position);
     QMessageBox*message=new QMessageBox();
@@ -212,12 +234,19 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     if(turn==1) turn=0;
                     else if(turn==0) turn=1;
 
-//                    if(db->win(0)==true)
-//                        EndGame(0);
-//                    else if(db->win(1)== true)
-//                        EndGame(1);
+                    if(db->win(0)==true)
+                        EndGame(0);
+                    else if(db->win(1)== true)
+                        EndGame(1);
 //                    if(db->threat_king(turn))
 //                        checkChess(turn);
+                    if(db->threat_kg_w)
+                        checkChess(0);
+                    if(db->threat_kg_b)
+                        checkChess(1);
+ //                   db->edit_list_to_go(r_positon,c_position);
+                    row=r_positon;
+                    column=c_position;
                 }
                 else if(sil==0)
                 {

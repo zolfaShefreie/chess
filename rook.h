@@ -19,7 +19,7 @@ public:
     bool operator ==( rook const &r) const;
     void remove_some_mem(int j,int i);   //this method removes illegal moves(jumping over pieces) from list_r
 
-    bool threat_king;
+    bool threat_king=false;
 
 };
 

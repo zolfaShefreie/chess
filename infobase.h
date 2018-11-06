@@ -48,6 +48,8 @@ public:
     QList<knight> black_k;
     QList<rook> black_r;
     QList<save> qs;
+    bool threat_kg_w=false;
+    bool threat_kg_b=false;
     infobase();
     nameOfItem find(int r,int c);
     void add_a_piece(int r,int c,int which_item);

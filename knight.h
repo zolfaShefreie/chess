@@ -16,7 +16,7 @@ public:
     void go_to();// the list of where it can go
     bool operator <( knight const & k) const;
     bool operator ==( const knight &k) const;
-    bool threat_king;
+    bool threat_king=false;
 
 
 };

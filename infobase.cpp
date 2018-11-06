@@ -296,6 +296,7 @@ void infobase::edit_list_to_go(int r, int c)
     nameOfItem index;
     if(ind==black_bishop)
     {   
+        this->threat_kg_w=false;
         bishop b;
         b.b_checked=false;
         b.column_b_now=c;
@@ -322,6 +323,7 @@ void infobase::edit_list_to_go(int r, int c)
            {
                //remove the position of the other player's king from possible positions
                b.threat_king=true;
+               this->threat_kg_w=true;
                for(king kingw:this->white_kg)
                    kingw.edit_list(r,c);
                b.list_b.erase(s);
@@ -338,6 +340,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==white_bishop)
     {
+        this->threat_kg_b=false;
         bishop b;
         b.b_checked=true;
         b.column_b_now=c;
@@ -364,6 +367,7 @@ void infobase::edit_list_to_go(int r, int c)
            {
                //not to take the other player's king
                b.threat_king=true;
+               this->threat_kg_b=true;
                for(king king:this->black_kg)
                    king.edit_list(r,c);
                b.list_b.erase(s);
@@ -382,6 +386,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==black_pawn)
     {
+        this->threat_kg_w=false;
         pawn p;
         p.p_checked=false;
         p.column_p_now=c;
@@ -418,6 +423,7 @@ void infobase::edit_list_to_go(int r, int c)
                 p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
             else if(index==white_king)
             {
+                this->threat_kg_w=true;
                 p.threat_king=true;
                 for(king kin:this->white_kg)
                     kin.edit_list(r,c);
@@ -431,6 +437,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==white_pawn)
     {
+        this->threat_kg_b=false;
         pawn p;
         p.p_checked=true;
         p.column_p_now=c;
@@ -467,6 +474,7 @@ void infobase::edit_list_to_go(int r, int c)
                 p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
             else if(index==black_king)
             {
+                this->threat_kg_b=true;
                 p.threat_king=true;
                 for(king kingw:this->black_kg)
                     kingw.edit_list(r,c);
@@ -479,6 +487,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==black_knight)
     {
+        this->threat_kg_w=false;
         knight k;
         k.k_checked=false;
         k.column_k_now=c;
@@ -500,6 +509,7 @@ void infobase::edit_list_to_go(int r, int c)
             else if(index==8)
             {
                 //not to take the other player's king
+                this->threat_kg_w=true;
                 k.threat_king=true;
                 for(king king:this->white_kg)
                     king.edit_list(r,c);
@@ -514,6 +524,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==white_knight)
     {
+        this->threat_kg_b=false;
         knight k;
         k.k_checked=true;
         k.column_k_now=c;
@@ -535,6 +546,7 @@ void infobase::edit_list_to_go(int r, int c)
             else if(index==2)
             {
                 //shah harif ro natuneh bezaneh
+                this->threat_kg_b=true;
                 k.threat_king=true;
                 for(king king:this->black_kg)
                     king.edit_list(r,c);
@@ -548,6 +560,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==black_queen)
     {
+        this->threat_kg_w=false;
         queen q;
         q.q_checked=false;
         q.column_q_now=c;
@@ -572,6 +585,7 @@ void infobase::edit_list_to_go(int r, int c)
             else if(index==8)
             {
                 //not to take the other player's king
+                this->threat_kg_w=true;
                 q.threat_king=true;
                 for(king king:this->white_kg)
                     king.edit_list(r,c);
@@ -586,6 +600,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==white_queen)
     {
+        this->threat_kg_b=false;
         queen q;
         q.q_checked=true;
         q.column_q_now=c;
@@ -608,6 +623,7 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index==2)
             {
+                this->threat_kg_b=true;
                 q.threat_king=true;
                 for(king king:this->black_kg)
                     king.edit_list(r,c);
@@ -623,6 +639,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==black_rook)
     {
+        this->threat_kg_w=false;
         rook r1;
         r1.r_checked=false;
         r1.column_r_now=c;
@@ -645,6 +662,7 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index==8)
             {
+                this->threat_kg_w=true;
                 r1.threat_king=true;
                 for(king king:this->white_kg)
                     king.edit_list(r,c);
@@ -659,6 +677,7 @@ void infobase::edit_list_to_go(int r, int c)
 
     if(ind==white_rook)
     {
+        this->threat_kg_b=false;
         rook r1;
         r1.r_checked=true;
         r1.column_r_now=c;
@@ -681,6 +700,7 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index==2)
             {
+                this->threat_kg_b=true;
                 r1.threat_king=true;
                 for(king king:this->black_kg)
                     king.edit_list(r,c);
@@ -693,8 +713,9 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    //if(ind==white_king)
-   // {
+    if(ind==white_king)
+    {
+        this->threat_kg_b=false;
         king kg;
         kg.kg_checked=true;
         kg.column_kg_now=c;
@@ -725,10 +746,11 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_kg.push_back(kg);
         }
 
-    //}
+    }
 
-    //if(ind==black_king)
-    //{
+    if(ind==black_king)
+    {
+        this->threat_kg_w=false;
         king kg1;
         kg1.kg_checked=false;
         kg1.column_kg_now=c;
@@ -758,7 +780,7 @@ void infobase::edit_list_to_go(int r, int c)
         }
         this->black_kg.push_back(kg1);
         }
-    //}
+    }
 
 }
 
