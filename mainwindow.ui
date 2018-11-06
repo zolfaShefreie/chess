@@ -270,6 +270,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="a5_black">
     <property name="geometry">
@@ -288,6 +294,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="a4_white">
@@ -308,6 +320,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="a3_black">
     <property name="geometry">
@@ -326,6 +344,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="b7_white">
@@ -404,6 +428,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="b6_black">
     <property name="geometry">
@@ -422,6 +452,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="h7_white">
@@ -675,6 +711,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="b5_white">
     <property name="geometry">
@@ -693,6 +735,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="c4_white">
@@ -713,6 +761,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="h6_black">
     <property name="geometry">
@@ -731,6 +785,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="g6_white">
@@ -751,6 +811,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="f6_black">
     <property name="geometry">
@@ -769,6 +835,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="c1_black">
@@ -847,6 +919,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="e6_white">
     <property name="geometry">
@@ -865,6 +943,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="b1_white">
@@ -943,6 +1027,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="b4_black">
     <property name="geometry">
@@ -961,6 +1051,12 @@ background:rgb(130, 76, 29);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="e5_black">
@@ -981,6 +1077,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="d5_white">
     <property name="geometry">
@@ -999,6 +1101,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="d4_black">
@@ -1044,6 +1152,12 @@ background:rgb(255, 207, 111);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="h5_white">
     <property name="geometry">
@@ -1062,6 +1176,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="g3_black">
@@ -1082,6 +1202,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="f3_white">
     <property name="geometry">
@@ -1100,6 +1226,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="e3_black">
@@ -1170,6 +1302,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="g4_white">
     <property name="geometry">
@@ -1188,6 +1326,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="f4_black">
@@ -1208,6 +1352,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="h3_white">
     <property name="geometry">
@@ -1226,6 +1376,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QToolButton" name="f1_white">
@@ -1536,6 +1692,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="g5_black">
     <property name="geometry">
@@ -1555,6 +1717,12 @@ background:rgb(130, 76, 29);
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
    </widget>
    <widget class="QToolButton" name="e4_white">
     <property name="geometry">
@@ -1573,6 +1741,12 @@ background:rgb(255, 207, 111);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="a">
