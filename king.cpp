@@ -16,7 +16,8 @@ void king::go_to()
 {
     this->list_kg.clear();
 
-    int store;
+    int store; //the address of possible positions: row*10+column
+
     if(this->row_kg_now+1<=7)
     {
         store=(this->row_kg_now+1)*10+(this->column_kg_now);

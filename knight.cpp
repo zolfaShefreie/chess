@@ -16,7 +16,8 @@ void knight::go_to()
     threat_king=false;
 
     this->list_k.clear();
-    int store;
+    int store;    //the address of possible positions: row*10+column
+
     if(this->row_k_now+2<=7)
     {
         if(this->column_k_now+1<=7)

@@ -16,7 +16,8 @@ void queen::go_to1()
     threat_king=false;
     this->list_q.clear();
 
-    int store;
+    int store; //the address of possible positions: row*10+column
+
 
     for(int i=0; i<8; i++)
     {

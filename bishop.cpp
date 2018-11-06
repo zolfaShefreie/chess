@@ -15,7 +15,7 @@ void bishop::go_to()
 {
     threat_king=false;
     this->list_b.clear();
-    int store;
+    int store; //the address of possible positions: row*10+column
 
     for(int i=1; i<8; i++)
     {

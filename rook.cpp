@@ -15,7 +15,8 @@ void rook::go_to()
 {
     threat_king=false;
     this->list_r.clear();
-    int store;
+    int store;    //the address of possible positions: row*10+column
+
     int i;
     for(i=1;i<=7;i++)
     {

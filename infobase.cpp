@@ -3,7 +3,7 @@
 infobase::infobase()
 {
 
-    // jaygah avalieh mohreha
+    // the position of pieces at the beginning of the game
     pawn p;
     rook r;
     knight k;
@@ -89,7 +89,7 @@ infobase::infobase()
 
 infobase::nameOfItem infobase::find(int r, int c)
 {
-    //peyda kardan mohreh ba estefadeh ye position
+    //to find pieces ,using their position
     pawn p;
     p.column_p_now=c;
     p.row_p_now=r;
@@ -189,7 +189,7 @@ infobase::nameOfItem infobase::find(int r, int c)
 
 void infobase::add_a_piece(int r, int c, int which_item)
 {
-    // number of which_item likes nameOfItem
+    // number of which_item like nameOfItem
     if(which_item==1)
     {
         pawn p;
@@ -313,13 +313,14 @@ void infobase::edit_list_to_go(int r, int c)
            index=this->find(rr,cc);
            if(index<7)
            {
-               //ham rang
+               //remove position of pieces with the same color from possible positions
                b.list_b.erase(s);
+               //not to jump over pieces with the same color
                b.remove_some_mem(cc,rr);
            }
            else if(index==8)
            {
-               //hazf shah moghabel
+               //remove the position of the other player's king from possible positions
                b.threat_king=true;
                for(king kingw:this->white_kg)
                    kingw.edit_list(r,c);
@@ -327,7 +328,7 @@ void infobase::edit_list_to_go(int r, int c)
            }
            else if(index!=none_of_them)
            {
-               //gheyr ham rang
+               //not to jump over pieces with different color
                b.remove_some_mem(cc,rr);
            }
         }
@@ -355,13 +356,13 @@ void infobase::edit_list_to_go(int r, int c)
            index=this->find(rr,cc);
            if(index>6&&index!=13)
            {
-               //ham rang
+               //same color:
                b.list_b.erase(s);
                b.remove_some_mem(cc,rr);
            }
            else if(index==2)
            {
-               //hazf shah moghabel
+               //not to take the other player's king
                b.threat_king=true;
                for(king king:this->black_kg)
                    king.edit_list(r,c);
@@ -369,7 +370,7 @@ void infobase::edit_list_to_go(int r, int c)
            }
            else if(index!=13)
            {
-               //gheyr ham rang
+               //different color
                b.remove_some_mem(cc,rr);
            }
         }
@@ -406,7 +407,7 @@ void infobase::edit_list_to_go(int r, int c)
                     {
                         p.list_p.erase(s);
                     }
-                        //betuneh mohreh harif ro bezaneh
+                        //taking the other player's pieces
 
             }
             index=this->find(p.row_p_now-1,p.column_p_now-1);
@@ -455,7 +456,7 @@ void infobase::edit_list_to_go(int r, int c)
                     {
                         p.list_p.erase(s);
                     }
-                        //betuneh mohreh harif ro bezaneh
+                        //taking the other player's pieces
 
             }
             index=this->find(p.row_p_now+1,p.column_p_now+1);
@@ -494,11 +495,11 @@ void infobase::edit_list_to_go(int r, int c)
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
-                //ham rang ro natuneh bezaneh
+                //not to take pieces with the same color
                 k.list_k.erase(s);
             else if(index==8)
             {
-                //shah harif ro natuneh bezaneh
+                //not to take the other player's king
                 k.threat_king=true;
                 for(king king:this->white_kg)
                     king.edit_list(r,c);
@@ -564,13 +565,13 @@ void infobase::edit_list_to_go(int r, int c)
             index=this->find(rr,cc);
             if(index<7)
             {
-                // ham rang
+                // same color:
                 q.list_q.erase(s);
                 q.remove_some_mem(cc,rr);
             }
             else if(index==8)
             {
-                //shah moghabel ro nazaneh
+                //not to take the other player's king
                 q.threat_king=true;
                 for(king king:this->white_kg)
                     king.edit_list(r,c);
