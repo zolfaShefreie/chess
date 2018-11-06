@@ -407,19 +407,19 @@ void infobase::edit_list_to_go(int r, int c)
                         p.list_p.erase(s);
                     }
                         //betuneh mohreh harif ro bezaneh
-                        index=this->find(p.row_p_now-1,p.column_p_now-1);
-                        if(index!= white_king && index>6&&index!=13)
-                            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now-1)));
-                        index=this->find(p.row_p_now-1,p.column_p_now+1);
-                        if(index!= white_king && index>6&&index!=13)
-                            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
-                        else if(index==white_king)
-                        {
-                            p.threat_king=true;
-                            for(king kin:this->white_kg)
-                                kin.edit_list(r,c);
-                        }
 
+            }
+            index=this->find(p.row_p_now-1,p.column_p_now-1);
+            if(index!= white_king && index>6&&index!=13)
+                p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now-1)));
+            index=this->find(p.row_p_now-1,p.column_p_now+1);
+            if(index!= white_king && index>6&&index!=13)
+                p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
+            else if(index==white_king)
+            {
+                p.threat_king=true;
+                for(king kin:this->white_kg)
+                    kin.edit_list(r,c);
             }
 
         }
@@ -456,19 +456,19 @@ void infobase::edit_list_to_go(int r, int c)
                         p.list_p.erase(s);
                     }
                         //betuneh mohreh harif ro bezaneh
-                        index=this->find(p.row_p_now+1,p.column_p_now+1);
-                        if(index!= black_king && index<7)
-                            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now+1)));
-                        index=this->find(p.row_p_now+1,p.column_p_now-1);
-                        if(index!= black_king && index<7)
-                            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
-                        else if(index==black_king)
-                        {
-                            p.threat_king=true;
-                            for(king kingw:this->black_kg)
-                                kingw.edit_list(r,c);
-                        }
 
+            }
+            index=this->find(p.row_p_now+1,p.column_p_now+1);
+            if(index!= black_king && index<7)
+                p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now+1)));
+            index=this->find(p.row_p_now+1,p.column_p_now-1);
+            if(index!= black_king && index<7)
+                p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
+            else if(index==black_king)
+            {
+                p.threat_king=true;
+                for(king kingw:this->black_kg)
+                    kingw.edit_list(r,c);
             }
 
         }
