@@ -158,7 +158,7 @@ void MainWindow::checkChess(int borw)
 void MainWindow::what_to_do(int r_positon, int  c_position)
 {
     change_label_color();
-    if(row!=-1&&column!=-1)
+    if(row!=-1&&column!=-1&&count_click==0)
         db->edit_list_to_go(row,column);
     if(check_count_w==1&&db->threat_kg_w)
         checkChess(0);
@@ -221,6 +221,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                         db->delete_a_piece(r_positon,c_position);
                     }
                     db->change_position(row,column,r_positon,c_position);
+                    db->edit_list_to_go(r_positon,c_position);
                     QMessageBox*message=new QMessageBox();
                     message->setText(QString::number(db->find(row,column)));
                     message->show();
@@ -244,7 +245,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                         checkChess(0);
                     if(db->threat_kg_b)
                         checkChess(1);
- //                   db->edit_list_to_go(r_positon,c_position);
                     row=r_positon;
                     column=c_position;
                 }

@@ -333,6 +333,8 @@ void infobase::edit_list_to_go(int r, int c)
                //not to jump over pieces with different color
                b.remove_some_mem(cc,rr);
            }
+           if(b.list_b.empty())
+               break;
         }
         this->black_b.push_back(b);
     }
@@ -377,6 +379,8 @@ void infobase::edit_list_to_go(int r, int c)
                //different color
                b.remove_some_mem(cc,rr);
            }
+           if(b.list_b.empty())
+               break;
         }
         this->white_b.push_back(b);
 
@@ -399,7 +403,7 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_p.removeAt(it);
         p.go_to();
         int cc,rr;
-        for(int s:p.list_p)
+      for(int s:p.list_p)
         {
             cc=s%10;
             rr=(s-cc)/10;
@@ -429,6 +433,8 @@ void infobase::edit_list_to_go(int r, int c)
                     kin.edit_list(r,c);
             }
 
+           if(p.list_p.empty())
+               break;
         }
         this->black_p.push_back(p);
         }
@@ -479,6 +485,8 @@ void infobase::edit_list_to_go(int r, int c)
                 for(king kingw:this->black_kg)
                     kingw.edit_list(r,c);
             }
+            if(p.list_p.empty())
+                break;
 
         }
         this->white_p.push_back(p);
@@ -515,6 +523,8 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 k.list_k.erase(s);
             }
+            if(k.list_k.empty())
+                break;
         }
         this->black_k.push_back(k);
 
@@ -552,6 +562,8 @@ void infobase::edit_list_to_go(int r, int c)
                     king.edit_list(r,c);
                 k.list_k.erase(s);
             }
+            if(k.list_k.empty())
+                break;
         }
         this->white_k.push_back(k);
 
@@ -593,6 +605,8 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index!=13)
                 q.remove_some_mem(cc,rr);
+            if(q.list_q.empty())
+                break;
         }
         this->black_q.push_back(q);
     }
@@ -631,6 +645,8 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index!=13)
                 q.remove_some_mem(cc,rr);
+            if(q.list_q.empty())
+                break;
         }
         this->white_q.push_back(q);
         }
@@ -670,6 +686,8 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index!=13)
                 r1.remove_some_mem(cc,rr);
+            if(r1.list_r.empty())
+                break;
         }
         this->black_r.push_back(r1);
         }
@@ -708,6 +726,8 @@ void infobase::edit_list_to_go(int r, int c)
             }
             else if(index!=13)
                 r1.remove_some_mem(cc,rr);
+            if(r1.list_r.empty())
+                break;
         }
         this->white_r.push_back(r1);
         }
@@ -742,6 +762,8 @@ void infobase::edit_list_to_go(int r, int c)
                 else if(cc+1==kg.column_kg_now)
                     kg.list_kg.erase(s);
             }
+            if(kg.list_kg.empty())
+                break;
         }
         this->white_kg.push_back(kg);
         }
@@ -777,6 +799,8 @@ void infobase::edit_list_to_go(int r, int c)
                 else if(cc1+1==kg1.column_kg_now)
                     kg1.list_kg.erase(s);
             }
+            if(kg1.list_kg.empty())
+                break;
         }
         this->black_kg.push_back(kg1);
         }
