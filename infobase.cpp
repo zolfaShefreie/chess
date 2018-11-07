@@ -307,8 +307,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_b.removeAt(it);
         b.go_to();
         int cc,rr;
-        for(int s:b.list_b)
+        for(auto itr=b.list_b.begin();itr!=b.list_b.end();itr++)
         {
+            int s=*(itr);
            cc=s%10;
            rr=(s-cc)/10;
            index=this->find(rr,cc);
@@ -354,8 +355,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_b.removeAt(it);
         b.go_to();
         int cc,rr;
-        for(int s:b.list_b)
+        for(auto itr=b.list_b.begin();itr!=b.list_b.end();itr++)
         {
+            int s=*(itr);
            cc=s%10;
            rr=(s-cc)/10;
            index=this->find(rr,cc);
@@ -403,38 +405,46 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_p.removeAt(it);
         p.go_to();
         int cc,rr;
-      for(int s:p.list_p)
+        for(auto itr=p.list_p.begin();itr!=p.list_p.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index!=none_of_them)
             {
-                    if(rr-2==p.row_p_now)
-                        p.list_p.erase(s);
-                    else if(rr==p.row_p_now-1)
+//                    if(rr-2==p.row_p_now)
+//                        p.list_p.erase(s);
+                    if(rr==p.row_p_now-1)
                     {
                         p.list_p.erase(s);
                     }
-                        //taking the other player's pieces
 
-            }
-            index=this->find(p.row_p_now-1,p.column_p_now-1);
-            if(index!= white_king && index>6&&index!=13)
-                p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now-1)));
-            index=this->find(p.row_p_now-1,p.column_p_now+1);
-            if(index!= white_king && index>6&&index!=13)
-                p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
-            else if(index==white_king)
-            {
-                this->threat_kg_w=true;
-                p.threat_king=true;
-                for(king kin:this->white_kg)
-                    kin.edit_list(r,c);
             }
 
            if(p.list_p.empty())
                break;
+        }
+                        //taking the other player's pieces
+        index=this->find(p.row_p_now-1,p.column_p_now-1);
+        if(index!= white_king && index>6&&index!=13)
+            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now-1)));
+        else if(index==white_king)
+        {
+            this->threat_kg_w=true;
+            p.threat_king=true;
+            for(king kin:this->white_kg)
+                kin.edit_list(r,c);
+        }
+        index=this->find(p.row_p_now-1,p.column_p_now+1);
+        if(index!= white_king && index>6&&index!=13)
+            p.list_p.insert(((p.row_p_now-1)*10+(p.column_p_now+1)));
+        else if(index==white_king)
+        {
+            this->threat_kg_w=true;
+            p.threat_king=true;
+            for(king kin:this->white_kg)
+                kin.edit_list(r,c);
         }
         this->black_p.push_back(p);
         }
@@ -456,38 +466,46 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_p.removeAt(it);
         p.go_to();
         int cc,rr;
-        for(int s:p.list_p)
+        for(auto itr=p.list_p.begin();itr!=p.list_p.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index!=none_of_them)
             {
-                    if(rr+2==p.row_p_now)
-                        p.list_p.erase(s);
-                    else if(rr==p.row_p_now+1)
+//                    if(rr+2==p.row_p_now)
+//                        p.list_p.erase(s);
+                    if(rr==p.row_p_now+1)
                     {
                         p.list_p.erase(s);
                     }
-                        //taking the other player's pieces
 
             }
-            index=this->find(p.row_p_now+1,p.column_p_now+1);
-            if(index!= black_king && index<7)
-                p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now+1)));
-            index=this->find(p.row_p_now+1,p.column_p_now-1);
-            if(index!= black_king && index<7)
-                p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
-            else if(index==black_king)
-            {
-                this->threat_kg_b=true;
-                p.threat_king=true;
-                for(king kingw:this->black_kg)
-                    kingw.edit_list(r,c);
-            }
-            if(p.list_p.empty())
+            if(p.list_p.empty()||s==*(p.list_p.end()))
                 break;
 
+        }
+                        //taking the other player's pieces
+        index=this->find(p.row_p_now+1,p.column_p_now+1);
+        if(index!= black_king && index<7)
+            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now+1)));
+        else if(index==black_king)
+        {
+            this->threat_kg_b=true;
+            p.threat_king=true;
+            for(king kingw:this->black_kg)
+                kingw.edit_list(r,c);
+        }
+        index=this->find(p.row_p_now+1,p.column_p_now-1);
+        if(index!= black_king && index<7)
+            p.list_p.insert(((p.row_p_now+1)*10+(p.column_p_now-1)));
+        else if(index==black_king)
+        {
+            this->threat_kg_b=true;
+            p.threat_king=true;
+            for(king kingw:this->black_kg)
+                kingw.edit_list(r,c);
         }
         this->white_p.push_back(p);
         }
@@ -506,8 +524,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_k.removeAt(it);
         k.go_to();
         int cc,rr;
-        for(int s:k.list_k)
+        for(auto itr=k.list_k.begin();itr!=k.list_k.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -545,8 +564,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_k.removeAt(it1);
         k.go_to();
         int cc,rr;
-        for(int s:k.list_k)
+        for(auto itr=k.list_k.begin();itr!=k.list_k.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -583,8 +603,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_q.removeAt(it);
         q.go_to1();
         int cc ,rr;
-        for(int s:q.list_q)
+        for(auto itr=q.list_q.begin();itr!=q.list_q.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -625,8 +646,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_q.removeAt(it);
         q.go_to1();
         int cc,rr;
-        for(int s:q.list_q)
+        for(auto itr=q.list_q.begin();itr!=q.list_q.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -666,8 +688,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_r.removeAt(it);
         r1.go_to();
         int cc ,rr;
-        for(int s:r1.list_r)
+        for(auto itr=r1.list_r.begin();itr!=r1.list_r.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -706,8 +729,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_r.removeAt(it);
         r1.go_to();
         int cc,rr;
-        for(int s:r1.list_r)
+        for(auto itr=r1.list_r.begin();itr!=r1.list_r.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -746,8 +770,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_kg.removeAt(it);
         kg.go_to();
         int cc,rr;
-        for(int s:kg.list_kg)
+        for(auto itr=kg.list_kg.begin();itr!=kg.list_kg.end();itr++)
         {
+            int s=*(itr);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
@@ -783,8 +808,9 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_kg.removeAt(it1);
         kg1.go_to();
         int cc1,rr1;
-        for(int s:kg1.list_kg)
+        for(auto itr=kg1.list_kg.begin();itr!=kg1.list_kg.end();itr++)
         {
+            int s=*(itr);
             cc1=s%10;
             rr1=(s-cc1)/10;
             index=this->find(rr1,cc1);

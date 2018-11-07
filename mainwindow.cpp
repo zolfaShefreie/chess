@@ -615,7 +615,14 @@ void MainWindow::on_Back_clicked()
     {
         if(turn==0) turn=1;
         else if(turn==1) turn=0;
-        save s=*(db->qs.end());
+        save s;
+        s.present_position_c=db->qs.at(db->qs.count()-1).present_position_c;
+        s.present_position_r=db->qs.at(db->qs.count()-1).present_position_r;
+        s.deleted_item=db->qs.at(db->qs.count()-1).deleted_item;
+        s.deleted_item_c=db->qs.at(db->qs.count()-1).deleted_item_c;
+        s.deleted_item_r=db->qs.at(db->qs.count()-1).deleted_item_r;
+        s.prev_position_c=db->qs.at(db->qs.count()-1).prev_position_c;
+        s.prev_position_r=db->qs.at(db->qs.count()-1).prev_position_r;
         db->qs.pop_back();
         QIcon c;
         //list_of_position->at(s.*8+column)->setIcon(c);
