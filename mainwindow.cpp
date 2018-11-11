@@ -105,12 +105,12 @@ void MainWindow::EndGame(int bOrW)
     if(bOrW == 0)
     {
        QString player1 = ui->player1->text();
-         eg->setText(player1+"Winned");
+         eg->setText(player1+" Winned");
     }
     else
     {
         QString player2 = ui->player2->text();
-          eg->setText(player2+"Winned");
+          eg->setText(player2+" Winned");
     }
 
     eg->show();
@@ -123,12 +123,12 @@ void MainWindow::checkChess(int borw)
 
     if(db->threat_kg_w== true)
     {
-        check_count_w+=1;
 
         if(check_count_w == 2)
         {
             EndGame(borw);
         }
+        check_count_w+=1;
 
        QMessageBox* qm= new QMessageBox();
 
@@ -139,13 +139,13 @@ void MainWindow::checkChess(int borw)
     }
     if(db->threat_kg_b== true)
     {
-        check_count_b+=1;
 
         if(check_count_b == 2)
         {
             EndGame(borw);
         }
 
+        check_count_b+=1;
        QMessageBox* qm= new QMessageBox();
 
        qm->setText("Your King has been threated!");
@@ -158,16 +158,16 @@ void MainWindow::checkChess(int borw)
 void MainWindow::what_to_do(int r_positon, int  c_position)
 {
     change_label_color();
-    if(row!=-1&&column!=-1&&count_click==0)
-        db->edit_list_to_go(row,column);
-    if(check_count_w==1&&db->threat_kg_w)
-        checkChess(0);
-    else if(check_count_w==1&&!(db->threat_kg_w))
-        check_count_w=0;
-    if(check_count_b==1&&db->threat_kg_b)
-        checkChess(0);
-    else if(check_count_b==1&&!(db->threat_kg_b))
-        check_count_b=0;
+//    if(row!=-1&&column!=-1&&count_click==0)
+//        db->edit_list_to_go(row,column);
+//    if(check_count_w==1&&db->threat_king(0))
+//        checkChess(0);
+//    else if(check_count_w==1&&!(db->threat_king(0)))
+//        check_count_w=0;
+//    if(check_count_b==1&&db->threat_king(1))
+//        checkChess(0);
+//    else if(check_count_b==1&&!(db->threat_king(1)))
+//        check_count_b=0;
 
     infobase::nameOfItem index=db->find(r_positon,c_position);
     QMessageBox*message=new QMessageBox();
@@ -234,19 +234,24 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
 
                     if(turn==1) turn=0;
                     else if(turn==0) turn=1;
+                    change_label_color();
 
-                    if(db->win(0)==true)
-                        EndGame(0);
-                    else if(db->win(1)== true)
-                        EndGame(1);
 //                    if(db->threat_king(turn))
 //                        checkChess(turn);
                     if(db->threat_kg_w)
+                    {
                         checkChess(0);
+                        if(db->win(0)== true)
+                            EndGame(0);
+                    }
                     if(db->threat_kg_b)
+                    {
                         checkChess(1);
-                    row=r_positon;
-                    column=c_position;
+                    if(db->win(1)==true)
+                        EndGame(1);
+                    }
+//                    row=r_positon;
+//                    column=c_position;
                 }
                 else if(sil==0)
                 {

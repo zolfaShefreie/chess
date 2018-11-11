@@ -291,9 +291,85 @@ void infobase::add_a_piece(int r, int c, int which_item)
 
 void infobase::edit_list_to_go(int r, int c)
 {
-    //
     nameOfItem ind=find(r,c);
     nameOfItem index;
+    //    if(ind==white_king)
+    //{
+        this->threat_kg_b=false;
+        king kg;
+        kg.kg_checked=true;
+        kg.column_kg_now=this->white_kg.at(0).column_kg_now;
+        kg.row_kg_now=this->white_kg.at(0).row_kg_now;
+        this->white_kg.removeAt(0);
+        kg.go_to();
+        int cc,rr;
+        for(auto itr=kg.list_kg.begin();itr!=kg.list_kg.end();itr++)
+        {
+            int s=*(itr);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index>6&&index!=13)
+            {
+                if(rr-1==kg.row_kg_now)
+                    kg.list_kg.erase(s);
+                else if(rr+1==kg.row_kg_now)
+                    kg.list_kg.erase(s);
+                else if(cc-1==kg.column_kg_now)
+                    kg.list_kg.erase(s);
+                else if(cc+1==kg.column_kg_now)
+                    kg.list_kg.erase(s);
+            }
+            else if(index==2)
+                kg.list_kg.erase(s);
+            if(kg.list_kg.empty())
+                break;
+        }
+        this->white_kg.push_back(kg);
+        //}
+
+  //}
+
+   // if(ind==black_king)
+    //{
+        this->threat_kg_w=false;
+        king kg1;
+        kg1.kg_checked=false;
+        kg1.column_kg_now=this->black_kg.at(0).column_kg_now;
+        kg1.row_kg_now=this->black_kg.at(0).row_kg_now;
+//        int it1=this->black_kg.indexOf(kg1);
+//        if(it1!=-1)
+//        {
+        this->black_kg.removeAt(0);
+        kg1.go_to();
+        int cc1,rr1;
+        for(auto itr=kg1.list_kg.begin();itr!=kg1.list_kg.end();itr++)
+        {
+            int s=*(itr);
+            cc1=s%10;
+            rr1=(s-cc1)/10;
+            index=this->find(rr1,cc1);
+            if(index<7)
+            {
+                if(rr1-1==kg1.row_kg_now)
+                    kg1.list_kg.erase(s);
+                else if(rr1+1==kg1.row_kg_now)
+                    kg1.list_kg.erase(s);
+                else if(cc1-1==kg1.column_kg_now)
+                    kg1.list_kg.erase(s);
+                else if(cc1+1==kg1.column_kg_now)
+                    kg1.list_kg.erase(s);
+            }
+            else if(index==8)
+                kg1.list_kg.erase(s);
+            if(kg1.list_kg.empty())
+                break;
+        }
+        this->black_kg.push_back(kg1);
+        //}
+    //}
+
+
     if(ind==black_bishop)
     {   
         this->threat_kg_w=false;
@@ -757,80 +833,80 @@ void infobase::edit_list_to_go(int r, int c)
         }
     }
 
-    if(ind==white_king)
-    {
-        this->threat_kg_b=false;
-        king kg;
-        kg.kg_checked=true;
-        kg.column_kg_now=c;
-        kg.row_kg_now=r;
-        int it=this->white_kg.indexOf(kg);
-        if(it!=-1)
-        {
-        this->white_kg.removeAt(it);
-        kg.go_to();
-        int cc,rr;
-        for(auto itr=kg.list_kg.begin();itr!=kg.list_kg.end();itr++)
-        {
-            int s=*(itr);
-            cc=s%10;
-            rr=(s-cc)/10;
-            index=this->find(rr,cc);
-            if(index>6&&index!=13)
-            {
-                if(rr-1==kg.row_kg_now)
-                    kg.list_kg.erase(s);
-                else if(rr+1==kg.row_kg_now)
-                    kg.list_kg.erase(s);
-                else if(cc-1==kg.column_kg_now)
-                    kg.list_kg.erase(s);
-                else if(cc+1==kg.column_kg_now)
-                    kg.list_kg.erase(s);
-            }
-            if(kg.list_kg.empty())
-                break;
-        }
-        this->white_kg.push_back(kg);
-        }
+//    if(ind==white_king)
+//    {
+//        this->threat_kg_b=false;
+//        king kg;
+//        kg.kg_checked=true;
+//        kg.column_kg_now=c;
+//        kg.row_kg_now=r;
+//        int it=this->white_kg.indexOf(kg);
+//        if(it!=-1)
+//        {
+//        this->white_kg.removeAt(it);
+//        kg.go_to();
+//        int cc,rr;
+//        for(auto itr=kg.list_kg.begin();itr!=kg.list_kg.end();itr++)
+//        {
+//            int s=*(itr);
+//            cc=s%10;
+//            rr=(s-cc)/10;
+//            index=this->find(rr,cc);
+//            if(index>6&&index!=13)
+//            {
+//                if(rr-1==kg.row_kg_now)
+//                    kg.list_kg.erase(s);
+//                else if(rr+1==kg.row_kg_now)
+//                    kg.list_kg.erase(s);
+//                else if(cc-1==kg.column_kg_now)
+//                    kg.list_kg.erase(s);
+//                else if(cc+1==kg.column_kg_now)
+//                    kg.list_kg.erase(s);
+//            }
+//            if(kg.list_kg.empty())
+//                break;
+//        }
+//        this->white_kg.push_back(kg);
+//        }
 
-    }
+//    }
 
-    if(ind==black_king)
-    {
-        this->threat_kg_w=false;
-        king kg1;
-        kg1.kg_checked=false;
-        kg1.column_kg_now=c;
-        kg1.row_kg_now=r;
-        int it1=this->black_kg.indexOf(kg1);
-        if(it1!=-1)
-        {
-        this->black_kg.removeAt(it1);
-        kg1.go_to();
-        int cc1,rr1;
-        for(auto itr=kg1.list_kg.begin();itr!=kg1.list_kg.end();itr++)
-        {
-            int s=*(itr);
-            cc1=s%10;
-            rr1=(s-cc1)/10;
-            index=this->find(rr1,cc1);
-            if(index<7)
-            {
-                if(rr1-1==kg1.row_kg_now)
-                    kg1.list_kg.erase(s);
-                else if(rr1+1==kg1.row_kg_now)
-                    kg1.list_kg.erase(s);
-                else if(cc1-1==kg1.column_kg_now)
-                    kg1.list_kg.erase(s);
-                else if(cc1+1==kg1.column_kg_now)
-                    kg1.list_kg.erase(s);
-            }
-            if(kg1.list_kg.empty())
-                break;
-        }
-        this->black_kg.push_back(kg1);
-        }
-    }
+//    if(ind==black_king)
+//    {
+//        this->threat_kg_w=false;
+//        king kg1;
+//        kg1.kg_checked=false;
+//        kg1.column_kg_now=c;
+//        kg1.row_kg_now=r;
+//        int it1=this->black_kg.indexOf(kg1);
+//        if(it1!=-1)
+//        {
+//        this->black_kg.removeAt(it1);
+//        kg1.go_to();
+//        int cc1,rr1;
+//        for(auto itr=kg1.list_kg.begin();itr!=kg1.list_kg.end();itr++)
+//        {
+//            int s=*(itr);
+//            cc1=s%10;
+//            rr1=(s-cc1)/10;
+//            index=this->find(rr1,cc1);
+//            if(index<7)
+//            {
+//                if(rr1-1==kg1.row_kg_now)
+//                    kg1.list_kg.erase(s);
+//                else if(rr1+1==kg1.row_kg_now)
+//                    kg1.list_kg.erase(s);
+//                else if(cc1-1==kg1.column_kg_now)
+//                    kg1.list_kg.erase(s);
+//                else if(cc1+1==kg1.column_kg_now)
+//                    kg1.list_kg.erase(s);
+//            }
+//            if(kg1.list_kg.empty())
+//                break;
+//        }
+//        this->black_kg.push_back(kg1);
+//        }
+//    }
 
 }
 
@@ -2024,38 +2100,69 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
     if(bOrW=="b")
     {
       for(bishop b: this->white_b)
+      {
+          this->edit_list_to_go(b.row_b_now,b.column_b_now);
           if(b.list_b.find(r*10+c)!= b.list_b.end())
               return true;
+      }
       for(pawn p: this->white_p)
+      {
+          this->edit_list_to_go(p.row_p_now,p.column_p_now);
           if(p.list_p.find(r*10+c)!= p.list_p.end())
               return true;
+      }
       for(knight k:this->white_k)
+      {
+          this->edit_list_to_go(k.row_k_now,k.column_k_now);
           if(k.list_k.find(r*10+c)!=k.list_k.end())
               return true;
+      }
       for(queen q :this->white_q)
+      {
+          this->edit_list_to_go(q.row_q_now,q.column_q_now);
           if(q.list_q.find(r*10+c)!=q.list_q.end())
               return true;
+      }
       for(rook ro:this->white_r)
+      {
+          this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
           if(ro.list_r.find(r*10+c)!=ro.list_r.end())
               return true;
+      }
     }
     else if(bOrW=="w")
     {
         for(bishop b: this->black_b)
+        {
+            this->edit_list_to_go(b.row_b_now,b.column_b_now);
             if(b.list_b.find(r*10+c)!= b.list_b.end())
                 return true;
+        }
         for(pawn p: this->black_p)
+        {
+            this->edit_list_to_go(p.row_p_now,p.column_p_now);
             if(p.list_p.find(r*10+c)!= p.list_p.end())
                 return true;
+        }
         for(knight k:this->black_k)
+        {
+            edit_list_to_go(k.row_k_now,k.column_k_now);
             if(k.list_k.find(r*10+c)!=k.list_k.end())
                 return true;
+        }
         for(queen q :this->black_q)
+        {
+            this->edit_list_to_go(q.row_q_now,q.column_q_now);
             if(q.list_q.find(r*10+c)!=q.list_q.end())
                 return true;
+        }
         for(rook ro:this->black_r)
+        {
+
+            this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
             if(ro.list_r.find(r*10+c)!=ro.list_r.end())
                 return true;
+        }
     }
     return false;
 }
@@ -2067,13 +2174,13 @@ bool infobase::win(int bOrW)
 
     //black pieces &  threat white king
     if(bOrW==0)
-    {
+   {
+
     for(pawn p: this->black_p)
     {
         if(p.threat_king==true)
         {
-            for(king kg:this->white_kg)
-                if(kg.list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"b")) && !(this->vindicative(0, p.row_p_now, p.column_p_now)))
+                if(this->white_kg.at(0).list_kg.empty()&& !(this->delete_threat_king(p.row_p_now,p.column_p_now,"b")) && !(this->vindicative(0, p.row_p_now, p.column_p_now)))
                     return true;
         }
     }
@@ -2135,6 +2242,7 @@ bool infobase::win(int bOrW)
     {
     for(pawn p: this->white_p)
     {
+        //this->edit_list_to_go(p.row_p_now,p.column_p_now);
         if(p.threat_king==true)
         {
             for(king kg:this->black_kg)
