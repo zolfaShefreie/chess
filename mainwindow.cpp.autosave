@@ -206,9 +206,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
             else if(count_click==1)
             {
                 int sil=db->search_in_list(row,column,r_positon,c_position);
-                QMessageBox*message=new QMessageBox();
-                message->setText(QString::number(sil));
-                message->show();
                 if(sil==1)
                 {
                     save s;
@@ -265,13 +262,13 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                 else if(sil==0)
                 {
                     QMessageBox*message=new QMessageBox();
-                    message->setText("invalid button");
+                    message->setText("invalid move");
                     message->show();
                 }
                 else if(sil==-1)
                 {
                     QMessageBox*message=new QMessageBox();
-                    message->setText(" mohreh  nemituneh harikat koneh mohre ye digiee ro entekhab konid ");
+                    message->setText(" the piece cant move please choose another piece  ");
                     message->show();
                     count_click=0;
                 }

@@ -321,7 +321,11 @@ void infobase::edit_list_to_go(int r, int c)
                     kg.list_kg.erase(s);
             }
             else if(index==2)
+            {
+                this->threat_kg_b=true;
+                this->threat_kg_w=true;
                 kg.list_kg.erase(s);
+            }
             if(kg.list_kg.empty())
                 break;
         }
@@ -361,7 +365,11 @@ void infobase::edit_list_to_go(int r, int c)
                     kg1.list_kg.erase(s);
             }
             else if(index==8)
+            {
+                this->threat_kg_b=true;
+                this->threat_kg_w=true;
                 kg1.list_kg.erase(s);
+            }
             if(kg1.list_kg.empty())
                 break;
         }
