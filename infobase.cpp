@@ -454,7 +454,7 @@ void infobase::edit_list_to_go(int r, int c)
                b.list_b.removeAt(i);
            }
         }
-        this->black_b.push_back(b);
+        this->black_b.insert(it,b);
     }
     }
 
@@ -514,7 +514,7 @@ void infobase::edit_list_to_go(int r, int c)
                b.list_b.removeAt(i);
            }
         }
-        this->white_b.push_back(b);
+        this->white_b.insert(it,b);
     }
     }
 
@@ -574,7 +574,7 @@ void infobase::edit_list_to_go(int r, int c)
             for(king kin:this->white_kg)
                 kin.edit_list(r,c);
         }
-        this->black_p.push_back(p);
+        this->black_p.insert(it,p);
         }
 
     }
@@ -635,7 +635,7 @@ void infobase::edit_list_to_go(int r, int c)
             for(king kingw:this->black_kg)
                 kingw.edit_list(r,c);
         }
-        this->white_p.push_back(p);
+        this->white_p.insert(it,p);
         }
     }
 
@@ -652,15 +652,18 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_k.removeAt(it);
         k.go_to();
         int cc,rr;
-        for(auto itr=k.list_k.begin();itr!=k.list_k.end();itr++)
+        for(int i=0;i<k.list_k.count();i++)
         {
-            int s=*(itr);
+            int s=k.list_k.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
+            {
                 //not to take pieces with the same color
-                k.list_k.erase(s);
+                k.list_k.removeAt(i);
+                i-=1;
+            }
             else if(index==8)
             {
                 //not to take the other player's king
@@ -668,12 +671,13 @@ void infobase::edit_list_to_go(int r, int c)
                 k.threat_king=true;
                 for(king ki:this->white_kg)
                     ki.edit_list(r,c);
-                k.list_k.erase(s);
+                k.list_k.removeAt(i);
+                i-=1;
             }
             if(k.list_k.empty())
                 break;
         }
-        this->black_k.push_back(k);
+        this->black_k.insert(it,k);
 
         }
 
@@ -692,15 +696,18 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_k.removeAt(it1);
         k.go_to();
         int cc,rr;
-        for(auto itr=k.list_k.begin();itr!=k.list_k.end();itr++)
+        for(int i=0;i<k.list_k.count();i++)
         {
-            int s=*(itr);
+            int s=k.list_k.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6&&index!=13)
+            {
                 //ham rang ro natuneh bezaneh
-                k.list_k.erase(s);
+                k.list_k.removeAt(i);
+                i-=1;
+            }
             else if(index==2)
             {
                 //shah harif ro natuneh bezaneh
@@ -708,12 +715,13 @@ void infobase::edit_list_to_go(int r, int c)
                 k.threat_king=true;
                 for(king ki:this->black_kg)
                     ki.edit_list(r,c);
-                k.list_k.erase(s);
+                k.list_k.removeAt(i);
+                i-=1;
             }
             if(k.list_k.empty())
                 break;
         }
-        this->white_k.push_back(k);
+        this->white_k.insert(it1,k);
 
     }
     }
@@ -915,7 +923,7 @@ void infobase::edit_list_to_go(int r, int c)
             }
         }
 
-        this->black_r.push_back(r1);
+        this->black_r.insert(it,r1);
         }
     }
 
@@ -971,7 +979,7 @@ void infobase::edit_list_to_go(int r, int c)
                 r1.list_r.removeAt(i);
             }
         }
-        this->white_r.push_back(r1);
+        this->white_r.insert(it,r1);
         }
     }
 
@@ -1491,7 +1499,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->black_k.at(i).list_k.empty()) return -1;
-        if(this->black_k.at(i).list_k.find(r1*10+c1)==this->black_k.at(i).list_k.end())
+        if(this->black_k.at(i).list_k.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1506,7 +1514,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->white_k.at(i).list_k.empty())return -1;
-        if(this->white_k.at(i).list_k.find(r1*10+c1)==this->white_k.at(i).list_k.end())
+        if(this->white_k.at(i).list_k.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -2254,7 +2262,7 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
       for(knight k:this->white_k)
       {
           this->edit_list_to_go(k.row_k_now,k.column_k_now);
-          if(k.list_k.find(r*10+c)!=k.list_k.end())
+          if(k.list_k.indexOf(r*10+c)!=-1)
               return true;
       }
       for(queen q :this->white_q)
@@ -2287,7 +2295,7 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
         for(knight k:this->black_k)
         {
             edit_list_to_go(k.row_k_now,k.column_k_now);
-            if(k.list_k.find(r*10+c)!=k.list_k.end())
+            if(k.list_k.indexOf(r*10+c)!=-1)
                 return true;
         }
         for(queen q :this->black_q)

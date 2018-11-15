@@ -127,7 +127,7 @@ void MainWindow::checkChess(int borw)
         check_count_w+=1;
         if(check_count_w == 2)
         {
-            EndGame(borw);
+            EndGame(1);
         }
         else
         {
@@ -144,7 +144,7 @@ void MainWindow::checkChess(int borw)
         check_count_b+=1;
         if(check_count_b == 2)
         {
-            EndGame(borw);
+            EndGame(0);
         }
         else
         {
@@ -235,24 +235,19 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     else if(turn==0) turn=1;
                     change_label_color();
                     if(check_count_w==1&&db->threat_king(0)&&turn==1)
-                    {   /* QMessageBox*message=new QMessageBox();
-                        message->setText(QString::number(check_count_w));
-                        message->show();
-                        checkChess(0);*/
+                    {
+                        checkChess(0);
                     }
                     else if(check_count_w==1&&!(db->threat_king(0)))
                         check_count_w=0;
                     if(check_count_b==1&&db->threat_king(1)&&turn==0)
-                        checkChess(0);
+                        checkChess(1);
                     else if(check_count_b==1&&!(db->threat_king(1)))
                         check_count_b=0;
 //                    if(db->threat_king(turn))
 //                        checkChess(turn);
                     if(db->threat_kg_w)
                     {
-                          QMessageBox*message=new QMessageBox();
-                            message->setText(QString::number(db->threat_kg_w));
-                            message->show();
                         checkChess(0);
                         if(db->win(0)== true)
                             EndGame(0);
