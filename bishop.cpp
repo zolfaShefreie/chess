@@ -22,22 +22,22 @@ void bishop::go_to()
         if(this->column_b_now+i<=7&& this->row_b_now+i<=7)
         {
             store=(this->row_b_now+i)*10+(this->column_b_now+i);
-            this->list_b.insert(store);
+            this->list_b.push_back(store);
         }
         if(this->column_b_now+i<=7&& (this->row_b_now-i)>=0)
         {
             store=(this->row_b_now-i)*10+(this->column_b_now+i);
-            this->list_b.insert(store);
+            this->list_b.push_back(store);
         }
         if((this->column_b_now-i)>=0&& (this->row_b_now+i)<=7)
         {
             store=(this->row_b_now+i)*10+(this->column_b_now-i);
-            this->list_b.insert(store);
+            this->list_b.push_back(store);
         }
         if((this->column_b_now-i)>=0&& this->row_b_now-i>=0)
         {
             store=(this->row_b_now-i)*10+(this->column_b_now-i);
-            this->list_b.insert(store);
+            this->list_b.push_back(store);
         }
     }
 
@@ -48,40 +48,36 @@ void bishop::remove_some_mem(int j, int i)
 {
     //hazf kardan makanha ye ezafi bar asas bagheye mohreha
     if(i<this->row_b_now && j<this->column_b_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i-k-1>=0&&j-k-1>=0;k++)
         {
             int b;
             b=((i-k-1)*10)+(j-k-1);
-            if(this->list_b.find(b)!=this->list_b.end())
-               this->list_b.erase(this->list_b.find(b));
-            else break;
+            if(this->list_b.indexOf(b)!=-1)
+               this->list_b.removeAt(this->list_b.indexOf(b));
         }
     else if(i>this->row_b_now && j>this->column_b_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i+k+1<8&&j+k+1<8;k++)
         {
             int b;
             b=((i+k+1)*10)+(j+k+1);
-            if(this->list_b.find(b)!=this->list_b.end())
-               this->list_b.erase(this->list_b.find(b));
-            else break;
+            if(this->list_b.indexOf(b)!=-1)
+               this->list_b.removeAt(this->list_b.indexOf(b));
         }
     else if(i>this->row_b_now && j<this->column_b_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i+k+1<8&&j-k-1>=0;k++)
         {
             int b;
             b=((i+k+1)*10)+(j-k-1);
-            if(this->list_b.find(b)!=this->list_b.end())
-               this->list_b.erase(this->list_b.find(b));
-            else break;
+            if(this->list_b.indexOf(b)!=-1)
+               this->list_b.removeAt(this->list_b.indexOf(b));
         }
     else if(i<this->row_b_now && j>this->column_b_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i-k-1>=0&&j+k+1>=0;k++)
         {
             int b;
             b=((i-k-1)*10)+(j+k+1);
-            if(this->list_b.find(b)!=this->list_b.end())
-               this->list_b.erase(this->list_b.find(b));
-            else break;
+            if(this->list_b.indexOf(b)!=-1)
+               this->list_b.removeAt(this->list_b.indexOf(b));
         }
 
 }

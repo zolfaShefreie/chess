@@ -1,7 +1,7 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 
-#include <set>
+#include <QList>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ public:
     queen(int rq, int cq);
     int row_q_now; //current
     int column_q_now;
-    set<int> list_q; //this set consists of possible positions that it can move to(without considering the presence of other pieces)
+    QList<int> list_q; //this set consists of possible positions that it can move to(without considering the presence of other pieces)
     bool q_checked= true; //true:white & false:black
     static const bool is_queen = true;
     void go_to1();  //this method finds possible positions and adds them to list_q

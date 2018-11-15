@@ -1,7 +1,6 @@
 #ifndef ROOK_H
 #define ROOK_H
-#include<set>
-using namespace std;
+#include<QList>
 
 class rook
 {
@@ -10,7 +9,7 @@ public:
     rook(int r,int c);
     int row_r_now;
     int column_r_now;
-    set<int> list_r;  //this set consists of possible positions that it can move to(without considering the presence of other pieces)
+    QList<int> list_r;  //this set consists of possible positions that it can move to(without considering the presence of other pieces)
     void go_to();    //this method finds possible positions and adds them to list_r
 
     bool r_checked=true; //true:white and false:black

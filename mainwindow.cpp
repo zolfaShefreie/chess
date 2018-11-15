@@ -206,9 +206,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
             else if(count_click==1)
             {
                 int sil=db->search_in_list(row,column,r_positon,c_position);
-                QMessageBox*message=new QMessageBox();
-                message->setText(QString::number(sil));
-                message->show();
                 if(sil==1)
                 {
                     save s;
@@ -238,7 +235,11 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     else if(turn==0) turn=1;
                     change_label_color();
                     if(check_count_w==1&&db->threat_king(0)&&turn==1)
-                        checkChess(0);
+                    {   /* QMessageBox*message=new QMessageBox();
+                        message->setText(QString::number(check_count_w));
+                        message->show();
+                        checkChess(0);*/
+                    }
                     else if(check_count_w==1&&!(db->threat_king(0)))
                         check_count_w=0;
                     if(check_count_b==1&&db->threat_king(1)&&turn==0)
@@ -249,6 +250,9 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
 //                        checkChess(turn);
                     if(db->threat_kg_w)
                     {
+                          QMessageBox*message=new QMessageBox();
+                            message->setText(QString::number(db->threat_kg_w));
+                            message->show();
                         checkChess(0);
                         if(db->win(0)== true)
                             EndGame(0);
@@ -265,13 +269,13 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                 else if(sil==0)
                 {
                     QMessageBox*message=new QMessageBox();
-                    message->setText("invalid button");
+                    message->setText("invalid move");
                     message->show();
                 }
                 else if(sil==-1)
                 {
                     QMessageBox*message=new QMessageBox();
-                    message->setText(" mohreh  nemituneh harikat koneh mohre ye digiee ro entekhab konid ");
+                    message->setText(" the piece cant move please choose another piece  ");
                     message->show();
                     count_click=0;
                 }

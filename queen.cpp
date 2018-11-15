@@ -19,32 +19,32 @@ void queen::go_to1()
     int store; //the address of possible positions: row*10+column
 
 
-    for(int i=0; i<8; i++)
+    for(int i=1; i<8; i++)
     {
             //move in rows and columns
 
             if(this->column_q_now+i<=7 )
             {
                 store=(this->row_q_now)*10+(this->column_q_now+i);
-                this->list_q.insert(store);
+                this->list_q.push_back(store);
             }
 
             if(this->column_q_now-i>=0 )
             {
                 store=(this->row_q_now)*10+(this->column_q_now-i);
-                this->list_q.insert(store);
+                this->list_q.push_back(store);
             }
 
             if( this->row_q_now+i<=7)
             {
                 store=(this->row_q_now+i)*10+(this->column_q_now);
-                this->list_q.insert(store);
+                this->list_q.push_back(store);
             }
 
             if( this->row_q_now-i>=0 )
             {
                 store=(this->row_q_now-i)*10+(this->column_q_now);
-                this->list_q.insert(store);
+                this->list_q.push_back(store);
             }
 
     }
@@ -56,22 +56,22 @@ void queen::go_to1()
         if(this->column_q_now+i<=7&& this->row_q_now+i<=7)
         {
             store=(this->row_q_now+i)*10+(this->column_q_now+i);
-            this->list_q.insert(store);
+            this->list_q.push_back(store);
         }
         if(this->column_q_now+i<=7&& this->row_q_now-i>=0)
         {
             store=(this->row_q_now-i)*10+(this->column_q_now+i);
-            this->list_q.insert(store);
+            this->list_q.push_back(store);
         }
         if(this->column_q_now-i>=0&& this->row_q_now+i<=7)
         {
             store=(this->row_q_now+i)*10+(this->column_q_now-i);
-            this->list_q.insert(store);
+            this->list_q.push_back(store);
         }
         if(this->column_q_now-i>=0&& this->row_q_now-i>=0)
         {
             store=(this->row_q_now-i)*10+(this->column_q_now-i);
-            this->list_q.insert(store);
+            this->list_q.push_back(store);
         }
 
 
@@ -96,68 +96,61 @@ void queen::remove_some_mem(int j, int i)
 {
     // removing forbidden positions in a row
     if(i==this->row_q_now && j<this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;j-1-k>=0;k++)
         {
             int b=i*10+(j-1-k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     if(i==this->row_q_now && j>this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;j+1+k<8;k++)
         {
             int b=i*10+(j+1+k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     //removing forbidden positions in a column
     if(j==this->column_q_now && i<this->row_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i-1-k>=0;k++)
         {
             int b=(i-1-k)*10+j;
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     if(j==this->column_q_now && i>this->row_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i+1+k<8;k++)
         {
             int b=(i+1+k)*10+j;
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     //removing forbidden dioagonal positions
     if(i<this->row_q_now && j<this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i-1-k>=0&&j-1-k>=0;k++)
         {
             int b=(i-1-k)*10+(j-1-k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     if(i<this->row_q_now && j>this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i-1-k>=0&&j+1+k<8;k++)
         {
             int b=(i-1-k)*10+(j+1+k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     if(i>this->row_q_now && j<this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i+1+k<8&&j-1-k>=0;k++)
         {
             int b=(i+1+k)*10+(j-1-k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
-            else break;
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
     if(i>this->row_q_now && j>this->column_q_now)
-        for(int k=0;k<8;k++)
+        for(int k=0;i+1+k<8&&j+1+k<8;k++)
         {
             int b=(i+1+k)*10+(j+1+k);
-            if(this->list_q.find(b)!=this->list_q.end())
-                this->list_q.erase(this->list_q.find(b));
+            if(this->list_q.indexOf(b)!=-1)
+                this->list_q.removeAt(this->list_q.indexOf(b));
         }
 }

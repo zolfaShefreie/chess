@@ -303,34 +303,41 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_kg.removeAt(0);
         kg.go_to();
         int cc,rr;
-        for(auto itr=kg.list_kg.begin();itr!=kg.list_kg.end();itr++)
+        for(int i=0;i<kg.list_kg.count();i++)
         {
-            int s=*(itr);
+            int s=kg.list_kg.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6&&index!=13)
             {
                 if(rr-1==kg.row_kg_now)
-                    kg.list_kg.erase(s);
+                    kg.list_kg.removeAt(i);
                 else if(rr+1==kg.row_kg_now)
-                    kg.list_kg.erase(s);
+                   kg.list_kg.removeAt(i);
                 else if(cc-1==kg.column_kg_now)
-                    kg.list_kg.erase(s);
+                    kg.list_kg.removeAt(i);
                 else if(cc+1==kg.column_kg_now)
-                    kg.list_kg.erase(s);
-            }
-            else if(index==2)
-            {
-                this->threat_kg_b=true;
-                this->threat_kg_w=true;
-                kg.list_kg.erase(s);
+                    kg.list_kg.removeAt(i);
             }
             if(kg.list_kg.empty())
                 break;
         }
+        for(int i=0;i<kg.list_kg.count();i++)
+        {
+            int s=kg.list_kg.at(i);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index==2)
+            {
+                this->threat_kg_b=true;
+                this->threat_kg_w=true;
+                kg.list_kg.removeAt(i);
+            }
+        }
         this->white_kg.push_back(kg);
-        //}
+
 
   //}
 
@@ -341,40 +348,53 @@ void infobase::edit_list_to_go(int r, int c)
         kg1.kg_checked=false;
         kg1.column_kg_now=this->black_kg.at(0).column_kg_now;
         kg1.row_kg_now=this->black_kg.at(0).row_kg_now;
-//        int it1=this->black_kg.indexOf(kg1);
-//        if(it1!=-1)
-//        {
+        int it1=this->black_kg.indexOf(kg1);
+        if(it1!=-1)
+        {
         this->black_kg.removeAt(0);
         kg1.go_to();
         int cc1,rr1;
-        for(auto itr=kg1.list_kg.begin();itr!=kg1.list_kg.end();itr++)
+        for(int i=0;i<kg1.list_kg.count();i++)
         {
-            int s=*(itr);
+            int s=kg1.list_kg.at(i);
             cc1=s%10;
             rr1=(s-cc1)/10;
             index=this->find(rr1,cc1);
             if(index<7)
             {
                 if(rr1-1==kg1.row_kg_now)
-                    kg1.list_kg.erase(s);
+                    kg1.list_kg.removeAt(i);
                 else if(rr1+1==kg1.row_kg_now)
-                    kg1.list_kg.erase(s);
+                    kg1.list_kg.removeAt(i);
                 else if(cc1-1==kg1.column_kg_now)
-                    kg1.list_kg.erase(s);
+                    kg1.list_kg.removeAt(i);
                 else if(cc1+1==kg1.column_kg_now)
-                    kg1.list_kg.erase(s);
+                    kg1.list_kg.removeAt(i);
             }
-            else if(index==8)
-            {
-                this->threat_kg_b=true;
-                this->threat_kg_w=true;
-                kg1.list_kg.erase(s);
-            }
+//            else if(index==8)
+//            {
+//                this->threat_kg_b=true;
+//                this->threat_kg_w=true;
+//                kg1.list_kg.erase(s);
+//            }
             if(kg1.list_kg.empty())
                 break;
         }
+        for(int i=0;i<kg1.list_kg.count();i++)
+        {
+            int s=kg1.list_kg.at(i);
+            cc1=s%10;
+            rr1=(s-cc1)/10;
+            index=this->find(rr1,cc1);
+            if(index==8)
+            {
+                this->threat_kg_b=true;
+                this->threat_kg_w=true;
+                kg1.list_kg.removeAt(i);
+            }
+        }
         this->black_kg.push_back(kg1);
-        //}
+        }
     //}
 
 
@@ -391,35 +411,48 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_b.removeAt(it);
         b.go_to();
         int cc,rr;
-        for(auto itr=b.list_b.begin();itr!=b.list_b.end();itr++)
+        for(int i=0;i<b.list_b.count();i++)
         {
-            int s=*(itr);
+            int s=b.list_b.at(i);
            cc=s%10;
            rr=(s-cc)/10;
            index=this->find(rr,cc);
            if(index<7)
            {
                //remove position of pieces with the same color from possible positions
-               b.list_b.erase(s);
+               b.list_b.removeAt(i);
                //not to jump over pieces with the same color
+               int f=b.list_b.count();
                b.remove_some_mem(cc,rr);
+               if(i!=b.list_b.count()-1&&f!=b.list_b.count())
+                   i-=1;
            }
-           else if(index==8)
+           else if(index!=none_of_them)
+           {
+               //not to jump over pieces with different color
+               int f=b.list_b.count();
+               b.remove_some_mem(cc,rr);
+               if(i!=b.list_b.count()-1&&f!=b.list_b.count())
+                   i-=1;
+           }
+           if(b.list_b.empty())
+               break;
+        }
+        for(int i=0;i<b.list_b.count();i++)
+        {
+            int s=b.list_b.at(i);
+           cc=s%10;
+           rr=(s-cc)/10;
+           index=this->find(rr,cc);
+           if(index==8)
            {
                //remove the position of the other player's king from possible positions
                b.threat_king=true;
                this->threat_kg_w=true;
                for(king kingw:this->white_kg)
                    kingw.edit_list(r,c);
-               b.list_b.erase(s);
+               b.list_b.removeAt(i);
            }
-           else if(index!=none_of_them)
-           {
-               //not to jump over pieces with different color
-               b.remove_some_mem(cc,rr);
-           }
-           if(b.list_b.empty())
-               break;
         }
         this->black_b.push_back(b);
     }
@@ -433,45 +466,56 @@ void infobase::edit_list_to_go(int r, int c)
         b.column_b_now=c;
         b.row_b_now=r;
         int it=this->white_b.indexOf(b);
-        if(it!=-1)
+        if (it!= -1)
         {
-
         this->white_b.removeAt(it);
         b.go_to();
         int cc,rr;
-        for(auto itr=b.list_b.begin();itr!=b.list_b.end();itr++)
+        for(int i=0;i<b.list_b.count();i++)
         {
-            int s=*(itr);
+            int s=b.list_b.at(i);
            cc=s%10;
            rr=(s-cc)/10;
            index=this->find(rr,cc);
            if(index>6&&index!=13)
            {
-               //same color:
-               b.list_b.erase(s);
+               //remove position of pieces with the same color from possible positions
+               b.list_b.removeAt(i);
+               //not to jump over pieces with the same color
+               int f=b.list_b.count();
                b.remove_some_mem(cc,rr);
+               if(i!=b.list_b.count()-1&&f!=b.list_b.count())
+                   i-=1;
            }
-           else if(index==2)
+           else if(index!=none_of_them)
            {
-               //not to take the other player's king
-               b.threat_king=true;
-               this->threat_kg_b=true;
-               for(king king:this->black_kg)
-                   king.edit_list(r,c);
-               b.list_b.erase(s);
-           }
-           else if(index!=13)
-           {
-               //different color
+               //not to jump over pieces with different color
+               int f=b.list_b.count();
                b.remove_some_mem(cc,rr);
+               if(i!=b.list_b.count()-1&&f!=b.list_b.count())
+                   i-=1;
            }
            if(b.list_b.empty())
                break;
         }
-        this->white_b.push_back(b);
-
+        for(int i=0;i<b.list_b.count();i++)
+        {
+            int s=b.list_b.at(i);
+           cc=s%10;
+           rr=(s-cc)/10;
+           index=this->find(rr,cc);
+           if(index==2)
+           {
+               //remove the position of the other player's king from possible positions
+               b.threat_king=true;
+               this->threat_kg_b=true;
+               for(king kingw:this->black_kg)
+                   kingw.edit_list(r,c);
+               b.list_b.removeAt(i);
+           }
         }
-
+        this->white_b.push_back(b);
+    }
     }
 
     if(ind==black_pawn)
@@ -622,8 +666,8 @@ void infobase::edit_list_to_go(int r, int c)
                 //not to take the other player's king
                 this->threat_kg_w=true;
                 k.threat_king=true;
-                for(king king:this->white_kg)
-                    king.edit_list(r,c);
+                for(king ki:this->white_kg)
+                    ki.edit_list(r,c);
                 k.list_k.erase(s);
             }
             if(k.list_k.empty())
@@ -662,8 +706,8 @@ void infobase::edit_list_to_go(int r, int c)
                 //shah harif ro natuneh bezaneh
                 this->threat_kg_b=true;
                 k.threat_king=true;
-                for(king king:this->black_kg)
-                    king.edit_list(r,c);
+                for(king ki:this->black_kg)
+                    ki.edit_list(r,c);
                 k.list_k.erase(s);
             }
             if(k.list_k.empty())
@@ -686,35 +730,60 @@ void infobase::edit_list_to_go(int r, int c)
         {
         this->black_q.removeAt(it);
         q.go_to1();
-        int cc ,rr;
-        for(auto itr=q.list_q.begin();itr!=q.list_q.end();itr++)
+        int cc,rr;
+        for(int i=0;i<q.list_q.count();i++)
         {
-            int s=*(itr);
+            int s=q.list_q.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
             {
-                // same color:
-                q.list_q.erase(s);
+                q.list_q.removeAt(i);
+                int f=q.list_q.count();
                 q.remove_some_mem(cc,rr);
+                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+                    i-=1;
             }
-            else if(index==8)
-            {
-                //not to take the other player's king
-                this->threat_kg_w=true;
-                q.threat_king=true;
-                for(king king:this->white_kg)
-                    king.edit_list(r,c);
-                q.list_q.erase(s);
-            }
+//            else if(index==8)
+//            {
+//                this->threat_kg_w=true;
+//                q.threat_king=true;
+//                for(king k:this->white_kg)
+//                    k.edit_list(r,c);
+//                int f=q.list_q.count();
+//                q.list_q.removeAt(i);
+//                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+//                    i-=1;
+//            }
             else if(index!=13)
+            {
+                int f=q.list_q.count();
                 q.remove_some_mem(cc,rr);
+                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+                    i-=1;
+            }
             if(q.list_q.empty())
                 break;
         }
+        for(int i=0;i<q.list_q.count();i++)
+        {
+            int s=q.list_q.at(i);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index==8)
+            {
+                this->threat_kg_w=true;
+                q.threat_king=true;
+                for(king k:this->white_kg)
+                    k.edit_list(r,c);
+                q.list_q.removeAt(i);
+            }
+        }
+
         this->black_q.push_back(q);
-    }
+        }
     }
 
     if(ind==white_queen)
@@ -730,29 +799,55 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_q.removeAt(it);
         q.go_to1();
         int cc,rr;
-        for(auto itr=q.list_q.begin();itr!=q.list_q.end();itr++)
+        for(int i=0;i<q.list_q.count();i++)
         {
-            int s=*(itr);
+            int s=q.list_q.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6&&index!=13)
             {
-                q.list_q.erase(s);
+                q.list_q.removeAt(i);
+                int f=q.list_q.count();
                 q.remove_some_mem(cc,rr);
+                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+                    i-=1;
             }
-            else if(index==2)
+//            else if(index==2)
+//            {
+//                this->threat_kg_b=true;
+//                q.threat_king=true;
+//                for(king k:this->black_kg)
+//                    k.edit_list(r,c);
+//                int f=q.list_q.count();
+//                q.list_q.removeAt(i);
+//                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+//                    i-=1;
+//            }
+            else if(index!=13)
+            {
+                int f=q.list_q.count();
+                q.remove_some_mem(cc,rr);
+                if(i!=q.list_q.count()-1&&f!=q.list_q.count())
+                    i-=1;
+            }
+            if(q.list_q.empty())
+                break;
+        }
+        for(int i=0;i<q.list_q.count();i++)
+        {
+            int s=q.list_q.at(i);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index==2)
             {
                 this->threat_kg_b=true;
                 q.threat_king=true;
-                for(king king:this->black_kg)
-                    king.edit_list(r,c);
-                q.list_q.erase(s);
+                for(king k:this->black_kg)
+                    k.edit_list(r,c);
+                q.list_q.removeAt(i);
             }
-            else if(index!=13)
-                q.remove_some_mem(cc,rr);
-            if(q.list_q.empty())
-                break;
         }
         this->white_q.push_back(q);
         }
@@ -772,30 +867,54 @@ void infobase::edit_list_to_go(int r, int c)
         this->black_r.removeAt(it);
         r1.go_to();
         int cc ,rr;
-        for(auto itr=r1.list_r.begin();itr!=r1.list_r.end();itr++)
+        for(int i=0;i<r1.list_r.count();i++)
         {
-            int s=*(itr);
+            int s=r1.list_r.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index<7)
             {
-                r1.list_r.erase(s);
+                r1.list_r.removeAt(i);
+                int f= r1.list_r.count();
                 r1.remove_some_mem(cc,rr);
+                if(i!=r1.list_r.count()-1&&f!=r1.list_r.count())
+                    i-=1;
             }
-            else if(index==8)
-            {
-                this->threat_kg_w=true;
-                r1.threat_king=true;
-                for(king king:this->white_kg)
-                    king.edit_list(r,c);
-                r1.list_r.erase(s);
-            }
+//            else if(index==8)
+//            {
+//                this->threat_kg_w=true;
+//                r1.threat_king=true;
+//                for(king k:this->white_kg)
+//                    k.edit_list(r,c);
+//                r1.list_r.erase(s);
+//            }
             else if(index!=13)
+            {
+                int f=r1.list_r.count();
                 r1.remove_some_mem(cc,rr);
+                if(i!=r1.list_r.count()-1&&f!=r1.list_r.count())
+                    i-=1;
+            }
             if(r1.list_r.empty())
                 break;
         }
+        for(int i=0;i<r1.list_r.count();i++)
+        {
+            int s=r1.list_r.at(i);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index==8)
+            {
+                this->threat_kg_w=true;
+                r1.threat_king=true;
+                for(king k:this->white_kg)
+                    k.edit_list(r,c);
+                r1.list_r.removeAt(i);
+            }
+        }
+
         this->black_r.push_back(r1);
         }
     }
@@ -813,29 +932,44 @@ void infobase::edit_list_to_go(int r, int c)
         this->white_r.removeAt(it);
         r1.go_to();
         int cc,rr;
-        for(auto itr=r1.list_r.begin();itr!=r1.list_r.end();itr++)
+        for(int i=0;i<r1.list_r.count();i++)
         {
-            int s=*(itr);
+            int s=r1.list_r.at(i);
             cc=s%10;
             rr=(s-cc)/10;
             index=this->find(rr,cc);
             if(index>6&&index!=13)
             {
-                r1.list_r.erase(s);
+                r1.list_r.removeAt(i);
+                int f= r1.list_r.count();
                 r1.remove_some_mem(cc,rr);
+                if(i!=r1.list_r.count()-1&&f!=r1.list_r.count())
+                    i-=1;
             }
-            else if(index==2)
+            else if(index!=13)
+            {
+                int f= r1.list_r.count();
+                r1.remove_some_mem(cc,rr);
+                if(i!=r1.list_r.count()-1&&f!=r1.list_r.count())
+                    i-=1;
+            }
+            if(r1.list_r.empty())
+                break;
+        }
+        for(int i=0;i<r1.list_r.count();i++)
+        {
+            int s=r1.list_r.at(i);
+            cc=s%10;
+            rr=(s-cc)/10;
+            index=this->find(rr,cc);
+            if(index==2)
             {
                 this->threat_kg_b=true;
                 r1.threat_king=true;
-                for(king king:this->black_kg)
-                    king.edit_list(r,c);
-                r1.list_r.erase(s);
+                for(king k:this->black_kg)
+                    k.edit_list(r,c);
+                r1.list_r.removeAt(i);
             }
-            else if(index!=13)
-                r1.remove_some_mem(cc,rr);
-            if(r1.list_r.empty())
-                break;
         }
         this->white_r.push_back(r1);
         }
@@ -917,6 +1051,7 @@ void infobase::edit_list_to_go(int r, int c)
 //    }
 
 }
+
 
 void infobase::change_position(int r, int c,int r1,int c1)
 {
@@ -1292,7 +1427,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
             if(this->black_b.at(i).list_b.empty()) return -1;
-            if(this->black_b.at(i).list_b.find(r1*10+c1)==this->black_b.at(i).list_b.end())
+            if(this->black_b.at(i).list_b.indexOf(r1*10+c1)==-1)
                 return 0;
         else return 1;
         }
@@ -1309,7 +1444,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         {
 
         if(this->white_b.at(i).list_b.empty()) return -1;
-        if(this->white_b.at(i).list_b.find(r1*10+c1)==this->white_b.at(i).list_b.end())
+        if(this->white_b.at(i).list_b.indexOf(r1*10+c1)==-1)
             return 0;
         else return 1;
         }
@@ -1386,7 +1521,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->black_q.at(i).list_q.empty())return -1;
-        if(this->black_q.at(i).list_q.find(r1*10+c1)==this->black_q.at(i).list_q.end())
+        if(this->black_q.at(i).list_q.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1402,7 +1537,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         {
 
         if(this->white_q.at(i).list_q.empty())return -1;
-        if(this->white_q.at(i).list_q.find(r1*10+c1)==this->white_q.at(i).list_q.end())
+        if(this->white_q.at(i).list_q.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1417,7 +1552,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->black_r.at(i).list_r.empty())return -1;
-        if(this->black_r.at(i).list_r.find(r1*10+c1)==this->black_r.at(i).list_r.end())
+        if(this->black_r.at(i).list_r.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1432,7 +1567,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->white_r.at(i).list_r.empty())return -1;
-        if(this->white_r.at(i).list_r.find(r1*10+c1)==this->white_r.at(i).list_r.end())
+        if(this->white_r.at(i).list_r.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1447,7 +1582,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->white_kg.at(i).list_kg.empty())return -1;
-        if(this->white_kg.at(i).list_kg.find(r1*10+c1)==this->white_kg.at(i).list_kg.end())
+        if(this->white_kg.at(i).list_kg.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1462,7 +1597,7 @@ int infobase::search_in_list(int r, int c, int r1, int c1)
         if(i!=-1)
         {
         if(this->black_kg.at(i).list_kg.empty())return -1;
-        if(this->black_kg.at(i).list_kg.find(r1*10+c1)==this->black_kg.at(i).list_kg.end())
+        if(this->black_kg.at(i).list_kg.indexOf(r1*10+c1)==-1)
             return 0;
         return 1;
         }
@@ -1508,95 +1643,92 @@ bool infobase::threat_king(int bOrW)
     //black pieces &  threat white king
     if(bOrW==0)
     {
-    for(pawn p: this->black_p)
+    for(int i=0;i<this->black_p.count();i++)
     {
-        this->edit_list_to_go(p.row_p_now,p.column_p_now);
-        if(p.threat_king==true)
+        this->edit_list_to_go(this->black_p.at(i).row_p_now,this->black_p.at(i).column_p_now);
+        if(this->black_p.at(i).threat_king==true)
             return true;
     }
 
-    for(bishop b: this->black_b)
+    for(int i=0;i<this->black_b.count();i++)
     {
-        this->edit_list_to_go(b.row_b_now,b.column_b_now);
-        if(b.threat_king==true)
+        this->edit_list_to_go(this->black_b.at(i).row_b_now,this->black_b.at(i).column_b_now);
+        if(this->black_b.at(i).threat_king==true)
             return true;
 
     }
 
-    for(king kg: this->black_kg)
+    for(int i=0;i<this->black_kg.count();i++)
     {
-        this->edit_list_to_go(kg.row_kg_now,kg.column_kg_now);
-        if(kg.threat_king==true)
+        this->edit_list_to_go(this->black_kg.at(i).row_kg_now,this->black_kg.at(i).column_kg_now);
+        if(this->black_kg.at(i).threat_king==true)
             return true;
     }
 
-    for(knight k: this->black_k)
+    for(int i=0;i<this->black_k.count();i++)
     {
-        this->edit_list_to_go(k.row_k_now,k.column_k_now);
-        if(k.threat_king==true)
+        this->edit_list_to_go(this->black_k.at(i).row_k_now,this->black_k.at(i).column_k_now);
+        if(this->black_k.at(i).threat_king==true)
             return true;
     }
 
-    for(queen q: this->black_q)
+    for(int i=0;i<this->black_q.count();i++)
     {
-        this->edit_list_to_go(q.row_q_now,q.column_q_now);
-        if(q.threat_king==true)
+        this->edit_list_to_go(this->white_q.at(i).row_q_now,this->white_q.at(i).column_q_now);
+        if(this->white_q.at(i).threat_king==true)
             return true;
     }
 
-    for(rook r: this->black_r)
+    for(int i=0;i<this->black_r.count();i++)
     {
-        this->edit_list_to_go(r.row_r_now,r.column_r_now);
-        if(r.threat_king==true)
+        this->edit_list_to_go(this->black_r.at(i).row_r_now,this->black_r.at(i).column_r_now);
+        if(this->black_r.at(i).threat_king==true)
             return true;
     }
     }
     else if(bOrW==1)
     {
         //white pieces &  threat black king
-    for(pawn p: this->white_p)
+    for(int i=0;i<this->white_p.count();i++)
     {
-        this->edit_list_to_go(p.row_p_now,p.column_p_now);
-        if(p.threat_king==true)
+        this->edit_list_to_go(this->white_p.at(i).row_p_now,this->white_p.at(i).column_p_now);
+        if(this->white_p.at(i).threat_king==true)
             return true;
     }
 
-    for(bishop b: this->white_b)
+    for(int i=0;i<this->white_b.count();i++)
     {
-        this->edit_list_to_go(b.row_b_now,b.column_b_now);
-        if(b.threat_king==true)
+        this->edit_list_to_go(this->white_b.at(i).row_b_now,this->white_b.at(i).column_b_now);
+        if(this->white_b.at(i).threat_king==true)
             return true;
     }
 
-    for(king kg: this->white_kg)
+    for(int i=0;i<this->white_kg.count();i++)
     {
-        this->edit_list_to_go(kg.row_kg_now,kg.column_kg_now);
-        if(kg.threat_king==true)
+        this->edit_list_to_go(this->white_kg.at(i).row_kg_now,this->white_kg.at(i).column_kg_now);
+        if(this->white_kg.at(i).threat_king==true)
             return true;
     }
 
-    for(knight k: this->white_k)
+    for(int i=0;i<this->white_k.count();i++)
     {
-        this->edit_list_to_go(k.row_k_now,k.column_k_now);
-        if(k.threat_king==true)
+        this->edit_list_to_go(this->white_k.at(i).row_k_now,this->white_k.at(i).column_k_now);
+        if(this->white_k.at(i).threat_king==true)
             return true;
     }
 
-    for(queen q: this->white_q)
+    for(int i=0;i<this->white_q.count();i++)
     {
-        this->edit_list_to_go(q.row_q_now,q.column_q_now);
-        if(q.threat_king==true)
+        this->edit_list_to_go(this->white_q.at(i).row_q_now,this->white_q.at(i).column_q_now);
+        if(this->white_q.at(i).threat_king==true)
             return true;
     }
 
-    for(rook r: this->white_r)
+    for(int i=0;i<this->white_r.count();i++)
     {
-        if(r.threat_king==true)
-        {
-            this->edit_list_to_go(r.row_r_now,r.column_r_now);
-            if(r.threat_king==true)
+            this->edit_list_to_go(this->white_r.at(i).row_r_now,this->white_r.at(i).column_r_now);
+            if(this->white_r.at(i).threat_king==true)
                 return true;
-        }
    }
     }
     return false;
@@ -2110,7 +2242,7 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
       for(bishop b: this->white_b)
       {
           this->edit_list_to_go(b.row_b_now,b.column_b_now);
-          if(b.list_b.find(r*10+c)!= b.list_b.end())
+          if(b.list_b.indexOf(r*10+c)!= -1)
               return true;
       }
       for(pawn p: this->white_p)
@@ -2128,13 +2260,13 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
       for(queen q :this->white_q)
       {
           this->edit_list_to_go(q.row_q_now,q.column_q_now);
-          if(q.list_q.find(r*10+c)!=q.list_q.end())
+          if(q.list_q.indexOf(r*10+c)!=-1)
               return true;
       }
       for(rook ro:this->white_r)
       {
           this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
-          if(ro.list_r.find(r*10+c)!=ro.list_r.end())
+          if(ro.list_r.indexOf(r*10+c)!=-1)
               return true;
       }
     }
@@ -2143,7 +2275,7 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
         for(bishop b: this->black_b)
         {
             this->edit_list_to_go(b.row_b_now,b.column_b_now);
-            if(b.list_b.find(r*10+c)!= b.list_b.end())
+            if(b.list_b.indexOf(r*10+c)!= -1)
                 return true;
         }
         for(pawn p: this->black_p)
@@ -2161,14 +2293,14 @@ bool infobase::delete_threat_king(int r, int c, string bOrW)
         for(queen q :this->black_q)
         {
             this->edit_list_to_go(q.row_q_now,q.column_q_now);
-            if(q.list_q.find(r*10+c)!=q.list_q.end())
+            if(q.list_q.indexOf(r*10+c)!=-1)
                 return true;
         }
         for(rook ro:this->black_r)
         {
 
             this->edit_list_to_go(ro.row_r_now,ro.column_r_now);
-            if(ro.list_r.find(r*10+c)!=ro.list_r.end())
+            if(ro.list_r.indexOf(r*10+c)!=-1)
                 return true;
         }
     }
