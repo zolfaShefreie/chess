@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     db=new infobase();
 
     list_of_position=new QList<QToolButton*>;
-    //braye enkeh dasresi hengameh bazgasht be aghab dashteh bashim
+    //for having access when we are moving backward
     list_of_position->push_back(ui->a1_black);
     list_of_position->push_back(ui->b1_white);
     list_of_position->push_back(ui->c1_black);
@@ -119,7 +119,8 @@ void MainWindow::EndGame(int bOrW)
 
 void MainWindow::checkChess(int borw)
 {
-    //agar shah kish shod rang kaneh shah taghir konad va agar user tavajohi be kish shodan shah nakonad payan bazi e'lam shavad
+    //if the king is checked then change the color of king's position and if the user didn't pay attention to the checked king,_
+    //declare the end of the game
 
     if(db->threat_kg_w== true)
     {
