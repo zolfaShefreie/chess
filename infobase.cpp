@@ -1745,7 +1745,7 @@ bool infobase::threat_king(int bOrW)
 
 bool infobase::vindicative(int bOrW, int i, int j)
 {
-    // mohreie peyda mishe ke rah tahdid konandeh ro sad koneh?
+    //is there a piece that blocks the way of threatening piece?
     if(bOrW==0)//white king
     {
         king kg= *(this->white_kg.begin());
@@ -2243,8 +2243,8 @@ bool infobase::vindicative(int bOrW, int i, int j)
 }
 bool infobase::delete_threat_king(int r, int c, string bOrW)
 {
-    //mohreh e mituneh tahdid konandeh ro bezaneh?
-    //bOrW: rang tahdid konandeh
+    //is there a piece that can take the threatening piece?
+    //bOrW: the color of threatening
     if(bOrW=="b")
     {
       for(bishop b: this->white_b)
