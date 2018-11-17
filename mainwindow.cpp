@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
     list_of_position->push_back(ui->h8_black);
 //
 
-
+    change_label_color();
 
 }
 
@@ -172,9 +172,7 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
 //        check_count_b=0;
 
     infobase::nameOfItem index=db->find(r_positon,c_position);
-    QMessageBox*message=new QMessageBox();
-    message->setText(QString::number(index));
-    message->show();
+
     if(count_click==1||index!=infobase::none_of_them)
     {
 
@@ -192,9 +190,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
 
                 if(db->find(r_positon,c_position)!=infobase::none_of_them)
                 {
-                    QMessageBox*message=new QMessageBox();
-                    message->setText("miyD1");
-                    message->show();
                     //list_of_position->append(ui->a1_black);
                     db->edit_list_to_go(r_positon,c_position);
                     count_click=1;
@@ -221,9 +216,6 @@ void MainWindow::what_to_do(int r_positon, int  c_position)
                     }
                     db->change_position(row,column,r_positon,c_position);
                     db->edit_list_to_go(r_positon,c_position);
-                    QMessageBox*message=new QMessageBox();
-                    message->setText(QString::number(db->find(row,column)));
-                    message->show();
                     QIcon c;
                     list_of_position->at(row*8+column)->setIcon(c);
                     list_of_position->at(r_positon*8+c_position)->setIcon(db->get_icon(r_positon,c_position));
